@@ -7,12 +7,14 @@ import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
+    <div>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <title>Hollang</title>
       </Head>
-      <Component {...pageProps} />
-    </RecoilRoot>
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
+    </div>
   );
 }
