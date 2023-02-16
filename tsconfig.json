@@ -22,7 +22,9 @@
       "@features/*": ["./features/*"],
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
+      "@assets/*": ["./assets/*"],
       "@public/*": ["../public/*"]
+
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
