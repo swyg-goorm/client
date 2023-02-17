@@ -8,8 +8,8 @@ export default function ProgressBar({ order }: ProgressBarProps) {
   return (
     <div className="h-[11px] w-[432px] rounded-[20px] bg-[#d9d9d9]">
       <div
-        className={`h-[11px] w-[calc(36px*${order})] absolute rounded-[20px] bg-cyan-900`}
-      />
+        className={`absolute h-[11px] w-[calc(36px*${order})] rounded-[20px] bg-cyan-900`}
+      ></div>
     </div>
   );
 }
