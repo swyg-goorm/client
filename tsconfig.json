@@ -22,7 +22,6 @@
       "@features/*": ["./features/*"],
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
-      "@assets/*": ["./assets/*"],
       "@public/*": ["../public/*"]
 
     }
