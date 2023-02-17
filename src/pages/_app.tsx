@@ -6,7 +6,7 @@ import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="mx-auto flex h-5 w-full max-w-[375px] ">
+    <div>
       <RecoilRoot>
         <Component {...pageProps} />
       </RecoilRoot>
