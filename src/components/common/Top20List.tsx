@@ -4,7 +4,6 @@ interface Top20ListProps {
   ranking: number;
   title: string;
   count: number;
-  [key: string]: any;
 }
 
 export default function Top20List({ ranking, title, count }: Top20ListProps) {
