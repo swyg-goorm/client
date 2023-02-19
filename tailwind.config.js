@@ -30,6 +30,7 @@ module.exports = {
         'gray-5': '#858899',
         'gray-6': '#525463',
         'gray-7': '#3E404C',
+        'gray-8': '#d9d9d9',
 
         'cyan-900': '#23707B',
         'cyan-600': '#1FA8BD',
@@ -37,8 +38,9 @@ module.exports = {
 
         sub: '#DCEAFE',
         warning: '#F84A4A',
+        black1: '#545454',
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar-hide')],
 };
