@@ -6,9 +6,9 @@ interface ProgressBarProps {
 }
 export default function ProgressBar({ order }: ProgressBarProps) {
   return (
-    <div className="h-[11px] w-full rounded-[20px] bg-[#d9d9d9]">
+    <div className="bg-gray-8 h-[11px] w-full rounded-[20px]">
       <div
-        className={`absolute h-[11px] w-[calc(36px*${order})] rounded-[20px] bg-cyan-900`}
+        className={`h-[11px]  w-${order}/12 rounded-[20px] bg-cyan-900`}
       ></div>
     </div>
   );
