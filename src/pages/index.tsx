@@ -1,5 +1,10 @@
 import Layout from '@components/common/layout';
+import Top20List from '@components/common/Top20List';
 
 export default function Home() {
-  return <Layout>Hello</Layout>;
+  return (
+    <Layout>
+      <Top20List />
+    </Layout>
+  );
 }
