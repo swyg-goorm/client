@@ -37,6 +37,7 @@ module.exports = {
 
         sub: '#DCEAFE',
         warning: '#F84A4A',
+        black1: '#545454',
       },
     },
   },

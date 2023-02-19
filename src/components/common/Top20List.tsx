@@ -8,7 +8,7 @@ interface Top20ListProps {
 
 export default function Top20List({ ranking, title, count }: Top20ListProps) {
   return (
-    <div className="flex h-[70px] w-[410px] items-center justify-between rounded-[30px] bg-sub px-[40px] text-title3 text-[#545454]">
+    <div className="text-black1 flex h-[70px] w-full items-center justify-between rounded-[30px] bg-sub px-[40px] text-title3">
       <span>{ranking}위</span>
       <span>{title}</span>
       <span>{count}명</span>
