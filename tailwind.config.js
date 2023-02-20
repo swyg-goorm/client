@@ -23,6 +23,7 @@ module.exports = {
         caption3: '10px',
       },
       colors: {
+        'gray-0': '#FFFFFF',
         'gray-1': '#FAFAFD',
         'gray-2': '#F0F0F5',
         'gray-3': '#E8E8EE',
