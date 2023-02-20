@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface InputProps {
   placeholder: string;
@@ -10,6 +10,13 @@ export default function Input({
   nickname,
   setNickname,
 }: InputProps) {
+  const nicknameRef: React.MutableRefObject<null> = useRef<null>(null);
+  useEffect(() => {
+    if (nicknameRef.current) {
+      // 할당한 DOM 요소가 불러지면 (마운트 되면)
+      nicknameRef.current.focus(); // focus 할당!
+    }
+  }, []);
   const handleNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value);
   };
@@ -17,10 +24,11 @@ export default function Input({
     <input
       type="text"
       placeholder={placeholder}
-      className="h-[71px] w-full rounded-[20px] border-none bg-sub pl-[16px] text-[16px] placeholder:text-gray-6"
+      className="h-[70px] w-full rounded-[30px] border-none bg-sub px-[16px] pl-[16px] text-[16px] placeholder:text-gray-6"
       onChange={handleNickname}
       value={nickname}
       autoFocus
+      ref={nicknameRef}
     />
   );
 }
