@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@components/common/layout';
 import Input from '@components/common/Input';
@@ -9,12 +9,11 @@ export default function Begin() {
   const router = useRouter();
   const [nickname, setNickname] = useState<string>('');
   const [nicknameError, setNicknameError] = useState<string>('');
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     // API 전송
     console.log(nickname);
   };
-  console.log(reg.test(nickname));
 
   return (
     <Layout>
@@ -31,8 +30,10 @@ export default function Begin() {
             placeholder="닉네임을 세글자 이내로 입력해주세요"
             setNickname={setNickname}
           />
-          {!reg.test(nickname) && (
-            <span className='text-warning block mt-[7px] ml-[20px]'>한글로 세글자 이내까지 입력가능해요</span>
+          {!reg.test(nickname) && nickname.length > 0 && (
+            <span className="mt-[7px] ml-[20px] block text-warning">
+              한글로 세글자 이내까지 입력가능해요
+            </span>
           )}
         </div>
         <button

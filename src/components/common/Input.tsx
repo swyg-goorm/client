@@ -5,12 +5,14 @@ interface InputProps {
   nickname: string;
   setNickname: (nickname: string) => void;
 }
+
 export default function Input({
   placeholder,
   nickname,
   setNickname,
 }: InputProps) {
-  const nicknameRef: React.MutableRefObject<null> = useRef<null>(null);
+  const nicknameRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     if (nicknameRef.current) {
       // 할당한 DOM 요소가 불러지면 (마운트 되면)
