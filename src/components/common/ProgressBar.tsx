@@ -2,7 +2,6 @@ import React from 'react';
 
 interface ProgressBarProps {
   order: number;
-  [key: string]: any;
 }
 export default function ProgressBar({ order }: ProgressBarProps) {
   return (
