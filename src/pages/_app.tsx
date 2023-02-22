@@ -8,7 +8,7 @@ import Head from 'next/head';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
-      <Head>
+      <Head> 
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <title>Hollang</title>
       </Head>
