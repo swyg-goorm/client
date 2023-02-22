@@ -29,7 +29,6 @@ export default function Input({
       className="h-[70px] w-full rounded-[30px] border-none bg-sub-1 px-[16px] pl-[16px] text-[16px] placeholder:text-gray-6"
       onChange={handleNickname}
       value={nickname}
-      autoFocus
       ref={nicknameRef}
     />
   );

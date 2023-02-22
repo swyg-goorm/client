@@ -4,20 +4,34 @@ import Layout from '@components/common/layout';
 import Input from '@components/common/Input';
 import Button from '@components/common/Button';
 import TopBar from '@components/common/TopBar';
+import Modal from '@components/common/Modal';
 
 const reg = /[가-힣]{1,3}$/;
 
 export default function Begin() {
   const router = useRouter();
   const [nickname, setNickname] = useState<string>('');
+  const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     // API 전송
+    if (nickname === '') {
+      setModal(true);
+    }
+
     console.log(nickname);
   };
 
   return (
     <Layout>
+      {modal && (
+        <Modal
+          message="닉네임을 입력해주세요"
+          onCloseModal={() => {
+            setModal(false);
+          }}
+        />
+      )}
       <TopBar isBackButton />
       <div className="mt-[108px]">
         <p className="text-[30px] font-[400]">홀랑에 빠질 준비 되셨나요?</p>
