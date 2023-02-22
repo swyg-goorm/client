@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <Layout>
       <TopBar></TopBar>
+      <div>하이</div>
     </Layout>
   );
 }
