@@ -15,8 +15,7 @@ export default function Input({
 
   useEffect(() => {
     if (nicknameRef.current) {
-      // 할당한 DOM 요소가 불러지면 (마운트 되면)
-      nicknameRef.current.focus(); // focus 할당!
+      nicknameRef.current.focus();
     }
   }, []);
   const handleNickname = (e: React.ChangeEvent<HTMLInputElement>) => {

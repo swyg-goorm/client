@@ -24,15 +24,10 @@ export default function Begin() {
 
   useEffect(() => {
     setInnerWidth(window.innerWidth);
-    function handleResize() {
-      setInnerWidth(window.innerWidth);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const setClassNameByWidth = (width: number) => {
-    return innerWidth > 450 ? 'w-[410px]' : `w-[calc(${width}px-40px)]`;
+  const setClassNameByWidth = () => {
+    return innerWidth > 450 ? 'w-[410px]' : `w-[calc(${innerWidth}px-40px)]`;
   };
 
   return (
@@ -65,9 +60,7 @@ export default function Begin() {
           )}
         </div>
         <div
-          className={`fixed inset-x-0 bottom-[10px]  m-auto ${setClassNameByWidth(
-            innerWidth,
-          )}`}
+          className={`fixed inset-x-0 bottom-[10px]  m-auto ${setClassNameByWidth()}`}
         >
           <Button>홀랑 테스트 하러 가기</Button>
         </div>
