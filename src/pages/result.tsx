@@ -3,10 +3,13 @@ import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
 import ExampleType from '@public/static/example_hollang_type.svg';
 import Card from '@components/common/result/Card';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper';
 
-interface ResultProps {
-  [key: string]: any;
-}
+// import './styles.css';
+
 export default function Result() {
   const router = useRouter();
   return (
@@ -30,7 +33,9 @@ export default function Result() {
         <p className="mt-[16px] text-[18px] text-gray-7">
           버튼을 눌러 자세히 둘러봐요!
         </p>
-        <Card />
+        <article className="mt-[24px]">
+          <Card />
+        </article>
         <p className="mt-[32px]">스와이퍼</p>
       </section>
       <section className="mt-[48px] w-full">
@@ -39,10 +44,23 @@ export default function Result() {
         <p className="mt-[20px]">이미지</p>
         <div className="mt-[24px]">
           <div>
-            <Button>공유하기</Button>
+            <Button
+              onClick={() => {
+                router.push('/share');
+              }}
+            >
+              공유하기
+            </Button>
           </div>
           <div className="mt-[16px]">
-            <Button property="secondary">다시하기</Button>
+            <Button
+              property="secondary"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              다시하기
+            </Button>
           </div>
         </div>
       </section>
