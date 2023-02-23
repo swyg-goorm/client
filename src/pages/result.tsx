@@ -8,8 +8,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
 
-// import './styles.css';
-
 export default function Result() {
   const router = useRouter();
   return (
@@ -22,7 +20,7 @@ export default function Result() {
         <p className="mt-[16px] text-[24px] text-gray-7">
           상상을 현실로 행동형
         </p>
-        <p className="mt-[32px] w-[275px] text-[18px] text-gray-8">
+        <p className="mt-[32px] w-[275px] text-[18px] leading-[30px] text-gray-8">
           감정이 풍부하고 배려심이 많은 사막에서 물을 파는 발굴형은 혼자서도 즐
         </p>
       </section>
@@ -36,9 +34,20 @@ export default function Result() {
         <article className="mt-[24px]">
           <Card />
         </article>
+        <Swiper className="mySwiper" observer={true} observeParents={true}>
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>Slide 5</SwiperSlide>
+          <SwiperSlide>Slide 6</SwiperSlide>
+          <SwiperSlide>Slide 7</SwiperSlide>
+          <SwiperSlide>Slide 8</SwiperSlide>
+          <SwiperSlide>Slide 9</SwiperSlide>
+        </Swiper>
         <p className="mt-[32px]">스와이퍼</p>
       </section>
-      <section className="mt-[48px] w-full">
+      <section className="mt-[48px] w-full ">
         <p className="text-[24px] text-main-4">나와 찰떡인 홀랑 유형</p>
         <p className="mt-[20px]">아래 버튼을 눌러 알아봐요!</p>
         <p className="mt-[20px]">이미지</p>
