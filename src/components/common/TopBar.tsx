@@ -14,7 +14,7 @@ export default function TopBar({ isBackButton }: ITopBar) {
           <Back />
         </button>
       ) : (
-        <div></div>
+        <div> </div>
       )}
       <MainLogo></MainLogo>
       <div></div>
