@@ -1,9 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '@components/common/layout';
 import Input from '@components/common/Input';
 import Button from '@components/common/Button';
-import TopBar from '@components/common/TopBar';
 import Modal from '@components/common/Modal';
 
 const reg = /[가-힣]{1,3}$/;
@@ -19,17 +17,14 @@ export default function Begin() {
     if (nickname === '') {
       setModal(true);
     }
-    console.log(nickname);
   };
 
   useEffect(() => {
     setInnerWidth(window.innerWidth);
   }, []);
 
-  const setClassNameByWidth = () => {
-    return innerWidth > 450 ? 'w-[410px]' : `w-[calc(${innerWidth}px-40px)]`;
-  };
-
+  const setClassNameByWidth = () =>
+    innerWidth > 450 ? 'w-[410px]' : `w-[calc(${innerWidth}px-40px)]`;
   return (
     <div>
       {modal && (
