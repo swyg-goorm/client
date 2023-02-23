@@ -6,13 +6,8 @@ import { getUserCount } from './api/getUserCount';
 export default function Home() {
   const TAPBAR_HEIGHT = 84;
   const sliderRef = useRef<HTMLDivElement>(null);
-  const { data, isSuccess } = useQuery(['getUserCount'], getUserCount, {
-    retry: false,
-  });
+  const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
   useEffect(() => {
-    if (isSuccess) {
-      console.log(data);
-    }
     setTimeout(() => {
       sliderRef.current?.scrollIntoView({
         block: 'end',
@@ -27,7 +22,7 @@ export default function Home() {
         style={{ height: `calc(100% - ${TAPBAR_HEIGHT * 2}px)` }}
         className={`flex flex-col items-center justify-center`}
       >
-        <MainCharacter></MainCharacter>
+        <MainCharacter />
         <p>당신은 1,324번쨰 홀랑과 함꼐해요</p>
       </div>
       <div
