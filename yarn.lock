@@ -4477,8 +4477,6 @@ __metadata:
     react-three-fiber: ^6.0.13
     recoil: ^0.7.6
     redux-persist: ^6.0.0
-    swiper: ^9.0.5
-    tailwind-scrollbar-hide: ^1.1.7
     tailwindcss: ^3.2.1
     three: ^0.150.0
     three-orbitcontrols: ^2.110.3
@@ -6256,15 +6254,6 @@ __metadata:
   bin:
     svgo: bin/svgo
   checksum: b92f71a8541468ffd0b81b8cdb36b1e242eea320bf3c1a9b2c8809945853e9d8c80c19744267eb91cabf06ae9d5fff3592d677df85a31be4ed59ff78534fa420
-  languageName: node
-  linkType: hard
-
-"swiper@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "swiper@npm:9.0.5"
-  dependencies:
-    ssr-window: ^4.0.2
-  checksum: 33c45c0d9ebce4c99737b7aac110ca461fa99cfc84e9d45443550c24ec246ebba6e709a2edac0437180fd141a2e9092816d8932494be25509a8a4d6d0c8ba5b6
   languageName: node
   linkType: hard
 
