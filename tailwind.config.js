@@ -9,19 +9,7 @@ module.exports = {
       fontFamily: {
         Gmarket: ['GmarketSans', 'sans-serif'],
       },
-      fontSize: {
-        hugeTitle: '60px',
-        largeTitle: '34px',
-        title1: '28px',
-        title2: '22px',
-        title3: '20px',
-        headline: '17px',
-        subHeadline: '15px',
-        footNote: '13px',
-        caption1: '12px',
-        caption2: '11px',
-        caption3: '10px',
-      },
+      fontSize: {},
       colors: {
         'gray-0': '#FFFFFF',
         'gray-1': '#FAFAFD',
