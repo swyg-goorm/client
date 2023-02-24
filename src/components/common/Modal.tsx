@@ -13,9 +13,9 @@ export default function Modal({ message, onCloseModal }: ModalProps) {
         className="absolute inset-0 z-20 bg-gray-8/[.64] opacity-80 "
         onClick={onCloseModal}
       />
-      <div className="absolute inset-0 z-20 m-auto flex h-[170px] max-w-[410px]  flex-col items-center justify-evenly rounded-[30px] bg-white text-[18px] font-[400] text-gray-7">
-        <p className="mt-[15px]">{message}</p>
-        <div className="mt-[16px] w-[232px]">
+      <div className="absolute inset-0 z-20 m-auto flex h-[10.625rem] max-w-[25.625rem]  flex-col items-center justify-evenly rounded-[30px] bg-white text-xl font-normal text-gray-7">
+        <p className="mt-[0.9375rem]">{message}</p>
+        <div className="mt-4 w-[14.5rem]">
           <Button onClick={onCloseModal} property="detail">
             확인
           </Button>
