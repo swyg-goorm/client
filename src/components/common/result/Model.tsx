@@ -41,7 +41,7 @@ export default function Model({ uri }: ModalProps) {
   return (
     <Canvas colorManagement camera={{ position: [0, 0, 2] }}>
       <Lights />
-      <OrbitControls autoRotate={true} ref={controlsRef} />
+      <OrbitControls ref={controlsRef} />
       <directionalLight position={[-1, 0, 1]} intensity={0.5} />
       <meshStandardMaterial attach="material" color={0xa3b18a} />
       {model ? (
