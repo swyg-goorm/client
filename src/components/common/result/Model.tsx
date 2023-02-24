@@ -18,12 +18,12 @@ interface ModalProps {
 }
 
 export default function Model({ uri }: ModalProps) {
-  const controlsRef = useRef<HTMLDivElement>(null);
+  const controlsRef = useRef<any>(null);
   const groupRef = useRef<GroupRef>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load(uri, async (gltf) => {
+    loader.load(uri, async (gltf: any) => {
       setModel(gltf.scene);
     });
   }, []);
@@ -39,7 +39,7 @@ export default function Model({ uri }: ModalProps) {
   }, [controlsRef, groupRef]);
 
   return (
-    <Canvas colorManagement camera={{ position: [0, 0, 2] }}>
+    <Canvas camera={{ position: [0, 0, 2] }}>
       <Lights />
       <OrbitControls ref={controlsRef} />
       <directionalLight position={[-1, 0, 1]} intensity={0.5} />
