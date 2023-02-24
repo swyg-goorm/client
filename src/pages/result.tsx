@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
-import ExampleType from '@public/static/example_hollang_type.svg';
 import Question from '@public/static/question.svg';
 import Card from '@components/common/result/Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
