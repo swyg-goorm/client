@@ -3,20 +3,21 @@ import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
 import ExampleType from '@public/static/example_hollang_type.svg';
 import Card from '@components/common/result/Card';
+
+// import Model from '@components/common/result/Model';
+// import { Canvas } from 'react-three-fiber';
+// import { OrbitControls } from 'drei';
+// import Lights from '@components/common/result/Lights';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import Model from '@components/common/result/Model';
-import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from 'drei';
-import Lights from '@components/common/result/Lights';
 
 export default function Result() {
   const router = useRouter();
-  const controlsRef = useRef();
+
   return (
-    <div className="flex flex-col items-center text-center">
-      <section className="mt-[1.5rem]">
+    <div className=" text-center">
+      <section className="mt-[1.5rem] flex flex-col items-center">
         <p className="text-[1.5rem] text-main-4">
           <span className="text-main-3">꼬꼬꼬</span>님의 홀랑 유형
         </p>
@@ -35,26 +36,22 @@ export default function Result() {
         <p className="mt-[1rem] text-[18px] text-gray-7">
           버튼을 눌러 자세히 둘러봐요!
         </p>
-        <article className="mt-[1.5rem]">
-          <Card />
-        </article>
-        {/* <Swiper className="mySwiper" observer={true} observeParents={true}>
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
-        </Swiper> */}
+        <Swiper className="mySwiper mt-[1.5rem]" slidesPerView={1.5}>
+          <SwiperSlide>
+            <Card />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Card />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Card />
+          </SwiperSlide>
+        </Swiper>
         {/* <Canvas colorManagement camera={{ position: [0, 0, 2] }}> */}
         {/* <Lights /> */}
         {/* <Model /> */}
         {/* <OrbitControls ref={controlsRef} /> */}
         {/* </Canvas> */}
-        <p className="mt-[2rem]">스와이퍼</p>
       </section>
       <section className="mt-[48px] w-full ">
         <p className="text-[1.5rem] text-main-4">나와 찰떡인 홀랑 유형</p>
