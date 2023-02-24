@@ -9,13 +9,13 @@ interface CardProps {
 export default function Card() {
   const router = useRouter();
   return (
-    <div className="relative flex h-[328px] w-[265px]  justify-center rounded-[30px] border border-main-3 bg-main-1 ">
-      <div className="flex h-[250px] flex-col justify-center gap-[20px]">
+    <div className="relative flex h-[20.5rem] w-[calc(100%-1rem)]  justify-center rounded-[1.875rem] border border-main-3 bg-main-1 ">
+      <div className="flex h-[15.625rem] flex-col justify-center gap-5">
         <ExampleHobby />
-        <p className="text-[24px] text-gray-6">서핑</p>
+        <p className="text-2xl text-gray-6">서핑</p>
       </div>
 
-      <div className="absolute bottom-[24px] w-full px-[16px]">
+      <div className="absolute bottom-6 w-full px-4">
         <Button>더 알아보기</Button>
       </div>
     </div>

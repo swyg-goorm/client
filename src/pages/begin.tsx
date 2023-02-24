@@ -55,7 +55,7 @@ export default function Begin() {
           )}
         </div>
         <div
-          className={`fixed inset-x-0 bottom-[10px]  m-auto ${setClassNameByWidth()}`}
+          className={`fixed inset-x-0 bottom-[2.8125rem]  m-auto ${setClassNameByWidth()}`}
         >
           <Button>홀랑 테스트 하러 가기</Button>
         </div>
