@@ -25,7 +25,6 @@
     "recoil": "^0.7.6",
     "redux-persist": "^6.0.0",
     "swiper": "^9.0.5",
-    "tailwind-scrollbar-hide": "^1.1.7",
     "three": "^0.150.0",
     "three-orbitcontrols": "^2.110.3"
   },
