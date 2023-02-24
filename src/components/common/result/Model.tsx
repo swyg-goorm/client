@@ -1,7 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Html } from 'drei';
+import React, { useEffect, useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Object3D } from 'three';
+import { Html } from '@react-three/drei';
+import Lights from './Lights';
 
 interface GroupRef {
   rotation: {
@@ -10,41 +13,37 @@ interface GroupRef {
     z: number;
   };
 }
+interface ModalProps {
+  uri: string;
+}
 
-const Model = () => {
-  /* Refs */
-  const groupRef = useRef<GroupRef>({ rotation: { x: 0, y: 0, z: 0 } });
+export default function Model({ uri }: ModalProps) {
   const controlsRef = useRef<HTMLDivElement>(null);
-
-  /* State */
+  const groupRef = useRef<GroupRef>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);
-
-  /* Load model */
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load('gltf(size up).gltf', async (gltf) => {
+    loader.load(uri, async (gltf) => {
       setModel(gltf.scene);
     });
   }, []);
 
-  /* Rotate model with mouse event */
   useEffect(() => {
     if (!controlsRef.current || !groupRef.current) return;
-
     controlsRef.current.addEventListener('change', () => {
-      groupRef.current.rotation.y += 0.01; // rotate 0.01 radian on Y-axis
+      groupRef.current.rotation.y += 0.01;
     });
-
     return () => {
       controlsRef.current.removeEventListener('change', () => {});
     };
   }, [controlsRef, groupRef]);
 
   return (
-    <>
-      <Html>
-        <div ref={controlsRef} />
-      </Html>
+    <Canvas colorManagement camera={{ position: [0, 0, 2] }}>
+      <Lights />
+      <OrbitControls autoRotate={true} ref={controlsRef} />
+      <directionalLight position={[-1, 0, 1]} intensity={0.5} />
+      <meshStandardMaterial attach="material" color={0xa3b18a} />
       {model ? (
         <>
           <group ref={groupRef} position={[24.5, -6.75, -8.25]} dispose={null}>
@@ -54,8 +53,6 @@ const Model = () => {
       ) : (
         <Html>Loading...</Html>
       )}
-    </>
+    </Canvas>
   );
-};
-
-export default Model;
+}
