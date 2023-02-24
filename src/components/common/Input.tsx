@@ -25,7 +25,7 @@ export default function Input({
     <input
       type="text"
       placeholder={placeholder}
-      className="h-[70px] w-full rounded-[30px] border-none bg-sub-1 px-[16px] pl-[16px] text-[16px] placeholder:text-gray-6"
+      className=" h-[4.375rem] w-full rounded-[1.875rem] border-none bg-sub-1 px-4 pl-4 placeholder:text-gray-6"
       onChange={handleNickname}
       value={nickname}
       ref={nicknameRef}
