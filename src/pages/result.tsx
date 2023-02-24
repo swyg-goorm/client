@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
 import ExampleType from '@public/static/example_hollang_type.svg';
@@ -6,9 +6,14 @@ import Card from '@components/common/result/Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Model from '@components/common/result/Model';
+import { Canvas } from 'react-three-fiber';
+import { OrbitControls } from 'drei';
+import Lights from '@components/common/result/Lights';
 
 export default function Result() {
   const router = useRouter();
+  const controlsRef = useRef();
   return (
     <div className="flex flex-col items-center text-center">
       <section className="mt-[1.5rem]">
@@ -33,7 +38,7 @@ export default function Result() {
         <article className="mt-[1.5rem]">
           <Card />
         </article>
-        <Swiper className="mySwiper" observer={true} observeParents={true}>
+        {/* <Swiper className="mySwiper" observer={true} observeParents={true}>
           <SwiperSlide>Slide 1</SwiperSlide>
           <SwiperSlide>Slide 2</SwiperSlide>
           <SwiperSlide>Slide 3</SwiperSlide>
@@ -43,7 +48,12 @@ export default function Result() {
           <SwiperSlide>Slide 7</SwiperSlide>
           <SwiperSlide>Slide 8</SwiperSlide>
           <SwiperSlide>Slide 9</SwiperSlide>
-        </Swiper>
+        </Swiper> */}
+        {/* <Canvas colorManagement camera={{ position: [0, 0, 2] }}> */}
+        {/* <Lights /> */}
+        {/* <Model /> */}
+        {/* <OrbitControls ref={controlsRef} /> */}
+        {/* </Canvas> */}
         <p className="mt-[2rem]">스와이퍼</p>
       </section>
       <section className="mt-[48px] w-full ">
