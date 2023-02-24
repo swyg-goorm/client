@@ -31,6 +31,7 @@
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
+    "@types/three": "^0.149.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.26.0",
