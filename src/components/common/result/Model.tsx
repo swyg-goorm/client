@@ -19,7 +19,7 @@ interface ModalProps {
 
 export default function Model({ uri }: ModalProps) {
   const controlsRef = useRef<any>(null);
-  const groupRef = useRef<GroupRef>({ rotation: { x: 0, y: 0, z: 0 } });
+  const groupRef = useRef<any>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);
   useEffect(() => {
     const loader = new GLTFLoader();
