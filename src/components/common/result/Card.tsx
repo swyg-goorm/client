@@ -14,7 +14,6 @@ export default function Card() {
         <ExampleHobby />
         <p className="text-2xl text-gray-6">서핑</p>
       </div>
-
       <div className="absolute bottom-6 w-full px-4">
         <Button>더 알아보기</Button>
       </div>
