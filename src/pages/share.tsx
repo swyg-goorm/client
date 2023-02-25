@@ -1,17 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-// import ExampleType from '@public/static/example_hollang_type.svg';
+import Example from '@public/static/example.svg';
 import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
-import ShareKakaoTalk from '@public/static/share_kakaotalk.svg';
+import KakaoShare from '@components/share/KakaoShare';
 
 export default function Share() {
   const domEl = useRef<any>(null);
 
   const downloadImage = async () => {
     const dataUrl = await htmlToImage.toPng(domEl.current);
-
-    // download image
     const link = document.createElement('a');
     link.download = 'html-to-img.png';
     link.href = dataUrl;
@@ -23,12 +21,12 @@ export default function Share() {
       <p className="my-[2.25rem] text-[1.5rem] text-main-4">
         나의<span className="text-main-3 "> 홀랑 </span>공유하기
       </p>
-      <section
+      <div
         id="domEl"
         ref={domEl}
-        className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] bg-main-1   py-[0.5rem]"
+        className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
-        {/* <ExampleType /> */}
+        <Example className="my-4" />
         <p className="mt-[1rem] text-[1.5rem] text-main-4">
           상상을 현실로 행동형
         </p>
@@ -45,13 +43,15 @@ export default function Share() {
           <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
           <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
         </article>
-      </section>
+      </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
         <div>
           <Download onClick={downloadImage} />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <ShareKakaoTalk />
+        <div className="ml-5">
+          <KakaoShare />
+        </div>
       </section>
     </div>
   );
