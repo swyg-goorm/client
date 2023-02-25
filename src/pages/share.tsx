@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 // import ExampleType from '@public/static/example_hollang_type.svg';
 import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import ShareKakaoTalk from '@public/static/share_kakaotalk.svg';
 
 export default function Share() {
   const domEl = useRef<any>(null);
@@ -51,7 +51,7 @@ export default function Share() {
           <Download onClick={downloadImage} />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <div>카카오톡으로 결과 공유하기</div>
+        <ShareKakaoTalk />
       </section>
     </div>
   );
