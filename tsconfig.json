@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": "src",
+    "typeRoots": ["node_modules/@types", "src/@types/*"],
     "paths": {
       "@components/*": ["./components/*"],
       "@apis/*": ["./apis/*"],
@@ -23,9 +24,13 @@
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "@public/*": ["../public/*"]
-
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/utils/shareKaKaoLink.js"
+  ],
   "exclude": ["node_modules"]
 }

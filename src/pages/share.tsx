@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import React, { useRef } from 'react';
 import Example from '@public/static/example.svg';
 import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
