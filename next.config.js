@@ -2,6 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dnynkguj26y10.cloudfront.net',
+        port: '',
+        pathname: '/images/question/**',
+      },
+    ],
+  },
   webpack: (config) => {
     // 아래를 추가합니다.
     config.module.rules.push({
