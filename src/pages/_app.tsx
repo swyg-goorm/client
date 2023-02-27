@@ -15,6 +15,11 @@ const client = new QueryClient({
     },
   },
 });
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

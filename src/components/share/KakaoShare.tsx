@@ -14,8 +14,6 @@ export default function KakaoShare() {
     };
   }, []);
 
-  const router = useRouter();
-
   return (
     <div>
       <ShareKakaoTalk onClick={shareKakao} />
