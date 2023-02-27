@@ -7,7 +7,6 @@ import Image from 'next/image';
 
 interface CardProps {
   hobby: Hobby;
-  [key: string]: any;
 }
 export default function Card({ hobby }: CardProps) {
   const router = useRouter();
@@ -20,7 +19,13 @@ export default function Card({ hobby }: CardProps) {
         <p className="text-2xl text-gray-6">{hobby?.name}</p>
       </div>
       <div className="absolute bottom-6 w-full px-4">
-        <Button>더 알아보기</Button>
+        <Button
+          onClick={() => {
+            router.push(`/detail?id=${hobby.id}`);
+          }}
+        >
+          더 알아보기
+        </Button>
       </div>
     </div>
   );
