@@ -13,16 +13,16 @@ export const shareKakao = () => {
         imageUrl:
           'https://user-images.githubusercontent.com/62178788/221452504-a30f4f0c-c105-4ce9-a1cd-57affa48ea5e.png',
         link: {
-          mobileWebUrl: 'http://localhost:3000/share',
-          webUrl: 'http://localhost:3000/share',
+          mobileWebUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
+          webUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
         },
       },
       buttons: [
         {
           title: '홀랑에 홀랑 빠져봐!',
           link: {
-            mobileWebUrl: 'http://localhost:3000/share',
-            webUrl: 'http://localhost:3000/share',
+            mobileWebUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
+            webUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
           },
         },
       ],

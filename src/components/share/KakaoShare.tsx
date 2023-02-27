@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { shareKakao } from '@utils/shareKaKaoLink';
 import ShareKakaoTalk from '@public/static/share_kakaotalk.svg';
 
