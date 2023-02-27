@@ -5,19 +5,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Object3D } from 'three';
 import { Html } from '@react-three/drei';
 import Lights from './Lights';
-
-interface GroupRef {
-  rotation: {
-    x: number;
-    y: number;
-    z: number;
-  };
-}
+import { useRouter } from 'next/router';
+import { useQuery } from 'react-query';
+import { getThree } from 'pages/api/getThree';
 interface ModalProps {
   uri: string;
 }
 
 export default function Model({ uri }: ModalProps) {
+  const router = useRouter();
   const controlsRef = useRef<any>(null);
   const groupRef = useRef<any>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);
@@ -37,6 +33,9 @@ export default function Model({ uri }: ModalProps) {
       controlsRef.current.removeEventListener('change', () => {});
     };
   }, [controlsRef, groupRef]);
+
+  const { data } = useQuery('getThree', getThree);
+  console.log(data?.data);
 
   return (
     <Canvas camera={{ position: [0, 0, 2] }}>

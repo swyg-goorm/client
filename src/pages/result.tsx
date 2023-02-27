@@ -63,9 +63,12 @@ export default function Result() {
         <div className="mt-8 flex justify-center">
           <Image
             alt="fit-hobby-type"
-            src="https://dnynkguj26y10.cloudfront.net/images/etc/question-mark.png"
+            src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`}
             width={100}
             height={100}
+            onClick={() => {
+              router.push('/fitHobby');
+            }}
           />
         </div>
         <div className="mt-6">
