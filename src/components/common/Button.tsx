@@ -23,24 +23,24 @@ export default function Button({
     switch (property) {
       case 'primary':
         return isButtonClicked
-          ? 'bg-main-4  text-2xl'
-          : 'bg-main-2 hover:bg-main-4  text-2xl';
+          ? 'bg-main-4  text-[2.2rem]'
+          : 'bg-main-2 hover:bg-main-4 text-[2.2rem]';
       case 'secondary':
         return isButtonClicked
-          ? ' text-2xl bg-gray-4'
-          : ' text-2xl hover:bg-gray-4 bg-gray-2';
+          ? ' text-[2.2rem] bg-gray-4'
+          : ' text-[2.2rem] hover:bg-gray-4 bg-gray-2';
       case 'question':
         return isButtonClicked
-          ? 'bg-main-4 border-2 border-main-4 text-xl'
-          : 'bg-gray-0 hover:bg-main-4 border-2 border-main-4 text-xl';
+          ? 'bg-main-4 border-2 border-main-4 text-[2rem]'
+          : 'bg-gray-0 hover:bg-main-4 border-2 border-main-4 text-[2rem]';
       case 'small':
         return isButtonClicked
-          ? 'bg-main-4 text-lg'
-          : 'bg-main-2 hover:bg-main-4 text-lg';
+          ? 'bg-main-4 text-[1.8rem]'
+          : 'bg-main-2 hover:bg-main-4 text-[1.8rem]';
       case 'detail':
         return isButtonClicked
-          ? 'bg-main-4 text-lg rounded-[20px]'
-          : 'bg-sub-1 hover:bg-main-4 text-lg rounded-[20px]';
+          ? 'bg-main-4 text-[1.8rem] rounded-[20px]'
+          : 'bg-sub-1 hover:bg-main-4 text-[1.8rem] rounded-[20px]';
       default:
         return '';
     }
@@ -51,7 +51,7 @@ export default function Button({
       onClick={() => setIsButtonClicked(true)}
       type={type}
       disabled={isButtonClicked}
-      className={`flex w-full items-center justify-center rounded-[30px] py-5 font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed
+      className={`flex w-full items-center justify-center rounded-[3rem] py-[2rem] font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed
       ${setClassNameByProperty(property)}`}
       {...props}
     >

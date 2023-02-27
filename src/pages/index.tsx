@@ -48,7 +48,7 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <MainCharacter />
-        <p>당신은 1,324번쨰 홀랑과 함꼐해요</p>
+        <p className="text-[1.8rem]">당신은 1,324번쨰 홀랑과 함꼐해요</p>
       </div>
       <div
         ref={sliderRef}
@@ -56,12 +56,12 @@ export default function Home() {
       >
         <p
           draggable
-          className="mb-[32px] text-[18px] font-normal leading-[25px]"
+          className="mb-[32px] text-[1.8rem] font-normal leading-[25px]"
         >
           슬라이더를 밀어 입장하기!
         </p>
 
-        <div className="relative mb-[16px] flex h-[100px] w-full items-center rounded-[50px] bg-main-2 py-[10px] px-[12px]">
+        <div className="relative mb-[1rem] flex h-[6.25rem] w-full items-center rounded-[3.125rem] bg-main-2 py-[0.625rem] px-[0.75rem]">
           <button
             draggable
             // onTouchEnd={handleDragEnd}
@@ -77,7 +77,7 @@ export default function Home() {
 
         <button
           onClick={() => router.push('/browsing')}
-          className="cursor-pointer text-[18px] font-normal leading-[25px]"
+          className="cursor-pointer text-[1.8rem] font-normal leading-[25px]"
         >
           둘러보기
         </button>
