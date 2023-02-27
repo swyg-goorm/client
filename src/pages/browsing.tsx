@@ -32,12 +32,12 @@ export default function browsing() {
                 width={50}
                 height={50}
                 src={hobby.imageUrl}
-              ></Image>
+              />
               <Top20List
                 ranking={index + 1}
                 count={hobby.recommendCount}
                 title={hobby.name}
-              ></Top20List>
+              />
             </div>
           ))}
       </section>
