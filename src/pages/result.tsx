@@ -8,46 +8,54 @@ import 'swiper/css';
 import { useQuery } from 'react-query';
 import Model from '@components/common/result/Model';
 import IconTurn from '@public/static/icon_turn.svg';
+import { getRecommendation } from 'pages/api/getRecommendation';
+import { Hobby } from 'types/result';
 
 export default function Result() {
   const router = useRouter();
-  const { data } = useQuery('useGetResult');
-
+  const id = router?.query.id ?? 0;
+  const { data } = useQuery(
+    ['getRecommendation', id],
+    () => getRecommendation(+id),
+    {
+      enabled: !!id,
+    },
+  );
+  const recommendation = data?.data?.data?.recommendation;
+  console.log(recommendation);
   return (
     <div className=" text-center">
       <section className="mt-6 flex flex-col items-center">
         <p className="text-2xl text-main-4">
-          <span className="text-main-3">꼬꼬꼬</span>님의 홀랑 유형
+          <span className="text-main-3">{recommendation?.user.name}</span>님의
+          홀랑 유형
         </p>
         <div className="h-52">
           <Model uri="example.gltf" />
         </div>
-        <p className="mt-4 text-2xl text-gray-7">상상을 현실로 행동형</p>
+        <p className="mt-4 text-2xl text-gray-7">
+          {recommendation?.hobbyType.name}
+        </p>
         <IconTurn className="my-2" />
         <span className=" text-gray-5 ">회전하면 돌아가요!</span>
         <p className="mt-8 w-[17.1875rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
-          효율적이지 않으면 못살아~ <br />
-          우리는 최소한의 노력으로 최대한의 <br />
-          재미를 지닌 취미를 즐길거에요
+          {recommendation?.hobbyType.description}
         </p>
       </section>
       <section className="mt-8">
         <p className="text-2xl text-main-4">
-          <span className="text-main-3">꼬꼬꼬</span>님의 홀랑 취미
+          <span className="text-main-3">{recommendation?.user.name}</span>님의
+          홀랑 취미
         </p>
         <p className="mt-4 text-[1.125rem] text-gray-7">
           버튼을 눌러 자세히 둘러봐요!
         </p>
         <Swiper className="mySwiper mt-6" slidesPerView={1.4}>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
+          {recommendation?.hobbies.map((hobby: Hobby) => (
+            <SwiperSlide key={hobby?.id}>
+              <Card hobby={hobby} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </section>
       <section className="mt-12 w-full ">
