@@ -33,7 +33,7 @@ export default function Share() {
           감정이 풍부하고 배려심이 많은 사막에서 <br /> 파는 발굴형 혼자서도
           즐길 수 있어요.
         </p>
-        <div className="my-[0.75rem] w-[20.25rem] border-[0.0313rem] border-gray-5" />
+        <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
         <p className="text-[1.5rem] text-main-4">
           <span className="text-main-3">꼬꼬꼬</span>님과 잘 맞는 취미
         </p>

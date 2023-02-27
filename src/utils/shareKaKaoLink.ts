@@ -1,28 +1,28 @@
-export const shareKakao = (route: string, title: string) => {
-  // url이 id값에 따라 변경되기 때문에 route를 인자값으로 받아줌
+export const shareKakao = () => {
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
-      kakao.init(process.env.NEXT_PUBLIC_API_SHARE_KAKAO_LINK_KEY); // 카카오에서 제공받은 javascript key를 넣어줌 -> .env파일에서 호출시킴
+      kakao.init(process.env.NEXT_PUBLIC_API_SHARE_KAKAO_LINK_KEY);
     }
 
     kakao.Link.sendDefault({
-      objectType: 'feed', // 카카오 링크 공유 여러 type들 중 feed라는 타입 -> 자세한 건 카카오에서 확인
+      objectType: 'feed',
       content: {
-        title: title, // 인자값으로 받은 title
-        description: '설명', // 인자값으로 받은 title
-        imageUrl: '이미지 url',
+        title: '홀랑에 홀랑 빠져봐!',
+        description: '인공지능이 당신의 유형을 분석해 취미를 추천해줄거에요!',
+        imageUrl:
+          'https://user-images.githubusercontent.com/62178788/221452504-a30f4f0c-c105-4ce9-a1cd-57affa48ea5e.png',
         link: {
-          mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
-          webUrl: route,
+          mobileWebUrl: 'http://localhost:3000/share',
+          webUrl: 'http://localhost:3000/share',
         },
       },
       buttons: [
         {
-          title: 'title',
+          title: '홀랑에 홀랑 빠져봐!',
           link: {
-            mobileWebUrl: route,
-            webUrl: route,
+            mobileWebUrl: 'http://localhost:3000/share',
+            webUrl: 'http://localhost:3000/share',
           },
         },
       ],

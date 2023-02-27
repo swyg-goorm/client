@@ -1,5 +1,5 @@
 declare global {
-  interface Window {
+  interface window {
     Kakao: unknown;
   }
 }

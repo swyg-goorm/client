@@ -18,9 +18,7 @@ export default function KakaoShare() {
 
   return (
     <div>
-      <ShareKakaoTalk
-        onClick={() => shareKakao('http://localhost:3000/share', 'title')}
-      />
+      <ShareKakaoTalk onClick={shareKakao} />
     </div>
   );
 }
