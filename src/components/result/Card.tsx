@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ExampleHobby from '@public/static/example_hobby.svg';
-import Button from '../Button';
+import Button from '../common/Button';
 import { Hobby } from 'types/result';
 import Image from 'next/image';
 
