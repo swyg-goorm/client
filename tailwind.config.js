@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: [
     './src/pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
@@ -9,19 +10,7 @@ module.exports = {
       fontFamily: {
         Gmarket: ['GmarketSans', 'sans-serif'],
       },
-      fontSize: {
-        hugeTitle: '60px',
-        largeTitle: '34px',
-        title1: '28px',
-        title2: '22px',
-        title3: '20px',
-        headline: '17px',
-        subHeadline: '15px',
-        footNote: '13px',
-        caption1: '12px',
-        caption2: '11px',
-        caption3: '10px',
-      },
+      fontSize: {},
       colors: {
         'gray-0': '#FFFFFF',
         'gray-1': '#FAFAFD',
@@ -43,5 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar-hide')],
+  plugins: [require('@tailwindcss/forms')],
 };

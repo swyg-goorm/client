@@ -16,7 +16,7 @@
 │ ├── pages
 │ ├── styles
 │ └── utils
-├── README.md               #
+├── README.md               
 └── ...
 ```
 

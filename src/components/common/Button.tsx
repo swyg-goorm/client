@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 interface ButtonPropsType
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  property?: 'primary' | 'secondary' | 'question' | 'small';
+  property?: 'primary' | 'secondary' | 'question' | 'small' | 'detail';
   disabled?: boolean;
   loading?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
@@ -37,6 +37,10 @@ export default function Button({
         return isButtonClicked
           ? 'bg-main-4 text-lg'
           : 'bg-main-2 hover:bg-main-4 text-lg';
+      case 'detail':
+        return isButtonClicked
+          ? 'bg-main-4 text-lg rounded-[20px]'
+          : 'bg-sub-1 hover:bg-main-4 text-lg rounded-[20px]';
       default:
         return '';
     }
