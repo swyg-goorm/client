@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
-import Question from '@public/static/question.svg';
 import Card from '@components/common/result/Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,6 +9,7 @@ import Model from '@components/common/result/Model';
 import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'pages/api/getRecommendation';
 import { Hobby } from 'types/result';
+import Image from 'next/image';
 
 export default function Result() {
   const router = useRouter();
@@ -22,7 +22,6 @@ export default function Result() {
     },
   );
   const recommendation = data?.data?.data?.recommendation;
-  console.log(recommendation);
   return (
     <div className=" text-center">
       <section className="mt-6 flex flex-col items-center">
@@ -62,7 +61,12 @@ export default function Result() {
         <p className="text-2xl text-main-4 ">나와 찰떡인 홀랑 유형</p>
         <p className="mt-5">아래 버튼을 눌러 알아봐요!</p>
         <div className="mt-8 flex justify-center">
-          <Question />
+          <Image
+            alt="fit-hobby-type"
+            src="https://dnynkguj26y10.cloudfront.net/images/etc/question-mark.png"
+            width={100}
+            height={100}
+          />
         </div>
         <div className="mt-6">
           <div>
