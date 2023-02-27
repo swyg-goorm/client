@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Button from '@components/common/Button';
 import Card from '@components/result/Card';
+import FitHobby from '@components/result/FitHobby';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useQuery } from 'react-query';
@@ -99,9 +100,9 @@ export default function Result() {
           </section>
         </div>
       ) : (
-        <div>
-          <FitHobby />
-        </div>
+        recommendation && (
+          <FitHobby fitHobbyTypes={recommendation?.fitHobbyTypes} />
+        )
       )}
     </div>
   );

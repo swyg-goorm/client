@@ -35,7 +35,6 @@ export default function Model({ uri }: ModalProps) {
   }, [controlsRef, groupRef]);
 
   const { data } = useQuery('getThree', getThree);
-  console.log(data?.data);
 
   return (
     <Canvas camera={{ position: [0, 0, 2] }}>

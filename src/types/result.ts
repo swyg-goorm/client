@@ -15,18 +15,18 @@ export interface Recommendation {
         threeDimensionImageUrl: string;
         imageUrl: string;
       };
-      hobbies: Hobby[];
-      fitHobbyTypes: FitHobby[];
+      hobbies: HobbyType[];
+      fitHobbyTypes: FitHobbyType[];
     };
   };
 }
-export interface Hobby {
+export interface HobbyType {
   id: number;
   name: string;
   description: string;
   imageUrl: string;
 }
-export interface FitHobby {
+export interface FitHobbyType {
   id: number;
   name: string;
   description: string;
