@@ -98,7 +98,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: calc(16 / 9) vh;
+  font-size: 1.77777vh;
   vertical-align: baseline;
   text-decoration: none;
 }
