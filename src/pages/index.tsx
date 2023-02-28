@@ -61,7 +61,10 @@ export default function Home() {
           슬라이더를 밀어 입장하기!
         </p>
 
-        <div className="relative mb-[16px] flex h-[100px] w-full items-center rounded-[50px] bg-main-2 py-[10px] px-[12px]">
+        <div
+          onClick={() => router.push('/begin')}
+          className="relative mb-[16px] flex h-[100px] w-full items-center rounded-[50px] bg-main-2 py-[10px] px-[12px]"
+        >
           <button
             draggable
             // onTouchEnd={handleDragEnd}
