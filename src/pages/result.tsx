@@ -9,8 +9,8 @@ import { useQuery } from 'react-query';
 import Model from '@components/result/Model';
 import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'pages/api/getRecommendation';
-import { Hobby } from 'types/result';
 import Image from 'next/image';
+import { HobbyType } from 'types/result';
 
 export default function Result() {
   const router = useRouter();
@@ -30,7 +30,9 @@ export default function Result() {
         <div>
           <section className="mt-6 flex flex-col items-center">
             <p className="text-2xl text-main-4">
-              <span className="text-main-3">{recommendation?.user.name}</span>
+              <span className="text-2xl text-main-3">
+                {recommendation?.user.name}
+              </span>
               님의 홀랑 유형
             </p>
             <div className="h-52">
@@ -45,16 +47,18 @@ export default function Result() {
               {recommendation?.hobbyType.description}
             </p>
           </section>
-          <section className="mt-8">
+          <section className="mt-16">
             <p className="text-2xl text-main-4">
-              <span className="text-main-3">{recommendation?.user.name}</span>
+              <span className="text-2xl text-main-3">
+                {recommendation?.user.name}
+              </span>
               님의 홀랑 취미
             </p>
             <p className="mt-4 text-[1.125rem] text-gray-7">
               버튼을 눌러 자세히 둘러봐요!
             </p>
             <Swiper className="mySwiper mt-6" slidesPerView={1.4}>
-              {recommendation?.hobbies.map((hobby: Hobby) => (
+              {recommendation?.hobbies.map((hobby: HobbyType) => (
                 <SwiperSlide key={hobby?.id}>
                   <Card hobby={hobby} />
                 </SwiperSlide>
