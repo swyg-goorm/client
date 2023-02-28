@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { shareKakao } from '@utils/shareKaKaoLink';
-import ShareKakaoTalk from '@public/static/share_kakaotalk.svg';
+import Image from 'next/image';
 
 export default function KakaoShare() {
   useEffect(() => {
@@ -14,8 +14,13 @@ export default function KakaoShare() {
   }, []);
 
   return (
-    <div>
-      <ShareKakaoTalk onClick={shareKakao} />
-    </div>
+    <Image
+      alt=""
+      src="/static/share_kakaotalk.svg"
+      width={100}
+      height="100"
+      onClick={shareKakao}
+      className="w-[20.625rem]"
+    />
   );
 }
