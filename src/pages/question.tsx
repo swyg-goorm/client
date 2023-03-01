@@ -2,7 +2,7 @@ import Button from '@components/common/Button';
 import ProgressBar from '@components/common/ProgressBar';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { getUserQuestion, getUserResult } from './api/getUserQuestion';
 
@@ -15,7 +15,6 @@ export default function question() {
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
-  console.log(questionArray);
   const router = useRouter();
   const MAX_PAGE = 12;
 
@@ -42,24 +41,24 @@ export default function question() {
   };
   return (
     isSuccess && (
-      <div className="pb-12">
-        <section className="mb-7 flex flex-col items-center px-2">
+      <div className="pb-[3rem]">
+        <section className="mb-[1.75rem] flex flex-col items-center">
           <ProgressBar order={currentPage}></ProgressBar>
-          <p className="mt-2">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
         </section>
         {currentPageData !== undefined && (
           <section className="flex flex-col items-center ">
             <Image
-              className="mb-8 rounded-[1.25rem]"
+              className="mb-[2rem] rounded-[1.25rem]"
               alt="image that explain Question"
               width={450}
               height={450}
               src={currentPageData.imageUrl}
             ></Image>
-            <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
+            <p className="mb-[2rem] px-[4rem] text-center text-[1.125rem] font-normal leading-[1.75rem]">
               {currentPageData.content}
             </p>
-            <div className="mb-13 flex w-full flex-col gap-2">
+            <div className="mb-[3.25rem] flex w-full flex-col gap-[0.5rem]">
               {currentPageData.answers.map(({ content, id }, index) => (
                 <Button
                   key={id}
