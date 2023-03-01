@@ -7,14 +7,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useQuery } from 'react-query';
 import Model from '@components/result/Model';
+import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'pages/api/getRecommendation';
 import Image from 'next/image';
 import { HobbyType } from 'types/result';
+const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
   const [isFitHobby, setIsFitHobby] = useState<Boolean>(false);
+  const [status, setStatus] = useState<string>('result');
   const id = router?.query.id ?? 0;
   const { data, isLoading } = useQuery(
     ['getRecommendation', id],
@@ -26,7 +29,7 @@ export default function Result() {
   const recommendation = data?.data?.data?.recommendation;
   return (
     <div className="text-center">
-      {!isFitHobby ? (
+      {status === 'result' && (
         <div>
           <section className="mt-6 flex flex-col items-center">
             <p className="text-2xl text-main-4">
@@ -71,11 +74,11 @@ export default function Result() {
             <div className="mt-8 flex justify-center">
               <Image
                 alt="fit-hobby-type"
-                src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`}
+                src={FIT_HOBBY_IMAGE_SRC}
                 width={100}
                 height={100}
                 onClick={() => {
-                  setIsFitHobby(true);
+                  setStatus('fitHobby');
                 }}
               />
             </div>
@@ -83,7 +86,7 @@ export default function Result() {
               <div>
                 <Button
                   onClick={() => {
-                    router.push('/share');
+                    setStatus('share');
                   }}
                 >
                   공유하기
@@ -103,10 +106,15 @@ export default function Result() {
             </div>
           </section>
         </div>
-      ) : (
-        recommendation && (
-          <FitHobby fitHobbyTypes={recommendation?.fitHobbyTypes} />
-        )
+      )}
+      {status === 'fitHobby' && recommendation && (
+        <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
+      )}
+      {status === 'share' && recommendation && (
+        <Share
+          hobbyType={recommendation.hobbyType}
+          userName={recommendation.user.name}
+        />
       )}
     </div>
   );

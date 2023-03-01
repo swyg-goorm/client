@@ -21,7 +21,6 @@ export default function Model({ uri }: ModalProps) {
     const loader = new GLTFLoader();
     loader.load(uri, async (gltf: any) => {
       setModel(gltf.scene);
-      console.log(gltf.scene);
     });
   }, []);
 

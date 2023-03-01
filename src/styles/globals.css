@@ -101,6 +101,7 @@ video {
   font-size: 1.77777vh;
   vertical-align: baseline;
   text-decoration: none;
+  white-space: pre-line;
 }
 
 /* HTML5 display-role reset for older browsers */

@@ -20,6 +20,11 @@ const client = new QueryClient({
     mutations: { retry: 0, useErrorBoundary: true },
   },
 });
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(false);
