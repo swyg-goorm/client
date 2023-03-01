@@ -4,16 +4,20 @@ import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
 import KakaoShare from '@components/share/KakaoShare';
 import Image from 'next/image';
-import { HobbyType } from 'types/result';
+import { FitHobbyType, HobbyType } from 'types/result';
 
 interface ShareProps {
   hobbyType: HobbyType;
+  fitHobbyTypes: FitHobbyType[];
   userName: string;
   [key: string]: any;
 }
 
-export default function Share({ hobbyType, userName }: ShareProps) {
-  console.log(hobbyType);
+export default function Share({
+  hobbyType,
+  userName,
+  fitHobbyTypes,
+}: ShareProps) {
   const domEl = useRef<any>(null);
 
   const downloadImage = async () => {
@@ -23,7 +27,6 @@ export default function Share({ hobbyType, userName }: ShareProps) {
     link.href = dataUrl;
     link.click();
   };
-
   return (
     <div className="flex flex-col items-center px-[0.9375rem] text-center">
       <p className="my-[2.25rem] text-[1.5rem] text-main-4">
@@ -51,17 +54,28 @@ export default function Share({ hobbyType, userName }: ShareProps) {
           맞는 취미
         </p>
         <article className="bg-between my-[1.5rem] flex w-[15rem] justify-between">
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
+          {/* {fitHobbyTypes.map((fitHobbyType: FitHobbyType) => (
+            <Image
+              alt="download"
+              src={fitHobbyType.imageUrl}
+              width={60}
+              height={30}
+              key={fitHobbyType.id}
+            />
+          ))} */}
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div onClick={downloadImage} className='cursor-pointer' >
-          <Image alt="download" src="/static/download.svg" width={30} height={30} />
+        <div onClick={downloadImage} className="cursor-pointer">
+          <Image
+            alt="download"
+            src="/static/download.svg"
+            width={30}
+            height={30}
+          />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <div className="ml-5" >
+        <div className="ml-5">
           <KakaoShare />
         </div>
       </section>

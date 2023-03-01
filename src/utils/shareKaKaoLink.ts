@@ -1,4 +1,6 @@
-export const shareKakao = () => {
+export const shareKakao = (uri: string) => {
+  console.log(uri);
+  const SHARE_URI = `${process.env.NEXT_PUBLIC_CLIENT}/${uri}`;
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
@@ -13,16 +15,16 @@ export const shareKakao = () => {
         imageUrl:
           'https://user-images.githubusercontent.com/62178788/221452504-a30f4f0c-c105-4ce9-a1cd-57affa48ea5e.png',
         link: {
-          mobileWebUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
-          webUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
+          mobileWebUrl: SHARE_URI,
+          webUrl: SHARE_URI,
         },
       },
       buttons: [
         {
           title: '홀랑에 홀랑 빠져봐!',
           link: {
-            mobileWebUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
-            webUrl: `${process.env.NEXT_PUBLIC_CLIENT}/result`,
+            mobileWebUrl: SHARE_URI,
+            webUrl: SHARE_URI,
           },
         },
       ],

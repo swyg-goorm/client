@@ -7,11 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useQuery } from 'react-query';
 import Model from '@components/result/Model';
+import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'pages/api/getRecommendation';
 import Image from 'next/image';
 import { HobbyType } from 'types/result';
-import Share from '@components/result/Share';
+const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
@@ -73,7 +74,7 @@ export default function Result() {
             <div className="mt-8 flex justify-center">
               <Image
                 alt="fit-hobby-type"
-                src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`}
+                src={FIT_HOBBY_IMAGE_SRC}
                 width={100}
                 height={100}
                 onClick={() => {
@@ -113,6 +114,7 @@ export default function Result() {
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
+          fitHobbyTypes={recommendation.fitHobbyTypes}
         />
       )}
     </div>
