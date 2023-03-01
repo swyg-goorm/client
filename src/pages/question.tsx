@@ -35,32 +35,23 @@ export default function question() {
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
   useEffect(() => {
+    if (data !== undefined) {
+      setQuestionData(data?.data);
+    }
+  }, [data, isSuccess]);
+
+  useEffect(() => {
     if (currentPage > MAX_PAGE) {
       const getData = async () => {
         console.log(questionArray);
         const data = await getUserResult([...questionArray]);
         setUserRecommendation(data.data.data.recommendation.id);
         router.push('loading');
-    if (data !== undefined) {
-      setQuestionData(data?.data);
-    }
-  }, [data, isSuccess]);
-
-  const handleClickQuestion = (clickedIndex: number) => {
-    if (currentPage === MAX_PAGE) {
-      const getData = async () => {
-        const data = await getUserResult([
-          ...questionArray,
-          { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
-        ]);
-
-        router.push(`/result/${data.data.data.recommendation.id}`);
       };
       getData();
     }
   }, [currentPage]);
 
-  const currentPageData = data?.data.data.test.questions[currentPage - 1];
   const handleClickQuestion = (clickedIndex: number) => {
     setQuestionArray([
       ...questionArray,
