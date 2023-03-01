@@ -2,9 +2,11 @@ import Button from '@components/common/Button';
 import ProgressBar from '@components/common/ProgressBar';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { getUserQuestion, getUserResult } from './api/getUserQuestion';
+import { useSetRecoilState } from 'recoil';
+import { UserRecommendation } from 'store/atom';
 
 export default function question() {
   const { data, isSuccess } = useQuery(['getUserQuestion'], getUserQuestion, {
@@ -15,31 +17,31 @@ export default function question() {
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
-  console.log(questionArray);
   const router = useRouter();
   const MAX_PAGE = 12;
+  const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
-  const currentPageData = data?.data.data.test.questions[currentPage - 1];
-  const handleClickQuestion = (clickedIndex: number) => {
-    if (currentPage === MAX_PAGE) {
+  useEffect(() => {
+    if (currentPage > MAX_PAGE) {
       const getData = async () => {
         console.log(questionArray);
-        const data = await getUserResult([
-          ...questionArray,
-          { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
-        ]);
-
-        router.push(`/result/${data.data.data.recommendation.id}`);
-        console.log(data.data.data.recommendation);
+        const data = await getUserResult([...questionArray]);
+        setUserRecommendation(data.data.data.recommendation.id);
+        router.push(`loading`);
       };
       getData();
     }
+  }, [currentPage]);
+
+  const currentPageData = data?.data.data.test.questions[currentPage - 1];
+  const handleClickQuestion = (clickedIndex: number) => {
     setQuestionArray([
       ...questionArray,
       { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
     ]);
     setCurrentPage(currentPage + 1);
   };
+
   return (
     isSuccess && (
       <div className="pb-12">
