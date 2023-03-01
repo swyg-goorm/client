@@ -19,7 +19,6 @@ interface QuestionDataType {
 
 export default function question() {
   const { data, isSuccess } = useQuery(['getUserQuestion'], getUserQuestion, {
-    retry: false,
     staleTime: Infinity,
   });
   const [currentPage, setCurrentPage] = useState(1);
