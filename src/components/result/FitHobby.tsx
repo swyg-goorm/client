@@ -9,7 +9,6 @@ interface FitHobbyProps {
 }
 
 export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
-  console.log(fitHobbyTypes);
   const [select, setSelect] = useState<number>(0);
   const selectedType = fitHobbyTypes.filter(
     (fitHobbyType) => +fitHobbyType.id === select,
@@ -20,7 +19,10 @@ export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
       <p className="py-5 text-[24px] text-main-4">나와 찰떡인 홀랑 유형</p>
       <section className="flex">
         {fitHobbyTypes.map((fitHobbyType: FitHobbyType, index: number) => (
-          <div className="flex w-full flex-col items-center border-b border-gray-5">
+          <div
+            className="flex w-full flex-col items-center border-b border-gray-5"
+            key={fitHobbyType.id}
+          >
             <div className="rounded-[30px] bg-gray-2 p-3">
               <Image
                 alt="fit-type"
