@@ -1,8 +1,6 @@
 import '../styles/globals.css';
-
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Layout from '@components/common/layout';
@@ -48,13 +46,11 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, []);
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <Layout>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>
+        <title>Hollang</title>x
       </Head>
       <Suspense fallback={<Loader />}>
         <RecoilRoot>
