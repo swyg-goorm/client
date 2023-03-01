@@ -8,20 +8,15 @@ import { FitHobbyType, HobbyType } from 'types/result';
 
 interface ShareProps {
   hobbyType: HobbyType;
-  fitHobbyTypes: FitHobbyType[];
   userName: string;
   [key: string]: any;
 }
 
-export default function Share({
-  hobbyType,
-  userName,
-  fitHobbyTypes,
-}: ShareProps) {
-  const domEl = useRef<any>(null);
+export default function Share({ hobbyType, userName }: ShareProps) {
+  const containerRef = useRef<any>(null);
 
-  const downloadImage = async () => {
-    const dataUrl = await htmlToImage.toPng(domEl.current);
+  const handleDownload = async () => {
+    const dataUrl = await htmlToImage.toPng(containerRef.current);
     const link = document.createElement('a');
     link.download = 'html-to-img.png';
     link.href = dataUrl;
@@ -33,8 +28,8 @@ export default function Share({
         나의<span className="text-[1.5rem] text-main-3"> 홀랑 </span>공유하기
       </p>
       <div
-        id="domEl"
-        ref={domEl}
+        id="containerRef"
+        ref={containerRef}
         className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
         <Image
@@ -54,19 +49,13 @@ export default function Share({
           맞는 취미
         </p>
         <article className="bg-between my-[1.5rem] flex w-[15rem] justify-between">
-          {/* {fitHobbyTypes.map((fitHobbyType: FitHobbyType) => (
-            <Image
-              alt="download"
-              src={fitHobbyType.imageUrl}
-              width={60}
-              height={30}
-              key={fitHobbyType.id}
-            />
-          ))} */}
+          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
+          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
+          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div onClick={downloadImage} className="cursor-pointer">
+        <div onClick={handleDownload} className="cursor-pointer">
           <Image
             alt="download"
             src="/static/download.svg"

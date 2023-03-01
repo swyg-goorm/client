@@ -114,7 +114,6 @@ export default function Result() {
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
-          fitHobbyTypes={recommendation.fitHobbyTypes}
         />
       )}
     </div>
