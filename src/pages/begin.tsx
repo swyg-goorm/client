@@ -9,7 +9,6 @@ const reg = /[가-힣]{1,3}$/;
 export default function Begin() {
   const router = useRouter();
   const [nickname, setNickname] = useState<string>('');
-  const [innerWidth, setInnerWidth] = useState<number>(0);
   const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,13 +17,6 @@ export default function Begin() {
       setModal(true);
     }
   };
-
-  useEffect(() => {
-    setInnerWidth(window.innerWidth);
-  }, []);
-
-  const setClassNameByWidth = () =>
-    innerWidth > 450 ? 'w-[410px]' : `w-[calc(${innerWidth}px-40px)]`;
 
   return (
     <div>
@@ -56,9 +48,17 @@ export default function Begin() {
           )}
         </div>
         <div
-          className={`fixed inset-x-0 bottom-[2.8125rem]  m-auto ${setClassNameByWidth()}`}
+          className={`fixed inset-x-0 bottom-[2.8125rem]  m-auto w-[25.625rem]`}
         >
-          <Button>홀랑 테스트 하러 가기</Button>
+          <Button
+            disabled={!reg.test(nickname)}
+            onClick={() => {
+              if (!reg.test(nickname)) return;
+              router.push('/question');
+            }}
+          >
+            홀랑 테스트 하러 가기
+          </Button>
         </div>
       </form>
     </div>
