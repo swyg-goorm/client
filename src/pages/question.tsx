@@ -46,24 +46,24 @@ export default function question() {
   };
   return (
     isSuccess && (
-      <div className="pb-[4.8rem]">
-        <section className="mb-[2.8rem] flex flex-col items-center px-[2.4rem]">
+      <div className="pb-[3rem]">
+        <section className="mb-[1.75rem] flex flex-col items-center">
           <ProgressBar order={currentPage}></ProgressBar>
-          <p className="mt-[0.8rem] text-[2.4rem]">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
         </section>
         {currentPageData !== undefined && (
           <section className="flex flex-col items-center ">
             <Image
-              className="mb-[3.2rem] rounded-[2rem]"
+              className="mb-[2rem] rounded-[1.25rem]"
               alt="image that explain Question"
               width={450}
               height={450}
               src={currentPageData.imageUrl}
             ></Image>
-            <p className="mb-[3.2rem] px-[6.4rem] text-center text-[1.8rem] font-normal leading-[2.8rem]">
+            <p className="mb-[2rem] px-[4rem] text-center text-[1.125rem] font-normal leading-[1.75rem]">
               {currentPageData.content}
             </p>
-            <div className="mb-[5.2rem] flex w-full flex-col gap-[0.8rem]">
+            <div className="mb-[3.25rem] flex w-full flex-col gap-[0.5rem]">
               {currentPageData.answers.map(({ content, id }, index) => (
                 <Button
                   key={id}
