@@ -1,8 +1,7 @@
 import '../styles/globals.css';
-
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import { useState, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Layout from '@components/common/layout';
@@ -20,6 +19,11 @@ const client = new QueryClient({
     mutations: { retry: 0, useErrorBoundary: true },
   },
 });
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(false);
@@ -49,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>
+        <title>Hollang</title>x
       </Head>
       <Suspense fallback={<Loader />}>
         <RecoilRoot>

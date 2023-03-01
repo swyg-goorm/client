@@ -7,6 +7,7 @@ interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
   [key: string]: any;
 }
+const QUESTION_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
   const [select, setSelect] = useState<number>(0);
@@ -43,7 +44,7 @@ export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
           <div className="flex flex-col items-center justify-center">
             <Image
               alt="question-mark"
-              src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`}
+              src={QUESTION_IMAGE_SRC}
               width={180}
               height={180}
               className="mt-10 mb-5"
