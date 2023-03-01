@@ -11,10 +11,12 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'pages/api/getRecommendation';
 import Image from 'next/image';
 import { HobbyType } from 'types/result';
+import Share from '@components/result/Share';
 
 export default function Result() {
   const router = useRouter();
   const [isFitHobby, setIsFitHobby] = useState<Boolean>(false);
+  const [status, setStatus] = useState<string>('result');
   const id = router?.query.id ?? 0;
   const { data, isLoading } = useQuery(
     ['getRecommendation', id],
@@ -26,7 +28,7 @@ export default function Result() {
   const recommendation = data?.data?.data?.recommendation;
   return (
     <div className="text-center">
-      {!isFitHobby ? (
+      {status === 'result' && (
         <div>
           <section className="mt-6 flex flex-col items-center">
             <p className="text-2xl text-main-4">
@@ -75,7 +77,7 @@ export default function Result() {
                 width={100}
                 height={100}
                 onClick={() => {
-                  setIsFitHobby(true);
+                  setStatus('fitHobby');
                 }}
               />
             </div>
@@ -83,7 +85,7 @@ export default function Result() {
               <div>
                 <Button
                   onClick={() => {
-                    router.push('/share');
+                    setStatus('share');
                   }}
                 >
                   공유하기
@@ -103,10 +105,15 @@ export default function Result() {
             </div>
           </section>
         </div>
-      ) : (
-        recommendation && (
-          <FitHobby fitHobbyTypes={recommendation?.fitHobbyTypes} />
-        )
+      )}
+      {status === 'fitHobby' && recommendation && (
+        <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
+      )}
+      {status === 'share' && recommendation && (
+        <Share
+          hobbyType={recommendation.hobbyType}
+          userName={recommendation.user.name}
+        />
       )}
     </div>
   );

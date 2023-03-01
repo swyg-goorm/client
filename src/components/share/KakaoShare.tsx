@@ -15,12 +15,12 @@ export default function KakaoShare() {
 
   return (
     <Image
-      alt=""
+      alt="share_kakaotalk"
       src="/static/share_kakaotalk.svg"
       width={100}
       height="100"
       onClick={shareKakao}
-      className="w-[20.625rem]"
+      className="w-[20.625rem] cursor-pointer"
     />
   );
 }

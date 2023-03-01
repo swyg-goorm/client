@@ -4,8 +4,16 @@ import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
 import KakaoShare from '@components/share/KakaoShare';
 import Image from 'next/image';
+import { HobbyType } from 'types/result';
 
-export default function Share() {
+interface ShareProps {
+  hobbyType: HobbyType;
+  userName: string;
+  [key: string]: any;
+}
+
+export default function Share({ hobbyType, userName }: ShareProps) {
+  console.log(hobbyType);
   const domEl = useRef<any>(null);
 
   const downloadImage = async () => {
@@ -33,17 +41,14 @@ export default function Share() {
           height={200}
           className="py-4"
         />
-        <p className="mt-[1rem] text-[1.5rem] text-main-4">
-          상상을 현실로 행동형
-        </p>
+        <p className="mt-[1rem] text-[1.5rem] text-main-4">{hobbyType.name}</p>
         <p className="my-[1rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
-          감정이 풍부하고 배려심이 많은 사막에서 <br /> 파는 발굴형 혼자서도
-          즐길 수 있어요.
+          {hobbyType.description}
         </p>
         <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
         <p className="mt-2 text-[1.5rem] text-main-4">
-          <span className="text-[1.5rem] text-main-3">꼬꼬꼬</span>님과 잘 맞는
-          취미
+          <span className="text-[1.5rem] text-main-3">{userName}</span>님과 잘
+          맞는 취미
         </p>
         <article className="bg-between my-[1.5rem] flex w-[15rem] justify-between">
           <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
@@ -52,11 +57,11 @@ export default function Share() {
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div onClick={downloadImage}>
-          <Download />
+        <div onClick={downloadImage} className='cursor-pointer' >
+          <Image alt="download" src="/static/download.svg" width={30} height={30} />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <div className="ml-5">
+        <div className="ml-5" >
           <KakaoShare />
         </div>
       </section>
