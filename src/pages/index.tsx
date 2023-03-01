@@ -9,7 +9,6 @@ export default function Home() {
   const TAPBAR_HEIGHT = 84;
   const sliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const [dragStartPoint, setDragStartPoint] = useState(16);
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
   useEffect(() => {
     setTimeout(() => {
@@ -20,20 +19,19 @@ export default function Home() {
     }, 2000);
   }, [data, isSuccess]);
 
-  const [unlocked, setUnlocked] = useState(false);
   const [x, setX] = useState(0);
-  const [dragging, setDragging] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const LAYOUT_PADDING = 20;
   const TOUCH_BUTTON_SIZE = 80;
   const BUTTON_PADDING = 12;
 
   const handleMouseDown = (e: any) => {
-    setDragging(true);
+    setIsDragging(true);
     setX(e.clientX);
   };
 
   const handleMouseMove = (e: any) => {
-    if (dragging) {
+    if (isDragging) {
       if (e.touches) {
         return setX(
           e.touches[0].clientX -
@@ -47,7 +45,7 @@ export default function Home() {
   };
 
   const handleMouseUp = (e: any) => {
-    setDragging(false);
+    setIsDragging(false);
     const PC_SPARE_VALUE = 30;
     const MOBILE_SPARE_VALUE = 15;
     if (e.touches) {
@@ -59,7 +57,6 @@ export default function Home() {
           BUTTON_PADDING * 2 -
           MOBILE_SPARE_VALUE
       ) {
-        setUnlocked(true);
         return router.push('/begin');
       } else {
         return setX(0);
@@ -74,7 +71,6 @@ export default function Home() {
         BUTTON_PADDING -
         PC_SPARE_VALUE
     ) {
-      setUnlocked(true);
       return router.push('/begin');
     } else {
       setX(0);
@@ -121,10 +117,8 @@ export default function Home() {
               }px)`,
             }}
             className={`h-[80px] w-[80px] cursor-pointer rounded-full bg-main-3`}
-          >
-            {unlocked ? '슬라이드 잠금 해제됨' : '슬라이드 해제'}
-          </button>
-          {!dragging && (
+          ></button>
+          {!isDragging && (
             <>
               <Forward />
               <Forward />
