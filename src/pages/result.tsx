@@ -16,7 +16,7 @@ export default function Result() {
   const router = useRouter();
   const [isFitHobby, setIsFitHobby] = useState<Boolean>(false);
   const id = router?.query.id ?? 0;
-  const { data } = useQuery(
+  const { data, isLoading } = useQuery(
     ['getRecommendation', id],
     () => getRecommendation(+id),
     {
@@ -36,7 +36,7 @@ export default function Result() {
               님의 홀랑 유형
             </p>
             <div className="h-52">
-              <Model uri="example.gltf" />
+              <Model uri="./static/gltf/ENFJ.gltf" />
             </div>
             <p className="mt-4 text-2xl text-gray-7">
               {recommendation?.hobbyType.name}

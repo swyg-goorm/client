@@ -21,6 +21,7 @@ export default function Model({ uri }: ModalProps) {
     const loader = new GLTFLoader();
     loader.load(uri, async (gltf: any) => {
       setModel(gltf.scene);
+      console.log(gltf.scene);
     });
   }, []);
 
@@ -34,17 +35,15 @@ export default function Model({ uri }: ModalProps) {
     };
   }, [controlsRef, groupRef]);
 
-  const { data } = useQuery('getThree', getThree);
-
   return (
-    <Canvas camera={{ position: [0, 0, 2] }}>
+    <Canvas camera={{ position: [0, 0, 3] }}>
       <Lights />
       <OrbitControls ref={controlsRef} />
       <directionalLight position={[-1, 0, 1]} intensity={0.5} />
       <meshStandardMaterial attach="material" color={0xa3b18a} />
       {model ? (
         <>
-          <group ref={groupRef} position={[24.5, -6.75, -8.25]} dispose={null}>
+          <group ref={groupRef} position={[0, 0, 0]} dispose={null}>
             <primitive name="Object_0" object={model} />
           </group>
         </>
