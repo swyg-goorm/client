@@ -23,7 +23,8 @@
       "@features/*": ["./features/*"],
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
-      "@public/*": ["../public/*"]
+      "@public/*": ["../public/*"],
+      "@types/*": ["../types/*"]
     }
   },
   "include": [

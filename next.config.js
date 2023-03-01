@@ -8,7 +8,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'dnynkguj26y10.cloudfront.net',
         port: '',
-        pathname: '/images/question/**',
+        pathname: '/**',
       },
     ],
   },
