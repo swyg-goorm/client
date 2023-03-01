@@ -57,15 +57,15 @@ export default function question() {
   };
   return (
     isSuccess && (
-      <div className="pb-12">
-        <section className="mb-7 flex flex-col items-center px-2">
+      <div className="pb-[3rem]">
+        <section className="mb-[1.75rem] flex flex-col items-center">
           <ProgressBar order={currentPage}></ProgressBar>
-          <p className="mt-2">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
           <section className="flex flex-col items-center ">
             <Image
-              className="mb-8 rounded-[1.25rem]"
+              className="mb-[2rem] rounded-[1.25rem]"
               alt="image that explain Question"
               width={450}
               height={450}
