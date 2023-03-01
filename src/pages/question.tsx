@@ -9,6 +9,8 @@ import {
   QuestionContentType,
 } from 'types/getUserQuestion';
 import { getUserQuestion, getUserResult } from './api/getUserQuestion';
+import { useSetRecoilState } from 'recoil';
+import { UserRecommendation } from 'store/atom';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -30,6 +32,7 @@ export default function question() {
   );
   const router = useRouter();
   const MAX_PAGE = 12;
+  const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
   useEffect(() => {
     if (data !== undefined) {
@@ -37,24 +40,26 @@ export default function question() {
     }
   }, [data, isSuccess]);
 
-  const handleClickQuestion = (clickedIndex: number) => {
-    if (currentPage === MAX_PAGE) {
+  useEffect(() => {
+    if (currentPage > MAX_PAGE) {
       const getData = async () => {
-        const data = await getUserResult([
-          ...questionArray,
-          { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
-        ]);
-
-        router.push(`/result/${data.data.data.recommendation.id}`);
+        console.log(questionArray);
+        const data = await getUserResult([...questionArray]);
+        setUserRecommendation(data.data.data.recommendation.id);
+        router.push('loading');
       };
       getData();
     }
+  }, [currentPage]);
+
+  const handleClickQuestion = (clickedIndex: number) => {
     setQuestionArray([
       ...questionArray,
       { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
     ]);
     setCurrentPage(currentPage + 1);
   };
+
   return (
     isSuccess && (
       <div className="pb-[3rem]">
