@@ -27,7 +27,7 @@ export default function question() {
         console.log(questionArray);
         const data = await getUserResult([...questionArray]);
         setUserRecommendation(data.data.data.recommendation.id);
-        router.push(`loading`);
+        router.push('loading');
       };
       getData();
     }
