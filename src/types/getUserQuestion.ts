@@ -1,8 +1,8 @@
-type QuestionContentType = {
+export interface QuestionContentType {
   id: number;
   content: string;
   imageUrl: string;
-};
+}
 
 export interface GetUserQuestionType {
   data: {
