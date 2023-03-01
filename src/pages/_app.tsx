@@ -48,9 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, []);
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <Layout>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
