@@ -17,11 +17,6 @@ export default function question() {
   >([]);
   const router = useRouter();
   const MAX_PAGE = 12;
-  const [innerHeight, setInnerHeight] = useState<number>(0);
-
-  useEffect(() => {
-    setInnerHeight((window.innerHeight / 84.4) * 100);
-  }, []);
 
   const currentPageData = data?.data.data.test.questions[currentPage - 1];
   const handleClickQuestion = (clickedIndex: number) => {

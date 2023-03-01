@@ -103,10 +103,6 @@ video {
   text-decoration: none;
 }
 
-html {
-  font-size: calc();
-}
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,

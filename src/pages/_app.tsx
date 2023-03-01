@@ -20,8 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>
-        <style></style>
+        <title>Hollang</title>x
       </Head>
       <RecoilRoot>
         <QueryClientProvider client={client}>
