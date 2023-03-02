@@ -46,9 +46,10 @@ export default function question() {
         const data = await getUserResult([
           ...questionArray,
           { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
+          localStorage.getItem('nickname') as string,
         ]);
         setUserRecommendation(data.data.data.recommendation.id);
-        router.push('loading');
+        router.push('/loading');
       };
       return getData();
     }

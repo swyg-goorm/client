@@ -10,9 +10,10 @@ export const getUserQuestion = (): Promise<
 
 export const getUserResult = (
   userData: { questionNumber: number; answerNumber: number }[],
+  nickname: string,
 ) => {
   return baseInstance.post('/test-responses', {
-    user: { name: '모승' },
+    user: { name: nickname },
     testResponseDetail: userData,
   });
 };
