@@ -1,9 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.gif`;
-const nickname = localStorage.getItem('nickname');
 
 export default function Loader() {
+  let nickname;
+  if (typeof window !== 'undefined') {
+    nickname = localStorage.getItem('nickname');
+  }
   return (
     <div className="flex h-[48rem] flex-col items-center justify-center">
       <Image alt="loading" src={LOADING_IMAGE_SRC} width={300} height={300} />

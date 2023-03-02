@@ -55,7 +55,10 @@ export default function Share({ hobbyType, userName }: ShareProps) {
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div onClick={handleDownload} className="cursor-pointer">
+        <div
+          onClick={handleDownload}
+          className="mr-3 flex w-[2rem] cursor-pointer flex-col items-center"
+        >
           <Image
             alt="download"
             src="/static/download.svg"
@@ -64,7 +67,7 @@ export default function Share({ hobbyType, userName }: ShareProps) {
           />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <div className="ml-5">
+        <div>
           <KakaoShare />
         </div>
       </section>
