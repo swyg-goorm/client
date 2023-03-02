@@ -13,6 +13,10 @@ export default function Begin() {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+  const [innerWidth, setInnerWidth] = useState<number>(0);
+  useEffect(() => {
+    setInnerWidth(window.innerWidth);
+  }, []);
 
   const handleClickButton = () => {
     if (!reg.test(nickname)) return;
@@ -22,7 +26,15 @@ export default function Begin() {
     localStorage.setItem('nickname', nickname);
     router.push('/question');
   };
-
+  const setProperty = () => {
+    if (!!innerWidth) {
+      if (innerWidth < 450) {
+        return innerWidth - 40 + 'px';
+      } else {
+        return 410 + 'px';
+      }
+    }
+  };
   return (
     <div>
       {modal && (
@@ -52,7 +64,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className="inset-x-0 m-auto mt-44 w-full">
+        <div className={`fixed  bottom-0 m-auto  w-[${setProperty()}] `}>
           <Button
             onClick={handleClickButton}
             type="submit"
