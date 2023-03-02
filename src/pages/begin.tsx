@@ -12,11 +12,12 @@ export default function Begin() {
   const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // API 전송
-    console.log(nickname);
+    if (!reg.test(nickname)) return;
     if (nickname === '') {
       setModal(true);
     }
+    localStorage.setItem('nickname', nickname);
+    router.push('/question');
   };
 
   return (
@@ -48,16 +49,10 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className={`inset-x-0 m-auto mt-44 w-full`}>
-          <Button
-            disabled={!reg.test(nickname)}
-            onClick={() => {
-              if (!reg.test(nickname)) return;
-              router.push('/question');
-            }}
-          >
-            홀랑 테스트 하러 가기
-          </Button>
+        <div
+          className={`fixed inset-x-0 bottom-[2.8125rem]  m-auto w-[25.625rem]`}
+        >
+          <Button disabled={!reg.test(nickname)}>홀랑 테스트 하러 가기</Button>
         </div>
       </form>
     </div>
