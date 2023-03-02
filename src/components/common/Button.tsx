@@ -41,8 +41,8 @@ export default function Button({
           : 'bg-main-2 hover:bg-main-4 text-[1.125rem]';
       case 'detail':
         return isButtonClicked
-          ? 'bg-main-4 text-[1.125rem] rounded-[20px]'
-          : 'bg-sub-1 hover:bg-main-4 text-[1.125rem] rounded-[20px]';
+          ? 'bg-main-4 text-lg rounded-[1.25rem]'
+          : 'bg-sub-1 hover:bg-main-4 text-lg rounded-[1.25rem]';
       default:
         return '';
     }
