@@ -7,6 +7,7 @@ interface ButtonPropsType
   loading?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
   children?: React.ReactElement | string;
+  className?: string;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   loading = false,
   type = 'button',
   children,
+  className,
   ...props
 }: ButtonPropsType) {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -51,7 +53,7 @@ export default function Button({
       onClick={() => setIsButtonClicked(true)}
       type={type}
       disabled={isButtonClicked}
-      className={`flex w-full items-center justify-center rounded-[1.25rem] py-[1.25rem] font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed
+      className={`flex w-full items-center justify-center rounded-[1.25rem] py-[1.25rem] font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed ${className}
       ${setClassNameByProperty(property)}`}
       {...props}
     >
