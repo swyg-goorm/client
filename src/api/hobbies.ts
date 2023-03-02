@@ -1,4 +1,4 @@
-import { HobbyDataType } from './../../types/hobby';
+import { HobbyDataType } from '../types/hobby';
 import { baseInstance } from './instance';
 import { AxiosResponse } from 'axios';
 

@@ -9,7 +9,7 @@ import { useQuery } from 'react-query';
 import Model from '@components/result/Model';
 import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
-import { getRecommendation } from 'pages/api/getRecommendation';
+import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { HobbyType } from 'types/result';
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;

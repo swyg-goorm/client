@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MainCharacter from '@public/static/main_character.svg';
 import { useQuery } from 'react-query';
-import { getUserCount } from './api/getUserCount';
+import { getUserCount } from '../api/getUserCount';
 import { useRouter } from 'next/router';
 import Forward from '@public/static/forward.svg';
 
@@ -84,7 +84,7 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <MainCharacter />
-        <p className="text-[1.125rem]">당신은 1,324번쨰 홀랑과 함꼐해요</p>
+        <p className="text-[1.125rem]">당신은 1,324번쨰 홀랑과 함께해요</p>
       </div>
       <div
         ref={sliderRef}

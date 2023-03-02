@@ -7,7 +7,7 @@ import { Html } from '@react-three/drei';
 import Lights from './Lights';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
-import { getThree } from 'pages/api/getThree';
+import { getThree } from 'api/getThree';
 interface ModalProps {
   uri: string;
 }

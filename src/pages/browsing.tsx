@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { HobbyType } from 'types/hobby';
-import { getAllHobbies } from './api/hobbies';
+import { getAllHobbies } from '../api/hobbies';
 
 export default function browsing() {
   const { data: hobbyData, isSuccess } = useQuery(

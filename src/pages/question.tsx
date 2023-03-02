@@ -8,9 +8,9 @@ import {
   GetUserQuestionType,
   QuestionContentType,
 } from 'types/getUserQuestion';
-import { getUserQuestion, getUserResult } from './api/getUserQuestion';
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
+import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
