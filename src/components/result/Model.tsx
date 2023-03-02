@@ -7,7 +7,7 @@ import { Html } from '@react-three/drei';
 import Lights from './Lights';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
-import { getThree } from 'pages/api/getThree';
+import { getThree } from 'api/getThree';
 interface ModalProps {
   uri: string;
 }
@@ -35,7 +35,7 @@ export default function Model({ uri }: ModalProps) {
   }, [controlsRef, groupRef]);
 
   return (
-    <Canvas camera={{ position: [0, 0, 3] }}>
+    <Canvas camera={{ position: [0, 0, 3.5] }}>
       <Lights />
       <OrbitControls ref={controlsRef} />
       <directionalLight position={[-1, 0, 1]} intensity={0.5} />

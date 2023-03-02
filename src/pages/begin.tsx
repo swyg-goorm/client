@@ -49,9 +49,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div
-          className={`fixed inset-x-0 bottom-[2.8125rem]  m-auto w-[25.625rem]`}
-        >
+        <div className="inset-x-0 m-auto mt-44 w-full">
           <Button disabled={!reg.test(nickname)}>홀랑 테스트 하러 가기</Button>
         </div>
       </form>

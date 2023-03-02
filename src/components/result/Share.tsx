@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
-import Example from '@public/static/example.svg';
-import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
-import KakaoShare from '@components/share/KakaoShare';
+import KakaoShare from '@components/result/KakaoShare';
 import Image from 'next/image';
-import { FitHobbyType, HobbyType } from 'types/result';
+import { HobbyType } from 'types/result';
 
 interface ShareProps {
   hobbyType: HobbyType;
@@ -33,8 +31,8 @@ export default function Share({ hobbyType, userName }: ShareProps) {
         className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
         <Image
-          alt=""
-          src="/static/example.svg"
+          alt="hobby"
+          src={hobbyType.imageUrl}
           width={200}
           height={200}
           className="py-4"
@@ -55,7 +53,10 @@ export default function Share({ hobbyType, userName }: ShareProps) {
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div onClick={handleDownload} className="cursor-pointer">
+        <div
+          onClick={handleDownload}
+          className="mr-3 flex w-[2rem] cursor-pointer flex-col items-center"
+        >
           <Image
             alt="download"
             src="/static/download.svg"
@@ -64,7 +65,7 @@ export default function Share({ hobbyType, userName }: ShareProps) {
           />
           <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
         </div>
-        <div className="ml-5">
+        <div>
           <KakaoShare />
         </div>
       </section>
