@@ -16,10 +16,9 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 
 export default function Result() {
   const router = useRouter();
-  const [isFitHobby, setIsFitHobby] = useState<Boolean>(false);
   const [status, setStatus] = useState<string>('result');
   const id = router?.query.id ?? 0;
-  const { data, isLoading } = useQuery(
+  const { data } = useQuery(
     ['getRecommendation', id],
     () => getRecommendation(+id),
     {
@@ -69,7 +68,9 @@ export default function Result() {
             </Swiper>
           </section>
           <section className="mt-12 w-full ">
-            <p className="text-2xl text-main-4 ">나와 찰떡인 홀랑 유형</p>
+            <p className="text-2xl font-bold text-main-4">
+              나와 찰떡인 홀랑 유형
+            </p>
             <p className="mt-5">아래 버튼을 눌러 알아봐요!</p>
             <div className="mt-8 flex justify-center">
               <Image
@@ -88,6 +89,7 @@ export default function Result() {
                   onClick={() => {
                     setStatus('share');
                   }}
+                  className="rounded-[1.875rem]"
                 >
                   공유하기
                 </Button>
@@ -98,11 +100,12 @@ export default function Result() {
                   onClick={() => {
                     router.push('/');
                   }}
+                  className="rounded-[1.875rem]"
                 >
                   다시하기
                 </Button>
               </div>
-              <div className="h-[2.8125rem]"></div>
+              <div className="h-[2.8125rem]" />
             </div>
           </section>
         </div>

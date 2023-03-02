@@ -12,8 +12,9 @@ export default function Card({ hobby }: CardProps) {
   const router = useRouter();
   return (
     <div className="relative flex h-[20.5rem] w-[calc(100%-1rem)]  justify-center rounded-[1.875rem] border border-main-3 bg-main-1 ">
-      <div className="flex h-[15.625rem] flex-col justify-center gap-5">
+      <div className="flex h-[15.625rem] flex-col items-center justify-center gap-5">
         <ExampleHobby />
+        {/* 서버측에서 구현되면 주석 해제 */}
         {/* <Image alt="hobby" src={hobby.imageUrl} width={50} height={50} /> */}
         <p className="text-2xl text-gray-6">{hobby?.name}</p>
       </div>
