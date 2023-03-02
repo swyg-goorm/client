@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
-import Example from '@public/static/example.svg';
-import Download from '@public/static/download.svg';
 import * as htmlToImage from 'html-to-image';
-import KakaoShare from '@components/share/KakaoShare';
+import KakaoShare from '@components/result/KakaoShare';
 import Image from 'next/image';
-import { FitHobbyType, HobbyType } from 'types/result';
+import { HobbyType } from 'types/result';
 
 interface ShareProps {
   hobbyType: HobbyType;
@@ -14,6 +12,7 @@ interface ShareProps {
 
 export default function Share({ hobbyType, userName }: ShareProps) {
   const containerRef = useRef<any>(null);
+  console.log(hobbyType);
 
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
@@ -33,8 +32,8 @@ export default function Share({ hobbyType, userName }: ShareProps) {
         className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
         <Image
-          alt=""
-          src="/static/example.svg"
+          alt="hobby"
+          src={hobbyType.imageUrl}
           width={200}
           height={200}
           className="py-4"
