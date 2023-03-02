@@ -38,7 +38,7 @@ export default function Result() {
               </span>
               님의 홀랑 유형
             </p>
-            <div className="h-52">
+            <div className="h-52 w-full">
               {mbti && <Model uri={`./static/gltf/${mbti}.gltf`} />}
             </div>
             <p className="mt-4 text-2xl text-gray-7">
