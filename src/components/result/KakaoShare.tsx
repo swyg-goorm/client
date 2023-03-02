@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { shareKakao } from '@utils/shareKaKaoLink';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Image from 'next/image'
+import React, { useEffect } from 'react'
+import { shareKakao } from '@utils/shareKaKaoLink'
+import { useRouter } from 'next/router'
 
 export default function KakaoShare() {
   const router = useRouter();

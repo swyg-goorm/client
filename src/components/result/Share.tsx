@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import * as htmlToImage from 'html-to-image';
-import KakaoShare from '@components/result/KakaoShare';
-import Image from 'next/image';
-import { HobbyType } from 'types/result';
+import * as htmlToImage from 'html-to-image'
+import KakaoShare from '@components/result/KakaoShare'
+import Image from 'next/image'
+import React, { useRef } from 'react'
+import { HobbyType } from 'types/result'
 
 interface ShareProps {
   hobbyType: HobbyType;

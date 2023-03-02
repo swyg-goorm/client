@@ -1,8 +1,9 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import Button from '../common/Button';
-import Image from 'next/image';
-import { HobbyType } from 'types/result';
+import Image from 'next/image'
+import React from 'react'
+import { useRouter } from 'next/router'
+import { HobbyType } from 'types/result'
+
+import Button from '../common/Button'
 
 interface CardProps {
   hobby: HobbyType;
