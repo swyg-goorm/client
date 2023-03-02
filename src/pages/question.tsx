@@ -43,11 +43,13 @@ export default function question() {
   const handleClickQuestion = (clickedIndex: number) => {
     if (currentPage === MAX_PAGE) {
       const getData = async () => {
-        const data = await getUserResult([
-          ...questionArray,
-          { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
+        const data = await getUserResult(
+          [
+            ...questionArray,
+            { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
+          ],
           localStorage.getItem('nickname') as string,
-        ]);
+        );
         setUserRecommendation(data.data.data.recommendation.id);
         router.push('/loading');
       };
