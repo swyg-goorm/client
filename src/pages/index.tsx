@@ -10,7 +10,6 @@ export default function Home() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
-  console.log(data);
   useEffect(() => {
     setTimeout(() => {
       sliderRef.current?.scrollIntoView({
@@ -27,8 +26,6 @@ export default function Home() {
   const BUTTON_PADDING = 12;
   const PC_SPARE_VALUE = 50;
   const MOBILE_SPARE_VALUE = 25;
-
-  console.log(x);
 
   const handleMouseDown = (e: any) => {
     setIsDragging(true);
