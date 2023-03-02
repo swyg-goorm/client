@@ -40,19 +40,18 @@ export default function question() {
     }
   }, [data, isSuccess]);
 
-  useEffect(() => {
-    if (currentPage > MAX_PAGE) {
+  const handleClickQuestion = (clickedIndex: number) => {
+    if (currentPage === MAX_PAGE) {
       const getData = async () => {
-        console.log(questionArray);
-        const data = await getUserResult([...questionArray]);
+        const data = await getUserResult([
+          ...questionArray,
+          { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
+        ]);
         setUserRecommendation(data.data.data.recommendation.id);
         router.push('loading');
       };
-      getData();
+      return getData();
     }
-  }, [currentPage]);
-
-  const handleClickQuestion = (clickedIndex: number) => {
     setQuestionArray([
       ...questionArray,
       { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
