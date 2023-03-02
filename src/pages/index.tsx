@@ -1,10 +1,10 @@
-import Forward from '@public/static/forward.svg';
-import MainCharacter from '@public/static/main_character.svg';
-import React, { useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
-import { useRouter } from 'next/router';
+import Forward from '@public/static/forward.svg'
+import MainCharacter from '@public/static/main_character.svg'
+import React, { useEffect, useRef, useState } from 'react'
+import { useQuery } from 'react-query'
+import { useRouter } from 'next/router'
 
-import { getUserCount } from '../api/getUserCount';
+import { getUserCount } from '../api/getUserCount'
 
 export default function Home() {
   const TAPBAR_HEIGHT = 84;

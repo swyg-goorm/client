@@ -1,8 +1,8 @@
-import Button from '@components/common/Button';
-import Input from '@components/common/Input';
-import Modal from '@components/common/Modal';
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Button from '@components/common/Button'
+import Input from '@components/common/Input'
+import Modal from '@components/common/Modal'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const reg = /[가-힣]{1,3}$/;
 
