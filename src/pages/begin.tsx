@@ -26,15 +26,17 @@ export default function Begin() {
     localStorage.setItem('nickname', nickname);
     router.push('/question');
   };
-  const setProperty = () => {
-    if (!!innerWidth) {
-      if (innerWidth < 450) {
-        return innerWidth - 40 + 'px';
-      } else {
-        return 410 + 'px';
-      }
-    }
-  };
+
+  // useEffect(() => {
+  //   const handleWindowResize = () => {
+  //     setInnerWidth(window.innerWidth);
+  //   };
+  //   window.addEventListener('resize', handleWindowResize);
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowResize);
+  //   };
+  // });
+
   return (
     <div>
       {modal && (
@@ -64,7 +66,11 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className={`fixed  bottom-0 m-auto  w-[${setProperty()}] `}>
+        <div
+          className={`fixed bottom-[45px] m-auto w-[${
+            innerWidth > 450 ? 410 : 360
+          }px]`}
+        >
           <Button
             onClick={handleClickButton}
             type="submit"
