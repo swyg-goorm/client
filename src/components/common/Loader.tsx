@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.gif`;
 
 export default function Loader() {
-  let nickname;
-  if (typeof window !== 'undefined') {
-    nickname = localStorage.getItem('nickname');
-  }
+  const [nickname, setNickname] = useState<string>();
+  useEffect(() => {
+    setNickname(localStorage.getItem('nickname') || '');
+  }, []);
+
   return (
     <div className="flex h-[48rem] flex-col items-center justify-center">
       <Image alt="loading" src={LOADING_IMAGE_SRC} width={300} height={300} />
