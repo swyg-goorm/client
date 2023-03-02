@@ -10,6 +10,7 @@ export default function Home() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
+  console.log(data);
   useEffect(() => {
     setTimeout(() => {
       sliderRef.current?.scrollIntoView({
@@ -107,7 +108,9 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <MainCharacter />
-        <p className="text-[1.125rem]">당신은 1,324번쨰 홀랑과 함께해요</p>
+        <p className="text-[1.125rem]">
+          당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요
+        </p>
       </div>
       <div
         ref={sliderRef}
