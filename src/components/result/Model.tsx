@@ -2,21 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Object3D } from 'three';
 import { Html } from '@react-three/drei';
 import Lights from './Lights';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getThree } from 'api/getThree';
+import { Object3D } from 'three';
 interface ModalProps {
+  model: Object3D | null;
+  setModel: (any) => void;
   uri: string;
 }
 
-export default function Model({ uri }: ModalProps) {
+export default function Model({ uri, model, setModel }: ModalProps) {
   const router = useRouter();
   const controlsRef = useRef<any>(null);
   const groupRef = useRef<any>({ rotation: { x: 0, y: 0, z: 0 } });
-  const [model, setModel] = useState<Object3D | null>(null);
   useEffect(() => {
     const loader = new GLTFLoader();
     loader.load(uri, async (gltf: any) => {

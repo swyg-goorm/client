@@ -1,8 +1,8 @@
+import Button from '@components/common/Button';
+import Input from '@components/common/Input';
+import Modal from '@components/common/Modal';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Input from '@components/common/Input';
-import Button from '@components/common/Button';
-import Modal from '@components/common/Modal';
 
 const reg = /[가-힣]{1,3}$/;
 
@@ -26,16 +26,6 @@ export default function Begin() {
     localStorage.setItem('nickname', nickname);
     router.push('/question');
   };
-
-  // useEffect(() => {
-  //   const handleWindowResize = () => {
-  //     setInnerWidth(window.innerWidth);
-  //   };
-  //   window.addEventListener('resize', handleWindowResize);
-  //   return () => {
-  //     window.removeEventListener('resize', handleWindowResize);
-  //   };
-  // });
 
   return (
     <div>

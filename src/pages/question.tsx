@@ -1,16 +1,13 @@
-import Button from '@components/common/Button';
-import ProgressBar from '@components/common/ProgressBar';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
-import {
-  GetUserQuestionType,
-  QuestionContentType,
-} from 'types/getUserQuestion';
-import { useSetRecoilState } from 'recoil';
-import { UserRecommendation } from 'store/atom';
-import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
+import Button from '@components/common/Button'
+import ProgressBar from '@components/common/ProgressBar'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { useQuery } from 'react-query'
+import { GetUserQuestionType, QuestionContentType } from 'types/getUserQuestion'
+import { useSetRecoilState } from 'recoil'
+import { UserRecommendation } from 'store/atom'
+import { getUserQuestion, getUserResult } from 'api/getUserQuestion'
 
 interface QuestionDataType {
   answers: QuestionContentType[];
