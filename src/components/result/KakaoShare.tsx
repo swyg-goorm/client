@@ -24,7 +24,7 @@ export default function KakaoShare() {
       onClick={() => {
         shareKakao(router.asPath);
       }}
-      className="w-[20.625rem] cursor-pointer"
+      className="w-[25.625rem] cursor-pointer"
     />
   );
 }

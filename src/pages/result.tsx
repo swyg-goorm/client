@@ -26,7 +26,7 @@ export default function Result() {
     },
   );
   const recommendation = data?.data?.data?.recommendation;
-  const mbti = recommendation?.fitHobbyTypes[0].imageUrl.slice(55, 59);
+  const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
   return (
     <div className="text-center">
       {status === 'result' && (
@@ -45,7 +45,7 @@ export default function Result() {
               {recommendation?.hobbyType.name}
             </p>
             <IconTurn className="my-2" />
-            <span className=" text-gray-5 ">회전하면 돌아가요!</span>
+            <span className=" text-[1rem] text-gray-5">회전하면 돌아가요!</span>
             <p className="mt-8 w-[17.1875rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
               {recommendation?.hobbyType.description}
             </p>
@@ -68,11 +68,11 @@ export default function Result() {
               ))}
             </Swiper>
           </section>
-          <section className="mt-12 w-full ">
+          <section className="mt-12 w-full">
             <p className="text-2xl font-bold text-main-4">
               나와 찰떡인 홀랑 유형
             </p>
-            <p className="mt-5">아래 버튼을 눌러 알아봐요!</p>
+            <p className="mt-5 text-[1.125rem]">아래 버튼을 눌러 알아봐요!</p>
             <div className="mt-8 flex justify-center">
               <Image
                 alt="fit-hobby-type"
