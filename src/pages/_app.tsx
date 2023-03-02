@@ -1,13 +1,14 @@
-import '../styles/globals.css';
-import { RecoilRoot } from 'recoil';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import Layout from '@components/common/layout';
-import { Suspense, useEffect, useState } from 'react';
-import Loader from '@components/common/Loader';
-import { Router } from 'next/router';
+import '../styles/globals.css'
 
+import Layout from '@components/common/layout'
+import Loader from '@components/common/Loader'
+import Head from 'next/head'
+import { RecoilRoot } from 'recoil'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Suspense, useEffect, useState } from 'react'
+import { Router } from 'next/router'
+
+import type { AppProps } from 'next/app';
 const client = new QueryClient({
   defaultOptions: {
     queries: {

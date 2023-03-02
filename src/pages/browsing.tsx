@@ -1,12 +1,14 @@
-import Button from '@components/common/Button';
-import Top20List from '@components/common/Top20List';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { useQuery } from 'react-query';
-import { HobbyType } from 'types/hobby';
-import { getAllHobbies } from '../api/hobbies';
+import Button from '@components/common/Button'
+import TopBar from '@components/common/TopBar'
+import Image from 'next/image'
+import React from 'react'
+import { useRouter } from 'next/router'
+import { useQuery } from 'react-query'
+import { HobbyType } from 'types/hobby'
 
+import { getAllHobbies } from '../api/hobbies'
+
+import Top20List from '@components/common/Top20List';
 export default function browsing() {
   const { data: hobbyData, isSuccess } = useQuery(
     'getAllHobbies',
@@ -16,6 +18,7 @@ export default function browsing() {
 
   return (
     <div className="relative h-[calc(100vh-84px)] py-6">
+      <TopBar isBackButton />
       <p className="mb-5 text-center text-2xl font-normal text-main-4">
         TOP 20 홀랑 목록
       </p>

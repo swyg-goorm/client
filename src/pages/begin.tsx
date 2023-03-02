@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Input from '@components/common/Input';
-import Button from '@components/common/Button';
-import Modal from '@components/common/Modal';
+import Button from '@components/common/Button'
+import Input from '@components/common/Input'
+import Modal from '@components/common/Modal'
+import TopBar from '@components/common/TopBar'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const reg = /[가-힣]{1,3}$/;
 
@@ -13,6 +14,10 @@ export default function Begin() {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+  const [innerWidth, setInnerWidth] = useState<number>(0);
+  useEffect(() => {
+    setInnerWidth(window.innerWidth);
+  }, []);
 
   const handleClickButton = () => {
     if (!reg.test(nickname)) return;
@@ -25,6 +30,7 @@ export default function Begin() {
 
   return (
     <div>
+      <TopBar isBackButton />
       {modal && (
         <Modal
           message="닉네임을 입력해주세요"
@@ -52,7 +58,11 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className="inset-x-0 m-auto mt-44 w-full">
+        <div
+          className={`fixed bottom-[45px] m-auto w-[${
+            innerWidth > 450 ? 410 : 360
+          }px]`}
+        >
           <Button
             onClick={handleClickButton}
             type="submit"
