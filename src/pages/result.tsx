@@ -39,7 +39,7 @@ export default function Result() {
   return (
     <div className="text-center">
       {isLoading && <Loader />}
-      {status === 'result' && (
+      {!isLoading && status === 'result' && (
         <div>
           <section className="mt-6 flex flex-col items-center">
             <p className="text-2xl text-main-4">
