@@ -1,6 +1,7 @@
 import Button from '@components/common/Button'
 import Input from '@components/common/Input'
 import Modal from '@components/common/Modal'
+import TopBar from '@components/common/TopBar'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -29,6 +30,7 @@ export default function Begin() {
 
   return (
     <div>
+      <TopBar isBackButton />
       {modal && (
         <Modal
           message="닉네임을 입력해주세요"

@@ -1,5 +1,6 @@
 import Button from '@components/common/Button'
 import ProgressBar from '@components/common/ProgressBar'
+import TopBar from '@components/common/TopBar'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -62,6 +63,8 @@ export default function question() {
   return (
     isSuccess && (
       <div className="pb-[3rem]">
+        <TopBar isBackButton />
+
         <section className="mb-[1.75rem] flex flex-col items-center">
           <ProgressBar order={currentPage}></ProgressBar>
           <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>

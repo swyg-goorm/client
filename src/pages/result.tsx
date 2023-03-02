@@ -2,6 +2,7 @@ import 'swiper/css'
 
 import Button from '@components/common/Button'
 import Loader from '@components/common/Loader'
+import TopBar from '@components/common/TopBar'
 import Card from '@components/result/Card'
 import FitHobby from '@components/result/FitHobby'
 import Model from '@components/result/Model'
@@ -42,6 +43,15 @@ export default function Result() {
 
   return (
     <div className="text-center">
+      <TopBar
+        isBackButton
+        mainMessage="result"
+        onBackButton={() => {
+          if (status !== 'result') setStatus('result');
+          else router.back();
+        }}
+      />
+
       {(isLoading || !model) && <Loader />}
       <div
         className={`${
@@ -121,9 +131,7 @@ export default function Result() {
             <div className="mt-4">
               <Button
                 property="secondary"
-                onClick={() => {
-                  router.push('/');
-                }}
+                onClick={() => router.push('/')}
                 className="rounded-[1.875rem]"
               >
                 다시하기

@@ -1,3 +1,4 @@
+import TopBar from '@components/common/TopBar'
 import Forward from '@public/static/forward.svg'
 import MainCharacter from '@public/static/main_character.svg'
 import React, { useEffect, useRef, useState } from 'react'
@@ -11,6 +12,12 @@ export default function Home() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
+  useEffect(() => {
+    sliderRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       sliderRef.current?.scrollIntoView({
@@ -103,6 +110,7 @@ export default function Home() {
 
   return (
     <div className="h-full">
+      <TopBar />
       <div
         style={{ height: `calc(100% - ${TAPBAR_HEIGHT * 2}px)` }}
         className={`flex flex-col items-center justify-center`}

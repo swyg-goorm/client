@@ -1,4 +1,5 @@
 import Button from '@components/common/Button'
+import TopBar from '@components/common/TopBar'
 import Image from 'next/image'
 import React from 'react'
 import { useRouter } from 'next/router'
@@ -17,6 +18,7 @@ export default function browsing() {
 
   return (
     <div className="relative h-[calc(100vh-84px)] py-6">
+      <TopBar isBackButton />
       <p className="mb-5 text-center text-2xl font-normal text-main-4">
         TOP 20 홀랑 목록
       </p>
