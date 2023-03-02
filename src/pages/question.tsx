@@ -43,10 +43,12 @@ export default function question() {
   useEffect(() => {
     if (currentPage > MAX_PAGE) {
       const getData = async () => {
-        console.log(questionArray);
-        const data = await getUserResult([...questionArray]);
+        const data = await getUserResult(
+          [...questionArray],
+          localStorage.getItem('nickname') as string,
+        );
         setUserRecommendation(data.data.data.recommendation.id);
-        router.push('loading');
+        router.push('/loading');
       };
       getData();
     }
