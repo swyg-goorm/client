@@ -1,5 +1,6 @@
-import React from 'react';
-import TopBar from './TopBar';
+import React from 'react'
+
+import TopBar from './TopBar'
 
 interface LayoutProps {
   children?: React.ReactNode;

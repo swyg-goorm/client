@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+
 const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.gif`;
 
 export default function Loader() {

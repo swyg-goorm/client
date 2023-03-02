@@ -1,6 +1,6 @@
-import React from 'react';
-import Back from '@public/static/back.svg';
-import MainLogo from '@public/static/main_logo.svg';
+import Back from '@public/static/back.svg'
+import MainLogo from '@public/static/main_logo.svg'
+import React from 'react'
 
 interface ITopBar {
   isBackButton?: boolean;
