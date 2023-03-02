@@ -24,6 +24,10 @@ export default function Home() {
   const LAYOUT_PADDING = 20;
   const TOUCH_BUTTON_SIZE = 80;
   const BUTTON_PADDING = 12;
+  const PC_SPARE_VALUE = 50;
+  const MOBILE_SPARE_VALUE = 25;
+
+  console.log(x);
 
   const handleMouseDown = (e: any) => {
     setIsDragging(true);
@@ -33,6 +37,16 @@ export default function Home() {
   const handleMouseMove = (e: any) => {
     if (isDragging) {
       if (e.touches) {
+        if (
+          x >
+          window.innerWidth -
+            LAYOUT_PADDING * 2 -
+            TOUCH_BUTTON_SIZE -
+            BUTTON_PADDING * 2 -
+            MOBILE_SPARE_VALUE
+        ) {
+          return;
+        }
         return setX(
           e.touches[0].clientX -
             LAYOUT_PADDING -
@@ -40,14 +54,23 @@ export default function Home() {
             BUTTON_PADDING,
         );
       }
+      if (
+        x >
+        window.innerWidth / 2 +
+          225 -
+          LAYOUT_PADDING -
+          TOUCH_BUTTON_SIZE / 2 -
+          BUTTON_PADDING -
+          PC_SPARE_VALUE
+      ) {
+        return;
+      }
       setX(e.clientX);
     }
   };
 
   const handleMouseUp = (e: any) => {
     setIsDragging(false);
-    const PC_SPARE_VALUE = 30;
-    const MOBILE_SPARE_VALUE = 15;
     if (e.touches) {
       if (
         x >
