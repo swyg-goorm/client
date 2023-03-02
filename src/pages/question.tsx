@@ -49,7 +49,7 @@ export default function question() {
           localStorage.getItem('nickname') as string,
         );
         setUserRecommendation(data.data.data.recommendation.id);
-        router.push('/loading');
+        router.push(`/result?id=${data.data.data.recommendation.id}`);
       };
       return getData();
     }
@@ -66,7 +66,7 @@ export default function question() {
         <TopBar isBackButton />
 
         <section className="mb-[1.75rem] flex flex-col items-center">
-          <ProgressBar order={currentPage}></ProgressBar>
+          <ProgressBar order={currentPage} />
           <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
@@ -77,7 +77,7 @@ export default function question() {
               width={450}
               height={450}
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
-            ></Image>
+            />
             <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
               {questionData?.data.test.questions[currentPage - 1].content}
             </p>
