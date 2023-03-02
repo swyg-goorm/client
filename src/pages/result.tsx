@@ -26,6 +26,7 @@ export default function Result() {
     },
   );
   const recommendation = data?.data?.data?.recommendation;
+  const mbti = recommendation?.fitHobbyTypes[0].imageUrl.slice(55, 59);
   return (
     <div className="text-center">
       {status === 'result' && (
@@ -38,7 +39,7 @@ export default function Result() {
               님의 홀랑 유형
             </p>
             <div className="h-52">
-              <Model uri="./static/gltf/ENFJ.gltf" />
+              {mbti && <Model uri={`./static/gltf/${mbti}.gltf`} />}
             </div>
             <p className="mt-4 text-2xl text-gray-7">
               {recommendation?.hobbyType.name}

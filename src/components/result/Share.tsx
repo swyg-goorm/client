@@ -12,7 +12,6 @@ interface ShareProps {
 
 export default function Share({ hobbyType, userName }: ShareProps) {
   const containerRef = useRef<any>(null);
-  console.log(hobbyType);
 
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
