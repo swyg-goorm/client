@@ -12,6 +12,9 @@ export default function Begin() {
   const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  const handleClickButton = () => {
     if (!reg.test(nickname)) return;
     if (nickname === '') {
       setModal(true);
@@ -44,13 +47,19 @@ export default function Begin() {
             setNickname={setNickname}
           />
           {!reg.test(nickname) && nickname.length > 0 && (
-            <span className="mt-2 ml-5 block text-warning">
+            <span className="mt-2 ml-5 block text-[1rem] text-warning">
               한글로 세글자 이내까지 입력가능해요
             </span>
           )}
         </div>
         <div className="inset-x-0 m-auto mt-44 w-full">
-          <Button disabled={!reg.test(nickname)}>홀랑 테스트 하러 가기</Button>
+          <Button
+            onClick={handleClickButton}
+            type="submit"
+            disabled={!reg.test(nickname)}
+          >
+            홀랑 테스트 하러 가기
+          </Button>
         </div>
       </form>
     </div>
