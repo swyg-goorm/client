@@ -1,18 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { Html } from '@react-three/drei'
-import { useRouter } from 'next/router'
-import { useQuery } from 'react-query'
-import { getThree } from 'api/getThree'
-import { Object3D } from 'three'
+import React, { useEffect, useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Html } from '@react-three/drei';
+import { useRouter } from 'next/router';
+import { Object3D } from 'three';
 
-import Lights from './Lights'
+import Lights from './Lights';
 
 interface ModalProps {
   model: Object3D | null;
-  setModel: (any) => void;
+  setModel: (scene: any) => void;
   uri: string;
 }
 
