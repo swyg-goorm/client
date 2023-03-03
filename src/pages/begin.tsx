@@ -1,9 +1,9 @@
-import Button from '@components/common/Button'
-import Input from '@components/common/Input'
-import Modal from '@components/common/Modal'
-import TopBar from '@components/common/TopBar'
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import Button from '@components/common/Button';
+import Input from '@components/common/Input';
+import Modal from '@components/common/Modal';
+import TopBar from '@components/common/TopBar';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const reg = /[가-힣]{1,3}$/;
 
@@ -29,7 +29,7 @@ export default function Begin() {
   };
 
   return (
-    <div>
+    <div className="relative h-full">
       <TopBar isBackButton />
       {modal && (
         <Modal
@@ -45,7 +45,7 @@ export default function Begin() {
           인공지능이 홀랑 빠질 취미로 안내할거에요
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="relative">
+      <form onSubmit={handleSubmit}>
         <div className="mt-64">
           <Input
             nickname={nickname}
@@ -59,9 +59,7 @@ export default function Begin() {
           )}
         </div>
         <div
-          className={`fixed bottom-[45px] m-auto w-[${
-            innerWidth > 450 ? 410 : 360
-          }px]`}
+          className={`absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]`}
         >
           <Button
             onClick={handleClickButton}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 interface ButtonPropsType
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -53,7 +53,7 @@ export default function Button({
       onClick={() => setIsButtonClicked(true)}
       type={type}
       disabled={isButtonClicked}
-      className={`flex w-full items-center justify-center rounded-[1.25rem] py-[1.25rem] font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed ${className}
+      className={`flex w-full items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 duration-150 ease-in disabled:cursor-not-allowed ${className}
       ${setClassNameByProperty(property)}`}
       {...props}
     >
