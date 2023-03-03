@@ -16,9 +16,11 @@ export default function Share({ hobbyType, userName }: ShareProps) {
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
     const link = document.createElement('a');
-    link.download = 'html-to-img.png';
+    link.download = 'hollang-hobby.png';
     link.href = dataUrl;
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
   return (
     <div className="flex flex-col items-center px-[0.9375rem] text-center">
