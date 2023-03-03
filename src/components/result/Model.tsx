@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { Html, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Html } from '@react-three/drei';
 import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 import { Object3D } from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import Lights from './Lights';
 

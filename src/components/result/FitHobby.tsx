@@ -1,7 +1,6 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
-import { FitHobbyType } from 'types/result'
+import Image from 'next/image';
+import { useState } from 'react';
+import { FitHobbyType } from 'types/result';
 
 interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
