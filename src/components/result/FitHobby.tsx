@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
-import { FitHobbyType } from 'types/result'
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { FitHobbyType } from 'types/result';
 
 interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
@@ -35,7 +35,7 @@ export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
                 }}
               />
             </div>
-            <span className="py-3">{index + 1}위</span>
+            <span className="py-3 text-[1rem]">{index + 1}위</span>
           </div>
         ))}
       </section>

@@ -1,27 +1,26 @@
-import 'swiper/css'
+import 'swiper/css';
 
-import Button from '@components/common/Button'
-import Loader from '@components/common/Loader'
-import TopBar from '@components/common/TopBar'
-import Card from '@components/result/Card'
-import FitHobby from '@components/result/FitHobby'
-import Model from '@components/result/Model'
-import Share from '@components/result/Share'
-import IconTurn from '@public/static/icon_turn.svg'
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { useQuery } from 'react-query'
-import { getRecommendation } from 'api/getRecommendation'
-import { HobbyType } from 'types/result'
-import { Object3D } from 'three'
+import Button from '@components/common/Button';
+import Loader from '@components/common/Loader';
+import TopBar from '@components/common/TopBar';
+import Card from '@components/result/Card';
+import FitHobby from '@components/result/FitHobby';
+import Model from '@components/result/Model';
+import Share from '@components/result/Share';
+import IconTurn from '@public/static/icon_turn.svg';
+import Image from 'next/image';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useQuery } from 'react-query';
+import { getRecommendation } from 'api/getRecommendation';
+import { HobbyType } from 'types/result';
+import { Object3D } from 'three';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
-  const [status, setStatus] = useState<string>('result');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [model, setModel] = useState<Object3D | null>(null);
   const id = router?.query.id ?? 0;
@@ -41,23 +40,24 @@ export default function Result() {
     }, 2000);
   }, []);
 
+  const view = useMemo(() => {
+    return router.query.view !== undefined ? router.query.view : '';
+  }, [router.query]);
+
   return (
     <div className="text-center">
       <TopBar
         isBackButton
         mainMessage="result"
         onBackButton={() => {
-          if (status !== 'result') setStatus('result');
+          if (view !== '')
+            router.push({ pathname: 'result', query: { id: id } });
           else router.back();
         }}
       />
 
       {(isLoading || !model) && <Loader />}
-      <div
-        className={`${
-          (isLoading || !model || status !== 'result') && 'hidden'
-        }`}
-      >
+      <div className={`${(isLoading || !model || view !== '') && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
@@ -113,7 +113,10 @@ export default function Result() {
               width={100}
               height={100}
               onClick={() => {
-                setStatus('fitHobby');
+                router.push({
+                  pathname: 'result',
+                  query: { id: id, view: 'fitHobby' },
+                });
               }}
             />
           </div>
@@ -121,7 +124,10 @@ export default function Result() {
             <div>
               <Button
                 onClick={() => {
-                  setStatus('share');
+                  router.push({
+                    pathname: 'result',
+                    query: { id: id, view: 'share' },
+                  });
                 }}
                 className="rounded-[1.875rem]"
               >
@@ -141,10 +147,10 @@ export default function Result() {
           </div>
         </section>
       </div>
-      {status === 'fitHobby' && recommendation && (
+      {!isLoading && model && view === 'fitHobby' && recommendation && (
         <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
       )}
-      {status === 'share' && recommendation && (
+      {!isLoading && model && view === 'share' && recommendation && (
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}

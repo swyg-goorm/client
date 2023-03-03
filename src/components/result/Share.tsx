@@ -1,8 +1,8 @@
-import * as htmlToImage from 'html-to-image'
-import KakaoShare from '@components/result/KakaoShare'
-import Image from 'next/image'
-import React, { useRef } from 'react'
-import { HobbyType } from 'types/result'
+import * as htmlToImage from 'html-to-image';
+import KakaoShare from '@components/result/KakaoShare';
+import Image from 'next/image';
+import React, { useRef } from 'react';
+import { HobbyType } from 'types/result';
 
 interface ShareProps {
   hobbyType: HobbyType;
@@ -16,9 +16,11 @@ export default function Share({ hobbyType, userName }: ShareProps) {
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
     const link = document.createElement('a');
-    link.download = 'html-to-img.png';
+    link.download = 'hollang-hobby.png';
     link.href = dataUrl;
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
   return (
     <div className="flex flex-col items-center px-[0.9375rem] text-center">
@@ -33,8 +35,8 @@ export default function Share({ hobbyType, userName }: ShareProps) {
         <Image
           alt="hobby"
           src={hobbyType.imageUrl}
-          width={200}
-          height={200}
+          width={150}
+          height={150}
           className="py-4"
         />
         <p className="mt-[1rem] text-[1.5rem] text-main-4">{hobbyType.name}</p>
@@ -55,7 +57,7 @@ export default function Share({ hobbyType, userName }: ShareProps) {
       <section className="mt-[1.3125rem] flex w-full text-gray-7">
         <div
           onClick={handleDownload}
-          className="mr-5 flex w-[2rem] cursor-pointer flex-col items-center"
+          className="mr-5 flex w-[3rem] cursor-pointer flex-col items-center"
         >
           <Image
             alt="download"
