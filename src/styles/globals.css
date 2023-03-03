@@ -98,10 +98,18 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 84.4%;
+  font-size: 1.77vh;
   vertical-align: baseline;
   text-decoration: none;
   white-space: pre-line;
+}
+/* state, localStorage에 저장 */
+
+/* 질문페이지 > 로딩 화면 preload */
+@media (min-width: 450px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 /* HTML5 display-role reset for older browsers */

@@ -79,7 +79,7 @@ export default function Result() {
           </p>
           <IconTurn className="my-2" />
           <span className=" text-[1rem] text-gray-5">회전하면 돌아가요!</span>
-          <p className="mt-8 w-[17.1875rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
+          <p className="mt-8 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
         </section>
@@ -154,6 +154,7 @@ export default function Result() {
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
+          hobbies={recommendation.hobbies}
         />
       )}
     </div>

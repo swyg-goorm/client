@@ -7,11 +7,13 @@ import { HobbyType } from 'types/result';
 interface ShareProps {
   hobbyType: HobbyType;
   userName: string;
+  hobbies: HobbyType[];
   [key: string]: any;
 }
 
-export default function Share({ hobbyType, userName }: ShareProps) {
+export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
   const containerRef = useRef<any>(null);
+  console.log(hobbies);
 
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
@@ -48,10 +50,10 @@ export default function Share({ hobbyType, userName }: ShareProps) {
           <span className="text-[1.5rem] text-main-3">{userName}</span>님과 잘
           맞는 취미
         </p>
-        <article className="bg-between my-[1.5rem] flex w-[15rem] justify-between">
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
-          <div className="h-[3.0625rem] w-[3.0625rem] rounded-full bg-gray-4" />
+        <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
+          {hobbies.map((hobby) => (
+            <Image alt="hobby" src={hobby.imageUrl} width={50} height={50} />
+          ))}
         </article>
       </div>
       <section className="mt-[1.3125rem] flex w-full text-gray-7">

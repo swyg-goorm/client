@@ -31,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
         return `max-w-[${window.innerWidth / 16}rem]`;
       }
     }
-    return 'max-w-[28.125rem]';
+    return 'max-w-[390px]';
   };
 
   return (
