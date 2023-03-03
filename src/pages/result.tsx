@@ -147,10 +147,10 @@ export default function Result() {
           </div>
         </section>
       </div>
-      {view === 'fitHobby' && recommendation && (
+      {!isLoading && model && view === 'fitHobby' && recommendation && (
         <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
       )}
-      {view === 'share' && recommendation && (
+      {!isLoading && model && view === 'share' && recommendation && (
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
