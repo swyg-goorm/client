@@ -51,7 +51,7 @@ export default function Result() {
         mainMessage="result"
         onBackButton={() => {
           if (view !== '')
-            router.push({ pathname: 'result', query: id + 'view=result' });
+            router.push({ pathname: 'result', query: { id: id } });
           else router.back();
         }}
       />
@@ -115,7 +115,7 @@ export default function Result() {
               onClick={() => {
                 router.push({
                   pathname: 'result',
-                  query: 'id=' + id + '&view=fitHobby',
+                  query: { id: id, view: 'fitHobby' },
                 });
               }}
             />
@@ -126,7 +126,7 @@ export default function Result() {
                 onClick={() => {
                   router.push({
                     pathname: 'result',
-                    query: 'id=' + id + '&view=share',
+                    query: { id: id, view: 'share' },
                   });
                 }}
                 className="rounded-[1.875rem]"
