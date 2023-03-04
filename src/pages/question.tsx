@@ -1,14 +1,17 @@
-import Button from '@components/common/Button'
-import ProgressBar from '@components/common/ProgressBar'
-import TopBar from '@components/common/TopBar'
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useQuery } from 'react-query'
-import { GetUserQuestionType, QuestionContentType } from 'types/getUserQuestion'
-import { useSetRecoilState } from 'recoil'
-import { UserRecommendation } from 'store/atom'
-import { getUserQuestion, getUserResult } from 'api/getUserQuestion'
+import Button from '@components/common/Button';
+import ProgressBar from '@components/common/ProgressBar';
+import TopBar from '@components/common/TopBar';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useQuery } from 'react-query';
+import {
+  GetUserQuestionType,
+  QuestionContentType,
+} from 'types/getUserQuestion';
+import { useSetRecoilState } from 'recoil';
+import { UserRecommendation } from 'store/atom';
+import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -63,16 +66,17 @@ export default function question() {
   return (
     isSuccess && (
       <div className="pb-[3rem]">
-        <TopBar isBackButton />
-
-        <section className="mb-[1.75rem] flex flex-col items-center">
+        <div className="px-4">
+          <TopBar isBackButton />
+        </div>
+        <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
           <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
           <section className="flex flex-col items-center ">
             <Image
-              className="mb-[2rem] rounded-[1.25rem]"
+              className="mb-[2rem] rounded-[1.25rem]  px-4"
               alt="image that explain Question"
               width={450}
               height={450}

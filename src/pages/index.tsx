@@ -1,15 +1,16 @@
-import TopBar from '@components/common/TopBar'
-import Forward from '@public/static/forward.svg'
-import MainCharacter from '@public/static/main_character.svg'
-import React, { useEffect, useRef, useState } from 'react'
-import { useQuery } from 'react-query'
-import { useRouter } from 'next/router'
+import TopBar from '@components/common/TopBar';
+import Forward from '@public/static/forward.svg';
+import MainCharacter from '@public/static/main_character.svg';
+import React, { useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
+import { useRouter } from 'next/router';
 
-import { getUserCount } from '../api/getUserCount'
+import { getUserCount } from '../api/getUserCount';
 
 export default function Home() {
   const TAPBAR_HEIGHT = 84;
   const sliderRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
   useEffect(() => {
@@ -107,7 +108,7 @@ export default function Home() {
   };
 
   return (
-    <div className="h-full">
+    <div ref={containerRef} className="h-full">
       <TopBar />
       <div
         style={{ height: `calc(100% - ${TAPBAR_HEIGHT * 2}px)` }}
@@ -141,9 +142,12 @@ export default function Home() {
           <button
             style={{
               transform: `translateX(${
-                x > 0
-                  ? window.innerHeight >= 450
-                    ? x - window.innerWidth / 2 + 225 - 25
+                containerRef.current?.clientWidth !== undefined && x > 0
+                  ? window.innerHeight >= containerRef.current?.clientWidth
+                    ? x -
+                      window.innerWidth / 2 +
+                      containerRef.current?.clientWidth / 2 -
+                      25
                     : x
                   : 0
               }px)`,

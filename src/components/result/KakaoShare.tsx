@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import React, { useEffect } from 'react'
-import { shareKakao } from '@utils/shareKaKaoLink'
-import { useRouter } from 'next/router'
+import Image from 'next/image';
+import React, { useEffect } from 'react';
+import { shareKakao } from '@utils/shareKaKaoLink';
+import { useRouter } from 'next/router';
 
 export default function KakaoShare() {
   const router = useRouter();
@@ -20,11 +20,11 @@ export default function KakaoShare() {
       alt="share_kakaotalk"
       src="/static/share_kakaotalk.svg"
       width={100}
-      height="100"
+      height={100}
       onClick={() => {
         shareKakao(router.asPath);
       }}
-      className="w-[25.625rem] cursor-pointer"
+      className="w-[20.625rem] cursor-pointer"
     />
   );
 }
