@@ -46,7 +46,7 @@ export default function Begin() {
         </p>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="mt-64">
+        <div className="mt-64 mb-[11.875rem]">
           <Input
             nickname={nickname}
             placeholder="닉네임을 세글자 이내로 입력해주세요"
@@ -58,9 +58,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div
-          className={`absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]`}
-        >
+        <div className={`w-[full]`}>
           <Button
             onClick={handleClickButton}
             type="submit"
