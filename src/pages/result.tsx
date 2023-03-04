@@ -21,7 +21,7 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [model, setModel] = useState<Object3D | null>(null);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
@@ -34,11 +34,11 @@ export default function Result() {
   const recommendation = data?.data?.data?.recommendation;
   const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 2000);
+  // }, []);
 
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
