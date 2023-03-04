@@ -34,12 +34,6 @@ export default function Result() {
   const recommendation = data?.data?.data?.recommendation;
   const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000);
-  // }, []);
-
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
