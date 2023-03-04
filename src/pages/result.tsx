@@ -46,18 +46,17 @@ export default function Result() {
 
   return (
     <div className="text-center">
-      {!isLoading ||
-        (model && (
-          <TopBar
-            isBackButton
-            mainMessage="result"
-            onBackButton={() => {
-              if (view !== '')
-                router.push({ pathname: 'result', query: { id: id } });
-              else router.back();
-            }}
-          />
-        ))}
+      {!isLoading && model && (
+        <TopBar
+          isBackButton
+          mainMessage={view === '' ? 'result' : 'main'}
+          onBackButton={() => {
+            if (view !== '')
+              router.push({ pathname: 'result', query: { id: id } });
+            else router.back();
+          }}
+        />
+      )}
 
       {(isLoading || !model) && <Loader />}
       <div className={`${(isLoading || !model || view !== '') && 'hidden'}`}>

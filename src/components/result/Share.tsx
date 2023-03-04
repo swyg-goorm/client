@@ -46,7 +46,7 @@ export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
           {hobbyType.description}
         </p>
         <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
-        <p className="mt-2 text-[1.5rem] text-main-4">
+        <p className="mt-4 text-[1.5rem] text-main-4">
           <span className="text-[1.5rem] text-main-3">{userName}</span>님과 잘
           맞는 취미
         </p>
