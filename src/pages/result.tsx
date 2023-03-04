@@ -8,14 +8,14 @@ import FitHobby from '@components/result/FitHobby';
 import Model from '@components/result/Model';
 import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
-import Image from 'next/image';
-import React, { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useQuery } from 'react-query';
 import { getRecommendation } from 'api/getRecommendation';
-import { HobbyType } from 'types/result';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useMemo, useState } from 'react';
+import { useQuery } from 'react-query';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Object3D } from 'three';
+import { HobbyType } from 'types/result';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 

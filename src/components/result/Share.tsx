@@ -1,7 +1,7 @@
-import * as htmlToImage from 'html-to-image';
 import KakaoShare from '@components/result/KakaoShare';
+import * as htmlToImage from 'html-to-image';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { HobbyType } from 'types/result';
 
 interface ShareProps {
@@ -13,7 +13,6 @@ interface ShareProps {
 
 export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
   const containerRef = useRef<any>(null);
-  console.log(hobbies);
 
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
