@@ -31,15 +31,15 @@ module.exports = {
         warning: '#F84A4A',
       },
       animation: {
-        'pass-by': 'pass 8s linear infinite ',
+        'pass-by': 'pass 15s linear infinite ',
       },
       keyframes: {
         pass: {
           '0%': {
-            transform: 'translateX(100%)',
+            transform: 'translateX(-100%)',
           },
           '100%': {
-            transform: 'translateX(-100%)',
+            transform: 'translateX(0%)',
           },
         },
       },
