@@ -30,6 +30,19 @@ module.exports = {
         'sub-1': '#DCEAFE',
         warning: '#F84A4A',
       },
+      animation: {
+        'pass-by': 'pass 8s linear infinite ',
+      },
+      keyframes: {
+        pass: {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

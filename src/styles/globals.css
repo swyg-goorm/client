@@ -103,9 +103,6 @@ video {
   text-decoration: none;
   white-space: pre-line;
 }
-/* state, localStorage에 저장 */
-
-/* 질문페이지 > 로딩 화면 preload */
 @media (min-width: 450px) {
   html {
     font-size: 16px;
