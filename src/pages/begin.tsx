@@ -13,6 +13,7 @@ export default function Begin() {
   const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(nickname);
     if (!reg.test(nickname)) return;
     if (nickname === '') {
       setModal(true);
@@ -52,7 +53,7 @@ export default function Begin() {
           )}
         </div>
         <div className="absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]">
-          <Button type="submit">홀랑 테스트 하러 가기</Button>
+          <Button>홀랑 테스트 하러 가기</Button>
         </div>
       </form>
     </div>
