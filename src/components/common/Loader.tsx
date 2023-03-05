@@ -30,6 +30,12 @@ export default function Loader() {
         인공지능이 {nickname}님을 위한
         <br /> 최적의 취미를 찾고있어요!
       </p>
+      <video className="hello" autoPlay muted loop>
+        <source
+          src="https://dnynkguj26y10.cloudfront.net/images/etc/loading.webm"
+          type="video/webm"
+        />
+      </video>
     </div>
   );
 }
