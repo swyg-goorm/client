@@ -14,7 +14,6 @@ import { useRouter } from 'next/router';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Object3D } from 'three';
 import { HobbyType } from 'types/result';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
@@ -22,7 +21,6 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 export default function Result() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [model, setModel] = useState('s');
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],
@@ -38,11 +36,9 @@ export default function Result() {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
 
-  console.log(isLoading);
-
   return (
     <div className="text-center">
-      {!isLoading && model && (
+      {!isLoading && (
         <TopBar
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
@@ -53,12 +49,8 @@ export default function Result() {
         />
       )}
 
-      {(isLoading || model === null) && <Loader />}
-      <div
-        className={`${
-          (isLoading || model === null || view !== '') && 'hidden'
-        }`}
-      >
+      {isLoading && <Loader />}
+      <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
@@ -151,7 +143,7 @@ export default function Result() {
       {recommendation && (
         <FitHobby
           fitHobbyTypes={recommendation.fitHobbyTypes}
-          isShow={(!isLoading && model && view === 'fitHobby') || false}
+          isShow={(!isLoading && view === 'fitHobby') || false}
         />
       )}
       {recommendation && (
@@ -159,7 +151,7 @@ export default function Result() {
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
           hobbies={recommendation.hobbies}
-          isShow={(!isLoading && model && view === 'share') || false}
+          isShow={(!isLoading && view === 'share') || false}
         />
       )}
     </div>
