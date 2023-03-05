@@ -21,8 +21,8 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [model, setModel] = useState<Object3D | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [model, setModel] = useState('s');
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],
@@ -38,6 +38,8 @@ export default function Result() {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
 
+  console.log(isLoading);
+
   return (
     <div className="text-center">
       {!isLoading && model && (
@@ -45,8 +47,7 @@ export default function Result() {
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
-            if (view !== '')
-              router.push({ pathname: 'result', query: { id: id } });
+            if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.back();
           }}
         />
@@ -69,8 +70,8 @@ export default function Result() {
             {mbti && (
               <Model
                 uri={`./static/gltf/${mbti}.gltf`}
-                model={model}
-                setModel={setModel}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
               />
             )}
           </div>

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 import TopBar from './TopBar';
@@ -28,13 +27,10 @@ export default function Layout({ children }: LayoutProps) {
     innerHeight: number | undefined,
   ): string => {
     if (innerHeight !== undefined && innerWidth !== undefined) {
-      console.log(innerHeight, innerWidth);
       if (innerHeight / innerWidth >= 2) {
-        console.log('2보다 넘어요');
         return `max-w-full`;
       }
     }
-    console.log('2보다 안돼요');
     return 'max-w-[28.125rem]';
   };
 
