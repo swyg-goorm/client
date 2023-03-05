@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 import TopBar from './TopBar';
@@ -17,8 +18,8 @@ export default function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     setApplicationValue({
-      innerHeight: window.innerHeight,
-      innerWidth: window.innerWidth,
+      innerHeight: window.screen.height,
+      innerWidth: window.screen.width,
     });
   }, []);
 
@@ -27,10 +28,13 @@ export default function Layout({ children }: LayoutProps) {
     innerHeight: number | undefined,
   ): string => {
     if (innerHeight !== undefined && innerWidth !== undefined) {
-      if (innerHeight / innerWidth > 2) {
-        return `max-w-[${window.innerWidth / 16}rem]`;
+      console.log(innerHeight, innerWidth);
+      if (innerHeight / innerWidth >= 2) {
+        console.log('2보다 넘어요');
+        return `max-w-full`;
       }
     }
+    console.log('2보다 안돼요');
     return 'max-w-[28.125rem]';
   };
 
