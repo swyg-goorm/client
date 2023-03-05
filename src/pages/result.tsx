@@ -16,6 +16,7 @@ import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Object3D } from 'three';
 import { HobbyType } from 'types/result';
+import HobbyDetail from '@components/result/HobbyDetail';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
@@ -92,7 +93,7 @@ export default function Result() {
           <Swiper className="mySwiper mt-6" slidesPerView={1.4}>
             {recommendation?.hobbies.map((hobby: HobbyType) => (
               <SwiperSlide key={hobby?.id}>
-                <Card hobby={hobby} />
+                <Card id={id} hobby={hobby} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -152,6 +153,9 @@ export default function Result() {
           userName={recommendation.user.name}
           hobbies={recommendation.hobbies}
         />
+      )}
+      {!isLoading && model && view === 'hobbyDetail' && recommendation && (
+        <HobbyDetail HobbyDetailTypes={recommendation.hobbies} />
       )}
     </div>
   );
