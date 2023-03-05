@@ -4,18 +4,19 @@ import { FitHobbyType } from 'types/result';
 
 interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
+  isShow: boolean;
   [key: string]: any;
 }
 const QUESTION_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
-export default function FitHobby({ fitHobbyTypes }: FitHobbyProps) {
+export default function FitHobby({ fitHobbyTypes, isShow }: FitHobbyProps) {
   const [select, setSelect] = useState<number>(0);
   const selectedType = fitHobbyTypes.filter(
     (fitHobbyType) => +fitHobbyType.id === select,
   )[0];
 
   return (
-    <div>
+    <div className={isShow ? '' : 'hidden'}>
       <p className="py-5 text-[1.5rem] text-main-4">나와 찰떡인 홀랑 유형</p>
       <section className="flex">
         {fitHobbyTypes.map((fitHobbyType: FitHobbyType, index: number) => (

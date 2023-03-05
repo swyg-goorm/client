@@ -143,14 +143,18 @@ export default function Result() {
           </div>
         </section>
       </div>
-      {!isLoading && model && view === 'fitHobby' && recommendation && (
-        <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
+      {recommendation && (
+        <FitHobby
+          fitHobbyTypes={recommendation.fitHobbyTypes}
+          isShow={(!isLoading && model && view === 'fitHobby') || false}
+        />
       )}
-      {!isLoading && model && view === 'share' && recommendation && (
+      {recommendation && (
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
           hobbies={recommendation.hobbies}
+          isShow={(!isLoading && model && view === 'share') || false}
         />
       )}
     </div>
