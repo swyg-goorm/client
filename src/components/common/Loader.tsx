@@ -10,7 +10,7 @@ export default function Loader() {
   }, []);
 
   return (
-    <div className="flex h-[48rem] flex-col items-center justify-center">
+    <div className="z-10 flex h-[48rem] flex-col items-center justify-center">
       <div className=" h-[16rem] w-[16rem] items-center justify-center overflow-hidden rounded-full bg-main-4">
         <div className="mt-[2.6rem] h-[10rem] w-[800rem] overflow-hidden">
           <Image
