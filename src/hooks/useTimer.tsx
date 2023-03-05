@@ -24,7 +24,6 @@ const useTimer = ({ mm, ss }: TimerProps) => {
         }
       }
     }, 1000);
-    console.log(minutes, seconds);
     setTimer(`${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`);
     return () => clearInterval(countdown);
   }, [minutes, seconds]);

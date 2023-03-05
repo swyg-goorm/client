@@ -14,15 +14,13 @@ import { useRouter } from 'next/router';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Object3D } from 'three';
 import { HobbyType } from 'types/result';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [model, setModel] = useState<Object3D | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],
@@ -40,20 +38,20 @@ export default function Result() {
 
   return (
     <div className="text-center">
-      {!isLoading && model && (
+      {!isLoading && (
         <TopBar
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
-            if (view !== '')
-              router.push({ pathname: 'result', query: { id: id } });
-            else router.back();
+            console.log(!!view);
+            if (!!view) router.push({ pathname: 'result', query: { id: id } });
+            else router.push('/question');
           }}
         />
       )}
 
-      {(isLoading || !model) && <Loader />}
-      <div className={`${(isLoading || !model || view !== '') && 'hidden'}`}>
+      {isLoading && <Loader />}
+      <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
@@ -65,8 +63,8 @@ export default function Result() {
             {mbti && (
               <Model
                 uri={`./static/gltf/${mbti}.gltf`}
-                model={model}
-                setModel={setModel}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
               />
             )}
           </div>
@@ -143,14 +141,18 @@ export default function Result() {
           </div>
         </section>
       </div>
-      {!isLoading && model && view === 'fitHobby' && recommendation && (
-        <FitHobby fitHobbyTypes={recommendation.fitHobbyTypes} />
+      {recommendation && (
+        <FitHobby
+          fitHobbyTypes={recommendation.fitHobbyTypes}
+          isShow={(!isLoading && view === 'fitHobby') || false}
+        />
       )}
-      {!isLoading && model && view === 'share' && recommendation && (
+      {recommendation && (
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
           hobbies={recommendation.hobbies}
+          isShow={(!isLoading && view === 'share') || false}
         />
       )}
     </div>

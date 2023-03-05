@@ -8,10 +8,16 @@ interface ShareProps {
   hobbyType: HobbyType;
   userName: string;
   hobbies: HobbyType[];
+  isShow: boolean;
   [key: string]: any;
 }
 
-export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
+export default function Share({
+  hobbyType,
+  userName,
+  hobbies,
+  isShow,
+}: ShareProps) {
   const containerRef = useRef<any>(null);
 
   const handleDownload = async () => {
@@ -24,7 +30,11 @@ export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
     document.body.removeChild(link);
   };
   return (
-    <div className="flex flex-col items-center px-[0.9375rem] text-center">
+    <div
+      className={`flex flex-col items-center px-[0.9375rem] text-center ${
+        !isShow && 'hidden'
+      }`}
+    >
       <p className="my-[2.25rem] text-[1.5rem] text-main-4">
         나의<span className="text-[1.5rem] text-main-3"> 홀랑 </span>공유하기
       </p>
@@ -50,8 +60,14 @@ export default function Share({ hobbyType, userName, hobbies }: ShareProps) {
           맞는 취미
         </p>
         <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
-          {hobbies.map((hobby) => (
-            <Image alt="hobby" src={hobby.imageUrl} width={50} height={50} />
+          {hobbies.map((hobby: HobbyType, index: number) => (
+            <Image
+              alt="hobby"
+              src={hobby.imageUrl}
+              width={50}
+              height={50}
+              key={index}
+            />
           ))}
         </article>
       </div>
