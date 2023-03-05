@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
 interface InputProps {
   placeholder: string;
@@ -11,13 +11,6 @@ export default function Input({
   nickname,
   setNickname,
 }: InputProps) {
-  const nicknameRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (nicknameRef.current) {
-      nicknameRef.current.focus();
-    }
-  }, []);
   const handleNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value);
   };
@@ -28,7 +21,6 @@ export default function Input({
       className=" h-[4.375rem] w-full rounded-[1.875rem] border-none bg-sub-1 px-4 pl-4 placeholder:text-gray-6"
       onChange={handleNickname}
       value={nickname}
-      ref={nicknameRef}
     />
   );
 }
