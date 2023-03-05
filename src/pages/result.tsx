@@ -43,8 +43,9 @@ export default function Result() {
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
+            console.log(!!view);
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
-            else router.back();
+            else router.push('/question');
           }}
         />
       )}

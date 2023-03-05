@@ -60,8 +60,14 @@ export default function Share({
           맞는 취미
         </p>
         <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
-          {hobbies.map((hobby) => (
-            <Image alt="hobby" src={hobby.imageUrl} width={50} height={50} />
+          {hobbies.map((hobby: HobbyType, index: number) => (
+            <Image
+              alt="hobby"
+              src={hobby.imageUrl}
+              width={50}
+              height={50}
+              key={index}
+            />
           ))}
         </article>
       </div>
