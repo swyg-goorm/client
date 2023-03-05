@@ -12,7 +12,7 @@ export default function Loader() {
 
   return (
     <div className=" z-50 flex h-[48rem] flex-col items-center justify-center  bg-white text-center">
-      <div className="absolute top-0">
+      {/* <div className="absolute top-0">
         <TopBar />
       </div>
       <div className=" h-[16rem] w-[16rem] items-center justify-center overflow-hidden rounded-full bg-main-4 ">
@@ -25,7 +25,7 @@ export default function Loader() {
             className="z-10 animate-pass-by"
           />
         </div>
-      </div>
+      </div> */}
       <p className="mt-6 text-[1.375rem] leading-8 text-gray-6">
         인공지능이 {nickname}님을 위한
         <br /> 최적의 취미를 찾고있어요!
@@ -34,6 +34,12 @@ export default function Loader() {
         <source
           src="https://dnynkguj26y10.cloudfront.net/images/etc/loading.webm"
           type="video/webm"
+        />
+      </video>
+      <video className="hello" autoPlay muted loop>
+        <source
+          src="https://dnynkguj26y10.cloudfront.net/images/etc/loading.mp4"
+          // type="video/mp4"
         />
       </video>
     </div>
