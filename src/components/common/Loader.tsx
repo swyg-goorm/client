@@ -11,12 +11,12 @@ export default function Loader() {
   }, []);
 
   return (
-    <div className=" z-50 flex h-[48rem] flex-col items-center justify-center overflow-hidden bg-white text-center">
+    <div className=" z-50 flex h-[48rem] flex-col items-center justify-center  bg-white text-center">
       <div className="absolute top-0">
         <TopBar />
       </div>
       <div className=" h-[16rem] w-[16rem] items-center justify-center overflow-hidden rounded-full bg-main-4 ">
-        <div className="mt-[2.6rem] h-[10rem] w-[800rem] overflow-hidden">
+        <div className="mt-[2.6rem] h-[20rem] w-[800rem] overflow-hidden">
           <Image
             alt="loading"
             src="/static/gif 이미지 (16가지).png"

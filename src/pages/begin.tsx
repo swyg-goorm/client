@@ -58,7 +58,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className={`w-[full]`}>
+        <div className="w-[full]">
           <Button
             onClick={handleClickButton}
             type="submit"
