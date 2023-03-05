@@ -53,7 +53,11 @@ export default function Result() {
       )}
 
       {(isLoading || model === null) && <Loader />}
-      <div className={`${(isLoading || model!==null || view !== '') && 'hidden'}`}>
+      <div
+        className={`${
+          (isLoading || model === null || view !== '') && 'hidden'
+        }`}
+      >
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
