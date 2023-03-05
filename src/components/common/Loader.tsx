@@ -36,12 +36,12 @@ export default function Loader() {
           type="video/webm"
         />
       </video>
-      <video className="hello" autoPlay muted loop>
+      {/* <video className="hello" autoPlay muted loop>
         <source
           src="https://dnynkguj26y10.cloudfront.net/images/etc/loading.mp4"
           // type="video/mp4"
         />
-      </video>
+      </video> */}
     </div>
   );
 }
