@@ -6,9 +6,10 @@ import { HobbyType } from 'types/result';
 import Button from '../common/Button';
 
 interface CardProps {
+  id: string | number | string[];
   hobby: HobbyType;
 }
-export default function Card({ hobby }: CardProps) {
+export default function Card({ hobby, id }: CardProps) {
   const router = useRouter();
   return (
     <div className="relative flex h-[20.5rem] w-[calc(100%-1rem)]  justify-center rounded-[1.875rem] border border-main-3 bg-main-1 ">
@@ -19,7 +20,10 @@ export default function Card({ hobby }: CardProps) {
       <div className="absolute bottom-6 w-full px-4">
         <Button
           onClick={() => {
-            router.push(`/detail?id=${hobby.id}`);
+            router.push({
+              pathname: 'result',
+              query: { id: id, view: 'hobbyDetail', hobbyid: hobby.id },
+            });
           }}
         >
           더 알아보기

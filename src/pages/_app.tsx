@@ -1,14 +1,13 @@
-import '../styles/globals.css'
-
-import Layout from '@components/common/layout'
-import Loader from '@components/common/Loader'
-import Head from 'next/head'
-import { RecoilRoot } from 'recoil'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { Suspense, useEffect, useState } from 'react'
-import { Router } from 'next/router'
-
+import '../styles/globals.css';
+import Layout from '@components/common/layout';
+import Loader from '@components/common/Loader';
+import Head from 'next/head';
+import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Suspense, useEffect, useState } from 'react';
+import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
+
 const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -21,7 +20,7 @@ const client = new QueryClient({
 });
 declare global {
   interface Window {
-    Kakao: any;
+    kakao: any;
   }
 }
 
@@ -51,7 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>x
+        <title>Hollang</title>
       </Head>
       <Suspense fallback={<Loader />}>
         <RecoilRoot>
