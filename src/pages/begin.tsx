@@ -5,7 +5,7 @@ import TopBar from '@components/common/TopBar';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const reg = /[가-힣]{1,3}$/;
+const reg = /^[가-힣]{1,3}$/;
 
 export default function Begin() {
   const router = useRouter();
@@ -13,7 +13,6 @@ export default function Begin() {
   const [modal, setModal] = useState<boolean>(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(nickname);
     if (!reg.test(nickname)) return;
     if (nickname === '') {
       setModal(true);
