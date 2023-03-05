@@ -8,20 +8,20 @@ import FitHobby from '@components/result/FitHobby';
 import Model from '@components/result/Model';
 import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
-import Image from 'next/image';
-import React, { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useQuery } from 'react-query';
 import { getRecommendation } from 'api/getRecommendation';
-import { HobbyType } from 'types/result';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useMemo, useState } from 'react';
+import { useQuery } from 'react-query';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Object3D } from 'three';
+import { HobbyType } from 'types/result';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [model, setModel] = useState<Object3D | null>(null);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
@@ -34,27 +34,23 @@ export default function Result() {
   const recommendation = data?.data?.data?.recommendation;
   const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
-
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
 
   return (
     <div className="text-center">
-      <TopBar
-        isBackButton
-        mainMessage="result"
-        onBackButton={() => {
-          if (view !== '')
-            router.push({ pathname: 'result', query: { id: id } });
-          else router.back();
-        }}
-      />
+      {!isLoading && model && (
+        <TopBar
+          isBackButton
+          mainMessage={view === '' ? 'result' : 'main'}
+          onBackButton={() => {
+            if (view !== '')
+              router.push({ pathname: 'result', query: { id: id } });
+            else router.back();
+          }}
+        />
+      )}
 
       {(isLoading || !model) && <Loader />}
       <div className={`${(isLoading || !model || view !== '') && 'hidden'}`}>
@@ -79,7 +75,7 @@ export default function Result() {
           </p>
           <IconTurn className="my-2" />
           <span className=" text-[1rem] text-gray-5">회전하면 돌아가요!</span>
-          <p className="mt-8 w-[17.1875rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
+          <p className="mt-8 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
         </section>
@@ -154,6 +150,7 @@ export default function Result() {
         <Share
           hobbyType={recommendation.hobbyType}
           userName={recommendation.user.name}
+          hobbies={recommendation.hobbies}
         />
       )}
     </div>
