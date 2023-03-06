@@ -54,11 +54,8 @@ export default function Result() {
       {isLoading && <Loader />}
       <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
-          <p className="text-2xl text-main-4">
-            <span className="text-2xl text-main-3">
-              {recommendation?.user.name}
-            </span>
-            님의 홀랑 유형
+          <p className="text-2xl text-main-3">
+            {recommendation?.hobbyType.name}
           </p>
           <div className="h-52 w-full">
             {mbti && (
@@ -69,11 +66,10 @@ export default function Result() {
               />
             )}
           </div>
-          <p className="mt-4 text-2xl text-gray-7">
-            {recommendation?.hobbyType.name}
-          </p>
-          <IconTurn className="my-2" />
-          <span className=" text-[1rem] text-gray-5">회전하면 돌아가요!</span>
+
+          <IconTurn className="my-1" />
+          <span className="text-[1rem] text-gray-5">회전하면 돌아가요!</span>
+          <div className="absolute top-[37.5rem] h-[0.4375rem] w-full bg-gray-2" />
           <p className="mt-8 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
@@ -98,9 +94,14 @@ export default function Result() {
         </section>
         <section className="mt-12 w-full">
           <p className="text-2xl font-bold text-main-4">
-            나와 찰떡인 홀랑 유형
+            <span className="text-2xl text-main-3 ">
+              {recommendation?.user.name}님
+            </span>{' '}
+            찰떡 홀랑 유형
           </p>
-          <p className="mt-5 text-[1.125rem]">아래 버튼을 눌러 알아봐요!</p>
+          <p className="mt-5 text-[1.125rem] text-gray-5">
+            물음표를 눌러 알아봐요!
+          </p>
           <div className="mt-8 flex justify-center">
             <Image
               alt="fit-hobby-type"
@@ -131,7 +132,6 @@ export default function Result() {
             </div>
             <div className="mt-4">
               <Button
-                property="secondary"
                 onClick={() => router.push('/')}
                 className="rounded-[1.875rem]"
               >
@@ -156,7 +156,7 @@ export default function Result() {
           isShow={(!isLoading && view === 'share') || false}
         />
       )}
-      {!isLoading && model && view === 'hobbyDetail' && recommendation && (
+      {!isLoading && view === 'hobbyDetail' && recommendation && (
         <HobbyDetail HobbyDetailTypes={recommendation.hobbies} />
       )}
     </div>
