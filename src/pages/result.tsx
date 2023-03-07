@@ -69,12 +69,13 @@ export default function Result() {
 
           <IconTurn className="my-1" />
           <span className="text-[1rem] text-gray-5">회전하면 돌아가요!</span>
-          <div className="absolute top-[37.5rem] h-[0.4375rem] w-full bg-gray-2" />
+
           <p className="mt-8 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <section className="mt-16">
+        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[450px] bg-gray-2" />
+        <section className="mt-8">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
               {recommendation?.user.name}
