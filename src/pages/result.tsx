@@ -156,7 +156,7 @@ export default function Result() {
           isShow={(!isLoading && view === 'share') || false}
         />
       )}
-      {!isLoading && model && view === 'hobbyDetail' && recommendation && (
+      {!isLoading && view === 'hobbyDetail' && recommendation && (
         <HobbyDetail HobbyDetailTypes={recommendation.hobbies} />
       )}
     </div>

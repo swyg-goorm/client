@@ -98,7 +98,7 @@ export default function question() {
             <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
               {questionData?.data.test.questions[currentPage - 1].content}
             </p>
-            <div className="mb-13 flex w-full flex-col gap-2">
+            <div className="mb-13 flex w-full flex-col gap-4">
               {questionData?.data.test.questions[currentPage - 1].answers.map(
                 ({ content, id }, index) => (
                   <Button
