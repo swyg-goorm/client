@@ -52,7 +52,6 @@ export default function Button({
     <button
       onClick={() => setIsButtonClicked(true)}
       type={type}
-      disabled={isButtonClicked}
       className={`flex w-full items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in disabled:cursor-not-allowed ${className}
       ${setClassNameByProperty(property)}`}
       {...props}

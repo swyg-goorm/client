@@ -71,7 +71,9 @@ export default function question() {
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
-          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  ${
+            currentPage < 10 ? '0' + currentPage : currentPage
+          }`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
           <section className="flex flex-col items-center ">
@@ -83,7 +85,9 @@ export default function question() {
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
             />
             <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
-              {questionData?.data.test.questions[currentPage - 1].content}
+              {questionData?.data.test.questions[
+                currentPage - 1
+              ].content.replace('000', localStorage.getItem('nickname') || '')}
             </p>
             <div className="mb-13 flex w-full flex-col gap-2">
               {questionData?.data.test.questions[currentPage - 1].answers.map(
