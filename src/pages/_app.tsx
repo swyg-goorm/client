@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Layout from '@components/common/layout';
-import Loader from '@components/common/Loader';
+import ResultLoader from '@components/common/ResultLoader';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';

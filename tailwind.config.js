@@ -32,6 +32,9 @@ module.exports = {
       },
       animation: {
         'pass-by': 'pass 15s linear infinite ',
+        bounce1: 'bounce 2s ease-in-out infinite ',
+        bounce2: 'bounce 2s 0.5s ease-in-out infinite ',
+        bounce3: 'bounce 2s 1s ease-in-out infinite ',
       },
       keyframes: {
         pass: {
@@ -40,6 +43,15 @@ module.exports = {
           },
           '100%': {
             transform: 'translateX(0%)',
+          },
+        },
+        bounce: {
+          '0%, 20%': { trasnsform: `translate(0,0)` },
+          '50%': {
+            transform: 'translateY(-150%)',
+          },
+          '85%, 100%': {
+            trasnsform: `translate(0,0)`,
           },
         },
       },

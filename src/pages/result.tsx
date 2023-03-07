@@ -1,7 +1,7 @@
 import 'swiper/css';
 
 import Button from '@components/common/Button';
-import Loader from '@components/common/Loader';
+import ResultLoader from '@components/common/ResultLoader';
 import TopBar from '@components/common/TopBar';
 import Card from '@components/result/Card';
 import FitHobby from '@components/result/FitHobby';
@@ -16,6 +16,7 @@ import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
 import HobbyDetail from '@components/result/HobbyDetail';
+import Loader from '@components/common/Loader';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
@@ -44,14 +45,13 @@ export default function Result() {
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
-            console.log(!!view);
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
           }}
         />
       )}
 
-      {isLoading && <Loader />}
+      {isLoading && <ResultLoader />}
       <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-3">
@@ -161,6 +161,7 @@ export default function Result() {
           />
         </>
       )}
+      <Loader />
     </div>
   );
 }
