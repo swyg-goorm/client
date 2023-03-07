@@ -71,7 +71,9 @@ export default function question() {
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
-          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  ${
+            currentPage < 10 ? '0' + currentPage : currentPage
+          }`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
           <section className="flex flex-col items-center ">
