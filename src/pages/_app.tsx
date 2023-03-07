@@ -12,7 +12,6 @@ const client = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
-      suspense: true,
       useErrorBoundary: true,
     },
     mutations: { retry: 0, useErrorBoundary: true },
@@ -52,13 +51,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <title>Hollang</title>
       </Head>
-      <Suspense fallback={<Loader />}>
-        <RecoilRoot>
-          <QueryClientProvider client={client}>
-            <Component {...pageProps} />
-          </QueryClientProvider>
-        </RecoilRoot>
-      </Suspense>
+      <RecoilRoot>
+        <QueryClientProvider client={client}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </RecoilRoot>
     </Layout>
   );
 }
