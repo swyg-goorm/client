@@ -21,15 +21,6 @@ export default function Begin() {
     router.push('/question');
   };
 
-  const handleClick = () => {
-    if (!reg.test(nickname)) return;
-    if (nickname === '') {
-      setModal(true);
-    }
-    localStorage.setItem('nickname', nickname);
-    router.push('/question');
-  };
-
   return (
     <div className="relative h-full">
       <TopBar isBackButton />
@@ -60,10 +51,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div
-          onClick={handleClick}
-          className="absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]"
-        >
+        <div className="absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]">
           <Button>홀랑 테스트 하러 가기</Button>
         </div>
       </form>
