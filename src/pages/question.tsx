@@ -83,7 +83,9 @@ export default function question() {
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
             />
             <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
-              {questionData?.data.test.questions[currentPage - 1].content}
+              {questionData?.data.test.questions[
+                currentPage - 1
+              ].content.replace('000', localStorage.getItem('nickname') || '')}
             </p>
             <div className="mb-13 flex w-full flex-col gap-2">
               {questionData?.data.test.questions[currentPage - 1].answers.map(
