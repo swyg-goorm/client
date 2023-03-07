@@ -63,11 +63,24 @@ export default function question() {
     setCurrentPage(currentPage + 1);
   };
 
+  const handleProgressbarBackButton = (currentPage: number) => {
+    if (currentPage !== 1) {
+      const copiedQuestionArray = [...questionArray];
+      copiedQuestionArray.pop();
+      setQuestionArray(copiedQuestionArray);
+      return setCurrentPage(currentPage - 1);
+    }
+    return router.back();
+  };
+
   return (
     isSuccess && (
       <div className="pb-[3rem]">
         <div className="px-4">
-          <TopBar isBackButton />
+          <TopBar
+            onBackButton={() => handleProgressbarBackButton(currentPage)}
+            isBackButton
+          />
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
