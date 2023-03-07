@@ -6,9 +6,10 @@ import KakaoMaps from './KakaoMaps';
 
 interface HobbyDetailProps {
   HobbyDetailTypes: HobbyType[];
+  isShow: boolean;
 }
 
-function HobbyDetail(hobbyDetail: HobbyDetailProps) {
+function HobbyDetail({ HobbyDetailTypes, isShow }: HobbyDetailProps) {
   const [nickname, setNickName] = useState<string>('');
   const router = useRouter();
   useEffect(() => {
@@ -17,29 +18,27 @@ function HobbyDetail(hobbyDetail: HobbyDetailProps) {
     }
   }, []);
   const hobbyId = router?.query.hobbyid;
-  const currentHobby: HobbyType = hobbyDetail.HobbyDetailTypes.filter(
-    (hobby) => {
-      if (String(hobby.id) === hobbyId) return hobby;
-    },
-  )[0];
-
+  const currentHobby: HobbyType = HobbyDetailTypes.filter((hobby) => {
+    if (String(hobby.id) === hobbyId) return hobby;
+  })[0];
   return (
-    <div className="px-5 pt-4 pb-12">
+    <div className={`px-5 pt-4 pb-12 ${!isShow && 'hidden'}`}>
       <p className="mb-10 text-[1.5rem] font-semibold text-main-4">
         더 알아보기
       </p>
       <div className=" mx-auto mb-[1.125rem] flex h-[190px] w-[190px] items-center justify-center rounded-[1.875rem] bg-gray-2">
         <Image
-          // className=""
           width={100}
           height={100}
-          src={currentHobby.imageUrl}
+          src={currentHobby?.imageUrl}
           alt="hobby pictogramImage "
-        ></Image>
+        />
       </div>
-      <p className="mb-12 text-[1.375rem] font-semibold">{currentHobby.name}</p>
+      <p className="mb-12 text-[1.375rem] font-semibold">
+        {currentHobby?.name}
+      </p>
       <p className="mb-8 text-[1.125rem] leading-[1.875rem]">
-        {currentHobby.description}
+        {currentHobby?.description}
       </p>
       <p className="mb-24 text-[1.5rem] font-semibold">
         <span className=" text-main-3">{nickname}</span>
@@ -48,7 +47,7 @@ function HobbyDetail(hobbyDetail: HobbyDetailProps) {
       <p className="mb-6 text-[1.125rem] font-normal">
         버튼을 눌러 자세히 알아봐요!
       </p>
-      <KakaoMaps hobbyName={currentHobby.name}></KakaoMaps>
+      <KakaoMaps hobbyName={currentHobby?.name} />
     </div>
   );
 }

@@ -144,21 +144,22 @@ export default function Result() {
         </section>
       </div>
       {recommendation && (
-        <FitHobby
-          fitHobbyTypes={recommendation.fitHobbyTypes}
-          isShow={(!isLoading && view === 'fitHobby') || false}
-        />
-      )}
-      {recommendation && (
-        <Share
-          hobbyType={recommendation.hobbyType}
-          userName={recommendation.user.name}
-          hobbies={recommendation.hobbies}
-          isShow={(!isLoading && view === 'share') || false}
-        />
-      )}
-      {!isLoading && view === 'hobbyDetail' && recommendation && (
-        <HobbyDetail HobbyDetailTypes={recommendation.hobbies} />
+        <>
+          <FitHobby
+            fitHobbyTypes={recommendation.fitHobbyTypes}
+            isShow={!isLoading && view === 'fitHobby'}
+          />
+          <Share
+            hobbyType={recommendation.hobbyType}
+            userName={recommendation.user.name}
+            hobbies={recommendation.hobbies}
+            isShow={(!isLoading && view === 'share') || false}
+          />
+          <HobbyDetail
+            HobbyDetailTypes={recommendation.hobbies}
+            isShow={(!isLoading && view === 'hobbyDetail') || false}
+          />
+        </>
       )}
     </div>
   );
