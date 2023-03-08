@@ -20,7 +20,7 @@ export default function ResultLoader() {
             alt="loading"
             src={LOADING_IMAGE_SRC}
             fill
-            className="z-10 animate-pass-by"
+            className="z-10 animate-pass-by object-cover"
           />
         </div>
       </div>
