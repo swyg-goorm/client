@@ -12,8 +12,10 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useQuery } from 'react-query';
+import { useRecoilState } from 'recoil';
+import { IsLoading } from 'store/atom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
 
@@ -21,7 +23,7 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],
@@ -33,6 +35,7 @@ export default function Result() {
   );
   const recommendation = data?.data?.data?.recommendation;
   const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
+  const [isLoading, setIsLoading] = useRecoilState(IsLoading);
 
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
