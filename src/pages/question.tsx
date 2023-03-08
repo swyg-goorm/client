@@ -35,6 +35,16 @@ export default function question() {
   const MAX_PAGE = 12;
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
+  const [loading, setLoading] = useState(false);
+
+  const setImageLoadingComplete = (e: any) => {
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+  }, [currentPage]);
+
   useEffect(() => {
     if (data !== undefined) {
       setQuestionData(data?.data);
@@ -72,6 +82,26 @@ export default function question() {
     }
     return router.back();
   };
+
+if (loading)
+    return (
+      <div>
+        <Image
+          onLoadingComplete={(e) => setImageLoadingComplete(e)}
+          loading="eager"
+          priority
+          className="mb-[2rem] rounded-[1.25rem]  px-4"
+          alt="image that explain Question"
+          width={450}
+          height={450}
+          src={
+            questionData?.data.test.questions[currentPage - 1]
+              .imageUrl as string
+          }
+        />
+        <div>로딩중</div>
+      </div>
+    );
 
   return (
     isSuccess && (
