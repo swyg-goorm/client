@@ -23,7 +23,6 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 
 export default function Result() {
   const router = useRouter();
-  // const [isLoading, setIsLoading] = useState<boolean>(true);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],

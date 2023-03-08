@@ -9,7 +9,7 @@ import Lights from './Lights';
 
 interface ModalProps {
   isLoading: boolean;
-  setIsLoading: (scene: any) => void;
+  setIsLoading: (state: boolean) => void;
   uri: string;
 }
 
