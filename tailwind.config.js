@@ -31,7 +31,7 @@ module.exports = {
         warning: '#F84A4A',
       },
       animation: {
-        'pass-by': 'pass 8s linear infinite ',
+        'pass-by-1': 'pass 10s linear infinite ',
         bounce1: 'bounce 2s ease-in-out infinite ',
         bounce2: 'bounce 2s 0.5s ease-in-out infinite ',
         bounce3: 'bounce 2s 1s ease-in-out infinite ',
@@ -39,10 +39,10 @@ module.exports = {
       keyframes: {
         pass: {
           '0%': {
-            transform: 'translateX(-100%)',
+            transform: 'translateX(-180rem)',
           },
           '100%': {
-            transform: 'translateX(0%)',
+            transform: 'translateX(0rem)',
           },
         },
         bounce: {
