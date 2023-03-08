@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import TopBar from './TopBar';
 
 const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.png`;
-
 export default function ResultLoader() {
   const [nickname, setNickname] = useState<string>();
   useEffect(() => {
@@ -19,8 +18,8 @@ export default function ResultLoader() {
         <div className="mt-[2.6rem] h-[20rem] w-[800rem] overflow-hidden">
           <Image
             alt="loading"
-            src="/static/gif 이미지 (16가지).png"
-            width={3400}
+            src={LOADING_IMAGE_SRC}
+            width={1200}
             height={1000}
             className="z-10 animate-pass-by"
           />

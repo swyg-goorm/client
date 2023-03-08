@@ -31,7 +31,7 @@ module.exports = {
         warning: '#F84A4A',
       },
       animation: {
-        'pass-by': 'pass 15s linear infinite ',
+        'pass-by': 'pass 8s linear infinite ',
         bounce1: 'bounce 2s ease-in-out infinite ',
         bounce2: 'bounce 2s 0.5s ease-in-out infinite ',
         bounce3: 'bounce 2s 1s ease-in-out infinite ',
