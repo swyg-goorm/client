@@ -85,7 +85,7 @@ export default function Result() {
           <p className="mt-4 text-[1.125rem] text-gray-7">
             버튼을 눌러 자세히 둘러봐요!
           </p>
-          <Swiper className="mySwiper mt-6" slidesPerView={1.4}>
+          <Swiper className="mySwiper mt-6" slidesPerView={1.8}>
             {recommendation?.hobbies.map((hobby: HobbyType) => (
               <SwiperSlide key={hobby?.id}>
                 <Card id={id} hobby={hobby} />
