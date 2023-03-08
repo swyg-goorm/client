@@ -28,6 +28,7 @@ module.exports = {
         'main-4': '#23707B',
 
         'sub-1': '#DCEAFE',
+        'sub-2': '#EEFAFC',
         warning: '#F84A4A',
       },
       animation: {
