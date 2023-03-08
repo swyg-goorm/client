@@ -19,7 +19,7 @@ export default function Model({ uri, isLoading, setIsLoading }: ModalProps) {
   const groupRef = useRef<any>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);
 
-  if (model !== null && isLoading) {
+  if (!!model && isLoading) {
     setIsLoading(false);
   }
 
