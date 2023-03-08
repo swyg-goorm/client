@@ -16,7 +16,7 @@ export default function Share({
   hobbyType,
   userName,
   hobbies,
-  isShow,
+  isShow = false,
 }: ShareProps) {
   const containerRef = useRef<any>(null);
 

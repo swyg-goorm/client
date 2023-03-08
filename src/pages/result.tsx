@@ -152,11 +152,11 @@ export default function Result() {
             hobbyType={recommendation.hobbyType}
             userName={recommendation.user.name}
             hobbies={recommendation.hobbies}
-            isShow={(!isLoading && view === 'share') || false}
+            isShow={!isLoading && view === 'share'}
           />
           <HobbyDetail
             HobbyDetailTypes={recommendation.hobbies}
-            isShow={(!isLoading && view === 'hobbyDetail') || false}
+            isShow={!isLoading && view === 'hobbyDetail'}
           />
         </>
       )}
