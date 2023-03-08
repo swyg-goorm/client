@@ -42,7 +42,6 @@ export default function Result() {
     <div className="text-center">
       {!isLoading && (
         <TopBar
-          isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });

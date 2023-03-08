@@ -111,7 +111,7 @@ export default function question() {
         <div className="px-4">
           <TopBar
             onBackButton={() => handleProgressbarBackButton(currentPage)}
-            isBackButton
+            isBackButton={currentPage > 1}
           />
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
