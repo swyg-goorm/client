@@ -8,7 +8,7 @@ interface HobbyDetailProps {
   isShow: boolean;
 }
 
-function HobbyDetail({ HobbyDetailTypes, isShow }: HobbyDetailProps) {
+function HobbyDetail({ HobbyDetailTypes, isShow = false }: HobbyDetailProps) {
   const [nickname, setNickName] = useState<string>('');
   const router = useRouter();
   useEffect(() => {

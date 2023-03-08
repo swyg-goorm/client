@@ -1,17 +1,19 @@
 import '../styles/globals.css';
 import Layout from '@components/common/layout';
-import Loader from '@components/common/Loader';
-import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Suspense, useEffect, useState } from 'react';
 import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
+import Loader from '@components/common/Loader';
+import MetaHead from '@components/MetaHead';
+const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.png`;
 
 const client = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
+      suspense: true,
       useErrorBoundary: true,
     },
     mutations: { retry: 0, useErrorBoundary: true },
@@ -19,12 +21,23 @@ const client = new QueryClient({
 });
 declare global {
   interface Window {
+    Kakao: any;
     kakao: any;
   }
+}
+function imagePreload(urls: string[]) {
+  urls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
 }
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    imagePreload([LOADING_IMAGE_SRC]);
+  }, []);
 
   useEffect(() => {
     const start = () => {
@@ -44,18 +57,18 @@ export default function App({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', end);
     };
   }, []);
-
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <Layout>
-      <Head>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>
-      </Head>
-      <RecoilRoot>
-        <QueryClientProvider client={client}>
-          <Component {...pageProps} />
-        </QueryClientProvider>
-      </RecoilRoot>
+      <MetaHead />
+      <Suspense fallback={<Loader />}>
+        <RecoilRoot>
+          <QueryClientProvider client={client}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
+        </RecoilRoot>
+      </Suspense>
     </Layout>
   );
 }
