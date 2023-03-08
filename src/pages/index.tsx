@@ -48,7 +48,6 @@ export default function Home() {
           x >
           window.innerWidth -
             LAYOUT_PADDING * 2 -
-            TOUCH_BUTTON_SIZE -
             BUTTON_PADDING * 2 -
             MOBILE_SPARE_VALUE
         ) {

@@ -39,7 +39,13 @@ export default function App({ Component, pageProps }: AppProps) {
     imagePreload([LOADING_IMAGE_SRC]);
   }, []);
 
+  const setScreenSize = () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
   useEffect(() => {
+    setScreenSize();
     const start = () => {
       setLoading(true);
     };
