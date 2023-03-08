@@ -12,5 +12,5 @@ export const UserRecommendation = atom<number>({
 
 export const IsLoading = atom<boolean>({
   key: 'IsLoading',
-  default: false,
+  default: true,
 });

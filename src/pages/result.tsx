@@ -12,7 +12,7 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState } from 'recoil';
 import { IsLoading } from 'store/atom';
@@ -53,7 +53,7 @@ export default function Result() {
         />
       )}
 
-      {isLoading && <ResultLoader />}
+      {isLoading && !view && <ResultLoader />}
       <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-3">
