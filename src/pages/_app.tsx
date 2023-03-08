@@ -6,11 +6,14 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Suspense, useEffect, useState } from 'react';
 import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
+import Loader from '@components/common/Loader';
+import MetaHead from '@components/MetaHead';
 
 const client = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
+      suspense: true,
       useErrorBoundary: true,
     },
     mutations: { retry: 0, useErrorBoundary: true },
@@ -43,18 +46,18 @@ export default function App({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', end);
     };
   }, []);
-
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <Layout>
-      <Head>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Hollang</title>
-      </Head>
-      <RecoilRoot>
-        <QueryClientProvider client={client}>
-          <Component {...pageProps} />
-        </QueryClientProvider>
-      </RecoilRoot>
+      <MetaHead />
+      <Suspense fallback={<Loader />}>
+        <RecoilRoot>
+          <QueryClientProvider client={client}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
+        </RecoilRoot>
+      </Suspense>
     </Layout>
   );
 }
