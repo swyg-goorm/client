@@ -7,6 +7,7 @@ import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
 import Loader from '@components/common/Loader';
 import MetaHead from '@components/MetaHead';
+const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.png`;
 
 const client = new QueryClient({
   defaultOptions: {
@@ -35,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    imagePreload(['/static/gif 이미지 (16가지).png']);
+    imagePreload([LOADING_IMAGE_SRC]);
   }, []);
 
   useEffect(() => {
