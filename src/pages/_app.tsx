@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import Layout from '@components/common/layout';
-import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Suspense, useEffect, useState } from 'react';
@@ -21,7 +20,7 @@ const client = new QueryClient({
 });
 declare global {
   interface Window {
-    kakao: any;
+    Kakao: any;
   }
 }
 
