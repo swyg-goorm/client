@@ -1,10 +1,11 @@
 import 'swiper/css';
 
 import Button from '@components/common/Button';
-import Loader from '@components/common/Loader';
+import ResultLoader from '@components/common/ResultLoader';
 import TopBar from '@components/common/TopBar';
 import Card from '@components/result/Card';
 import FitHobby from '@components/result/FitHobby';
+import HobbyDetail from '@components/result/HobbyDetail';
 import Model from '@components/result/Model';
 import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
@@ -15,7 +16,6 @@ import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
-import HobbyDetail from '@components/result/HobbyDetail';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
@@ -27,6 +27,7 @@ export default function Result() {
     ['getRecommendation', id],
     () => getRecommendation(+id),
     {
+      suspense: false,
       enabled: !!id,
     },
   );
@@ -44,14 +45,13 @@ export default function Result() {
           isBackButton
           mainMessage={view === '' ? 'result' : 'main'}
           onBackButton={() => {
-            console.log(!!view);
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
           }}
         />
       )}
 
-      {isLoading && <Loader />}
+      {isLoading && <ResultLoader />}
       <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="text-2xl text-main-3">
@@ -85,7 +85,7 @@ export default function Result() {
           <p className="mt-4 text-[1.125rem] text-gray-7">
             버튼을 눌러 자세히 둘러봐요!
           </p>
-          <Swiper className="mySwiper mt-6" slidesPerView={1.4}>
+          <Swiper className="mySwiper mt-6" slidesPerView={1.8}>
             {recommendation?.hobbies.map((hobby: HobbyType) => (
               <SwiperSlide key={hobby?.id}>
                 <Card id={id} hobby={hobby} />
@@ -97,13 +97,13 @@ export default function Result() {
           <p className="text-2xl font-bold text-main-4">
             <span className="text-2xl text-main-3 ">
               {recommendation?.user.name}님
-            </span>{' '}
+            </span>
             찰떡 홀랑 유형
           </p>
           <p className="mt-5 text-[1.125rem] text-gray-5">
             물음표를 눌러 알아봐요!
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex cursor-pointer justify-center">
             <Image
               alt="fit-hobby-type"
               src={FIT_HOBBY_IMAGE_SRC}
@@ -153,11 +153,11 @@ export default function Result() {
             hobbyType={recommendation.hobbyType}
             userName={recommendation.user.name}
             hobbies={recommendation.hobbies}
-            isShow={(!isLoading && view === 'share') || false}
+            isShow={!isLoading && view === 'share'}
           />
           <HobbyDetail
             HobbyDetailTypes={recommendation.hobbies}
-            isShow={(!isLoading && view === 'hobbyDetail') || false}
+            isShow={!isLoading && view === 'hobbyDetail'}
           />
         </>
       )}

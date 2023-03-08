@@ -31,15 +31,27 @@ module.exports = {
         warning: '#F84A4A',
       },
       animation: {
-        'pass-by': 'pass 15s linear infinite ',
+        'pass-by-1': 'pass 10s linear infinite ',
+        bounce1: 'bounce 2s ease-in-out infinite ',
+        bounce2: 'bounce 2s 0.5s ease-in-out infinite ',
+        bounce3: 'bounce 2s 1s ease-in-out infinite ',
       },
       keyframes: {
         pass: {
           '0%': {
-            transform: 'translateX(-100%)',
+            transform: 'translateX(-180rem)',
           },
           '100%': {
-            transform: 'translateX(0%)',
+            transform: 'translateX(0rem)',
+          },
+        },
+        bounce: {
+          '0%, 20%': { trasnsform: `translate(0,0)` },
+          '50%': {
+            transform: 'translateY(-150%)',
+          },
+          '85%, 100%': {
+            trasnsform: `translate(0,0)`,
           },
         },
       },
