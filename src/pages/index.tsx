@@ -115,7 +115,7 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <MainCharacter />
-        <p className="text-[1.125rem]">
+        <p className="mt-[5.5rem]  text-[1.125rem]">
           당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요
         </p>
       </div>
@@ -137,7 +137,7 @@ export default function Home() {
           onTouchStart={handleMouseDown}
           onTouchMove={handleMouseMove}
           onTouchEnd={handleMouseUp}
-          className="slider relative mb-[16px] flex h-[100px] w-full items-center rounded-[50px] bg-main-2 py-[10px] px-[12px]"
+          className="slider relative mb-[1rem] flex h-[6.25rem] w-full items-center rounded-[3.125rem] bg-main-2 py-[0.625rem] px-[0.75rem]"
         >
           <button
             style={{
@@ -152,7 +152,7 @@ export default function Home() {
                   : 0
               }px)`,
             }}
-            className={`h-[80px] w-[80px] cursor-pointer rounded-full bg-main-3`}
+            className={`h-[5rem] w-[5rem] cursor-pointer rounded-full bg-main-3`}
           ></button>
           {!isDragging && (
             <>

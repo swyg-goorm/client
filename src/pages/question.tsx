@@ -63,11 +63,24 @@ export default function question() {
     setCurrentPage(currentPage + 1);
   };
 
+  const handleProgressbarBackButton = (currentPage: number) => {
+    if (currentPage !== 1) {
+      const copiedQuestionArray = [...questionArray];
+      copiedQuestionArray.pop();
+      setQuestionArray(copiedQuestionArray);
+      return setCurrentPage(currentPage - 1);
+    }
+    return router.back();
+  };
+
   return (
     isSuccess && (
       <div className="pb-[3rem]">
         <div className="px-4">
-          <TopBar isBackButton />
+          <TopBar
+            onBackButton={() => handleProgressbarBackButton(currentPage)}
+            isBackButton
+          />
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
@@ -89,7 +102,7 @@ export default function question() {
                 currentPage - 1
               ].content.replace('000', localStorage.getItem('nickname') || '')}
             </p>
-            <div className="mb-13 flex w-full flex-col gap-2">
+            <div className="mb-13 flex w-full flex-col gap-4">
               {questionData?.data.test.questions[currentPage - 1].answers.map(
                 ({ content, id }, index) => (
                   <Button

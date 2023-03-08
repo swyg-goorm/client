@@ -46,6 +46,16 @@ function HobbyDetail({ HobbyDetailTypes, isShow = false }: HobbyDetailProps) {
       <p className="mb-6 text-[1.125rem] font-normal">
         버튼을 눌러 자세히 알아봐요!
       </p>
+      <div className="flex h-[15.9375rem] flex-col items-center justify-center rounded-[1.875rem] bg-gray-1">
+        <div className="mb-4 flex gap-6">
+          <div className="h-[1.3125rem] w-[1.3125rem] rounded-full bg-main-3"></div>
+          <div className="h-[1.3125rem] w-[1.3125rem] rounded-full bg-gray-3"></div>
+          <div className="h-[1.3125rem] w-[1.3125rem] rounded-full bg-gray-3"></div>
+        </div>
+        <p className=" text-[1.5rem] font-semibold leading-[1.875rem]">
+          콘텐츠 준비 중이에요
+        </p>
+      </div>
     </div>
   );
 }
