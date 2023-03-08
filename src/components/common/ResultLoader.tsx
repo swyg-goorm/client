@@ -15,11 +15,11 @@ export default function ResultLoader() {
         <TopBar />
       </div>
       <div className=" h-[16rem] w-[16rem] items-center justify-center overflow-hidden rounded-full bg-main-4 ">
-        <div className="mt-[2.6rem] h-[20rem] w-[800rem] overflow-hidden">
+        <div className="mt-[2.6rem] h-[20rem] w-[1000rem] overflow-hidden">
           <Image
             alt="loading"
             src={LOADING_IMAGE_SRC}
-            width={2000}
+            width={1000}
             height={1000}
             className="z-10 animate-pass-by"
           />

@@ -161,3 +161,8 @@ input,
 textarea {
   border: inherit;
 }
+
+html,
+body {
+  height: 100%;
+}
