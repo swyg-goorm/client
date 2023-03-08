@@ -21,6 +21,7 @@ const client = new QueryClient({
 declare global {
   interface Window {
     Kakao: any;
+    kakao: any;
   }
 }
 
