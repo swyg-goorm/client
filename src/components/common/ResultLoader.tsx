@@ -19,7 +19,7 @@ export default function ResultLoader() {
           <Image
             alt="loading"
             src={LOADING_IMAGE_SRC}
-            width={1200}
+            width={2000}
             height={1000}
             className="z-10 animate-pass-by"
           />
