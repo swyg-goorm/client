@@ -23,7 +23,7 @@ export default function Begin() {
 
   return (
     <div className="relative h-full">
-      <TopBar isBackButton />
+      <TopBar />
       {modal && (
         <Modal
           message="닉네임을 입력해주세요"
