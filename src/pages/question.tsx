@@ -12,6 +12,7 @@ import {
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
 import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
+import Loader from '@components/common/Loader';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -101,7 +102,7 @@ export default function question() {
               .imageUrl as string
           }
         />
-        <div>로딩중</div>
+        <Loader />
       </div>
     );
 
