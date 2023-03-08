@@ -24,9 +24,19 @@ declare global {
     kakao: any;
   }
 }
+function imagePreload(urls: string[]) {
+  urls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    imagePreload(['/static/gif 이미지 (16가지).png']);
+  }, []);
 
   useEffect(() => {
     const start = () => {

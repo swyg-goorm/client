@@ -27,6 +27,7 @@ export default function Result() {
     ['getRecommendation', id],
     () => getRecommendation(+id),
     {
+      suspense: false,
       enabled: !!id,
     },
   );
