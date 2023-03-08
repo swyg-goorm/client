@@ -19,7 +19,8 @@ export default function ResultLoader() {
           <Image
             alt="loading"
             src={LOADING_IMAGE_SRC}
-            fill
+            width={3200}
+            height={2000}
             className="z-10 animate-pass-by-1 object-cover"
           />
         </div>
