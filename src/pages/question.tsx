@@ -25,6 +25,7 @@ export default function question() {
     staleTime: Infinity,
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
@@ -52,6 +53,7 @@ export default function question() {
   }, [data, isSuccess]);
 
   const handleClickQuestion = (clickedIndex: number) => {
+    setIsButtonClicked(true);
     if (currentPage === MAX_PAGE) {
       const getData = async () => {
         const data = await getUserResult(
@@ -83,7 +85,7 @@ export default function question() {
     return router.back();
   };
 
-if (loading)
+  if (loading)
     return (
       <div>
         <Image
@@ -136,6 +138,7 @@ if (loading)
               {questionData?.data.test.questions[currentPage - 1].answers.map(
                 ({ content, id }, index) => (
                   <Button
+                    disabled={isButtonClicked}
                     key={id}
                     onClick={() => handleClickQuestion(index)}
                     type="button"

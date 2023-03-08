@@ -41,12 +41,12 @@ export default function Layout({ children }: LayoutProps) {
     <div className="relative flex h-screen w-screen justify-center bg-sub-2">
       <img
         className="fixed left-0 top-0 h-full"
-        src="https://dnynkguj26y10.cloudfront.net/images/etc/background-left.png"
+        src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-left.png`}
         alt="background-leftImage"
       />
       <img
         className="fixed right-0 top-0 h-full object-cover"
-        src="https://dnynkguj26y10.cloudfront.net/images/etc/background-right.png"
+        src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-right.png`}
         alt="background-rightImage"
       />
       <div

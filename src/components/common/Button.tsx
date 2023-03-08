@@ -8,6 +8,7 @@ interface ButtonPropsType
   type?: 'button' | 'submit' | 'reset' | undefined;
   children?: React.ReactElement | string;
   className?: string;
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -17,10 +18,9 @@ export default function Button({
   type = 'button',
   children,
   className,
+  onClick,
   ...props
 }: ButtonPropsType) {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
-
   const setClassNameByProperty = (property: string) => {
     switch (property) {
       case 'primary':
@@ -41,8 +41,7 @@ export default function Button({
   return (
     <button
       type={type}
-      onClick={() => setIsButtonClicked(true)}
-      disabled={isButtonClicked}
+      onClick={onClick}
       className={`flex w-full items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in disabled:cursor-not-allowed ${className}
       ${setClassNameByProperty(property)}`}
       {...props}
