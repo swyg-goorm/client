@@ -21,9 +21,7 @@ export default function KakaoShare() {
       src="/static/share_kakaotalk.svg"
       width={100}
       height={100}
-      onClick={() => {
-        shareKakao(router.asPath);
-      }}
+      onClick={() => shareKakao(router.asPath)}
       className="w-[20.625rem] cursor-pointer"
     />
   );

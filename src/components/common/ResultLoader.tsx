@@ -19,7 +19,7 @@ export default function ResultLoader() {
         <div className="mt-[2.6rem] h-[20rem] w-[800rem] overflow-hidden">
           <Image
             alt="loading"
-            src={LOADING_IMAGE_SRC}
+            src="/static/gif 이미지 (5가지).png"
             width={3400}
             height={1000}
             className="z-10 animate-pass-by"

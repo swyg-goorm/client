@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { HobbyType } from 'types/result';
-import KakaoMaps from './KakaoMaps';
 
 interface HobbyDetailProps {
   HobbyDetailTypes: HobbyType[];
@@ -47,7 +46,6 @@ function HobbyDetail({ HobbyDetailTypes, isShow }: HobbyDetailProps) {
       <p className="mb-6 text-[1.125rem] font-normal">
         버튼을 눌러 자세히 알아봐요!
       </p>
-      <KakaoMaps hobbyName={currentHobby?.name} />
     </div>
   );
 }

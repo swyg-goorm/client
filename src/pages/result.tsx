@@ -5,6 +5,7 @@ import ResultLoader from '@components/common/ResultLoader';
 import TopBar from '@components/common/TopBar';
 import Card from '@components/result/Card';
 import FitHobby from '@components/result/FitHobby';
+import HobbyDetail from '@components/result/HobbyDetail';
 import Model from '@components/result/Model';
 import Share from '@components/result/Share';
 import IconTurn from '@public/static/icon_turn.svg';
@@ -15,8 +16,6 @@ import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
-import HobbyDetail from '@components/result/HobbyDetail';
-import Loader from '@components/common/Loader';
 
 const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
@@ -97,13 +96,13 @@ export default function Result() {
           <p className="text-2xl font-bold text-main-4">
             <span className="text-2xl text-main-3 ">
               {recommendation?.user.name}님
-            </span>{' '}
+            </span>
             찰떡 홀랑 유형
           </p>
           <p className="mt-5 text-[1.125rem] text-gray-5">
             물음표를 눌러 알아봐요!
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex cursor-pointer justify-center">
             <Image
               alt="fit-hobby-type"
               src={FIT_HOBBY_IMAGE_SRC}
