@@ -1,7 +1,7 @@
 import Button from '@components/common/Button';
 import TopBar from '@components/common/TopBar';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { HobbyType } from 'types/hobby';
@@ -15,15 +15,26 @@ export default function browsing() {
     getAllHobbies,
   );
   const router = useRouter();
+  const [containerWidth, setContainerWidth] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  console.log(containerWidth);
 
+  useEffect(() => {
+    if (containerRef) {
+      setContainerWidth(
+        containerRef?.current?.getBoundingClientRect().width as number,
+      );
+    }
+  }, []);
+
+  const getWidth = () => {
+    return `w-[${containerWidth}px]`;
+  };
   return (
-    <div className="relative h-[calc(100vh-84px)]">
+    <div ref={containerRef} className="relative h-[calc(100vh-84px)]">
       <TopBar isBackButton />
-      <p className="mb-5 text-center text-2xl font-normal text-main-4">
+      <p className="mt-[1.5rem] mb-[6.375rem] text-center text-2xl font-semibold text-main-4">
         TOP 20 홀랑 목록
-      </p>
-      <p className="mb-[3.75rem] text-center text-lg font-normal">
-        홀랑의 TOP 20 취미를 모아봤어요!
       </p>
       <section className="flex h-[31.25rem] flex-col gap-4 overflow-scroll">
         {isSuccess &&
@@ -44,7 +55,10 @@ export default function browsing() {
             </div>
           ))}
       </section>
-      <div className={`sticky left-[50%] top-[48.375rem]`}>
+      <div
+        style={{ width: `${containerWidth}px` }}
+        className={` fixed left-[50%] bottom-[1.375rem] translate-x-[-50%] bg-gray-0`}
+      >
         <Button onClick={() => router.back()}>이전으로</Button>
       </div>
     </div>

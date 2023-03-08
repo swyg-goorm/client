@@ -73,7 +73,17 @@ export default function question() {
     setCurrentPage(currentPage + 1);
   };
 
-  if (loading)
+  const handleProgressbarBackButton = (currentPage: number) => {
+    if (currentPage !== 1) {
+      const copiedQuestionArray = [...questionArray];
+      copiedQuestionArray.pop();
+      setQuestionArray(copiedQuestionArray);
+      return setCurrentPage(currentPage - 1);
+    }
+    return router.back();
+  };
+
+if (loading)
     return (
       <div>
         <Image
@@ -97,11 +107,16 @@ export default function question() {
     isSuccess && (
       <div className="pb-[3rem]">
         <div className="px-4">
-          <TopBar isBackButton />
+          <TopBar
+            onBackButton={() => handleProgressbarBackButton(currentPage)}
+            isBackButton
+          />
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
-          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  0${currentPage}`}</p>
+          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  ${
+            currentPage < 10 ? '0' + currentPage : currentPage
+          }`}</p>
         </section>
         {questionData?.data.test.questions[currentPage - 1] !== undefined && (
           <section className="flex flex-col items-center ">
@@ -113,9 +128,11 @@ export default function question() {
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
             />
             <p className="mb-8 px-16 text-center text-lg font-normal leading-7">
-              {questionData?.data.test.questions[currentPage - 1].content}
+              {questionData?.data.test.questions[
+                currentPage - 1
+              ].content.replace('000', localStorage.getItem('nickname') || '')}
             </p>
-            <div className="mb-13 flex w-full flex-col gap-2">
+            <div className="mb-13 flex w-full flex-col gap-4">
               {questionData?.data.test.questions[currentPage - 1].answers.map(
                 ({ content, id }, index) => (
                   <Button
