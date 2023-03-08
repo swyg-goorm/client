@@ -51,7 +51,7 @@ export default function Begin() {
             </span>
           )}
         </div>
-        <div className="absolute left-0 right-0 bottom-[2.8125rem] m-auto w-[full]">
+        <div className="w-[full] ">
           <Button type="submit">홀랑 테스트 하러 가기</Button>
         </div>
       </form>
