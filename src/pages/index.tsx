@@ -1,9 +1,9 @@
 import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
 import MainCharacter from '@public/static/main_character.svg';
-import React, { useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 
 import { getUserCount } from '../api/getUserCount';
 
@@ -19,6 +19,7 @@ export default function Home() {
       block: 'start',
     });
   }, []);
+
   useEffect(() => {
     setTimeout(() => {
       sliderRef.current?.scrollIntoView({
@@ -114,7 +115,7 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <MainCharacter />
-        <p className="mt-[5.5rem]  text-[1.125rem]">
+        <p className="mt-[5.5rem] text-[1.125rem] font-[400]">
           당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요
         </p>
       </div>
@@ -124,7 +125,13 @@ export default function Home() {
       >
         <p
           draggable
-          className="mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
+          className="mb-[2rem] text-[1.125rem] font-[400] leading-[1.57rem]"
+        >
+          슬라이더를 밀어 입장하기!
+        </p>
+        <p
+          draggable
+          className="mb-[2rem] text-[1.125rem] font-[700] leading-[1.57rem]"
         >
           슬라이더를 밀어 입장하기!
         </p>
