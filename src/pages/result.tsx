@@ -39,7 +39,7 @@ export default function Result() {
   }, [router.query]);
 
   return (
-    <div className="text-center">
+    <div className=" text-center">
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
@@ -59,7 +59,7 @@ export default function Result() {
           <div className="h-52 w-full">
             {mbti && (
               <Model
-                uri={`./static/gltf/${'ENTJ'}.gltf`}
+                uri={`./static/gltf/${mbti}.gltf`}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
               />
@@ -73,7 +73,7 @@ export default function Result() {
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[450px] bg-gray-2" />
+        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2" />
         <section className="mt-8">
           <p className="text-2xl text-main-4">
             <span className="text-2xl text-main-3">
