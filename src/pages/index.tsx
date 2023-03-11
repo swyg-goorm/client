@@ -137,12 +137,6 @@ export default function Home() {
         >
           슬라이더를 밀어 입장하기!
         </p>
-        <p
-          draggable
-          className="mb-[2rem] text-[1.125rem] font-[700] leading-[1.57rem]"
-        >
-          슬라이더를 밀어 입장하기!
-        </p>
         <div
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
