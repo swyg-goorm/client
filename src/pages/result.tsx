@@ -43,6 +43,7 @@ export default function Result() {
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
+          isBackButton
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
