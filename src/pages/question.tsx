@@ -93,7 +93,7 @@ export default function question() {
           onLoadingComplete={(e) => setImageLoadingComplete(e)}
           loading="eager"
           priority
-          className="mb-[2rem] rounded-[1.25rem]  px-4"
+          className="mb-[2rem] hidden rounded-[1.25rem]  px-4"
           alt="image that explain Question"
           width={450}
           height={450}

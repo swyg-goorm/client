@@ -13,20 +13,27 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
-  useEffect(() => {
+
+  const handleClickMainCharacter = () => {
+    scrollIntoViewBottom();
+    clearTimeout(timeOutTwoSeconds);
+  };
+
+  const scrollIntoViewBottom = () => {
     sliderRef.current?.scrollIntoView({
+      block: 'end',
       behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    containerRef.current?.scrollIntoView({
+      behavior: 'auto',
       block: 'start',
     });
   }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      sliderRef.current?.scrollIntoView({
-        block: 'end',
-        behavior: 'smooth',
-      });
-    }, 2000);
-  }, [data, isSuccess]);
+
+  const timeOutTwoSeconds = setTimeout(scrollIntoViewBottom, 2000);
 
   const [x, setX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -113,7 +120,9 @@ export default function Home() {
         style={{ height: `calc(100% - ${TAPBAR_HEIGHT * 2}px)` }}
         className={`flex flex-col items-center justify-center`}
       >
-        <MainCharacter />
+        <div className="cursor-pointer" onClick={handleClickMainCharacter}>
+          <MainCharacter />
+        </div>
         <p className="mt-[5.5rem]  text-[1.125rem]">
           당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요
         </p>
