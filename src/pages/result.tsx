@@ -43,6 +43,7 @@ export default function Result() {
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
+          isBackButton={Object.keys(router.query).length > 1}
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
@@ -152,6 +153,7 @@ export default function Result() {
             hobbyType={recommendation.hobbyType}
             userName={recommendation.user.name}
             hobbies={recommendation.hobbies}
+            isShared={router?.query.isshared === 'true'}
             isShow={!isLoading && view === 'share'}
           />
           <HobbyDetail
