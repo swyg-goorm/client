@@ -32,7 +32,7 @@ export default function browsing() {
   };
   return (
     <div ref={containerRef} className="relative h-[calc(100vh-84px)]">
-      <TopBar isBackButton />
+      <TopBar />
       <p className="mt-[1.5rem] mb-[6.375rem] text-center text-2xl font-semibold text-main-4">
         TOP 20 홀랑 목록
       </p>

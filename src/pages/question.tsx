@@ -12,6 +12,7 @@ import {
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
 import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
+import Loader from '@components/common/Loader';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -92,7 +93,7 @@ export default function question() {
           onLoadingComplete={(e) => setImageLoadingComplete(e)}
           loading="eager"
           priority
-          className="mb-[2rem] rounded-[1.25rem]  px-4"
+          className="mb-[2rem] hidden rounded-[1.25rem]  px-4"
           alt="image that explain Question"
           width={450}
           height={450}
@@ -101,7 +102,7 @@ export default function question() {
               .imageUrl as string
           }
         />
-        <div>로딩중</div>
+        <Loader />
       </div>
     );
 
@@ -111,7 +112,7 @@ export default function question() {
         <div className="px-4">
           <TopBar
             onBackButton={() => handleProgressbarBackButton(currentPage)}
-            isBackButton
+            isBackButton={currentPage > 1}
           />
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
