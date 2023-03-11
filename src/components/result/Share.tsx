@@ -23,7 +23,6 @@ export default function Share({
   const handleDownload = async () => {
     const dataUrl = await htmlToImage.toPng(containerRef.current);
     const link = document.createElement('a');
-    link.style = 'display:none;';
     link.download = 'hollang-hobby.png';
     link.href = dataUrl;
     document.body.appendChild(link);
