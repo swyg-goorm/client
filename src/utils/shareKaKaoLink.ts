@@ -1,5 +1,5 @@
 export const shareKakao = (uri: string) => {
-  const SHARE_URI = `${process.env.NEXT_PUBLIC_CLIENT}/${uri}`;
+  const SHARE_URI = `${process.env.NEXT_PUBLIC_CLIENT}/${uri}&isshared=true`;
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
