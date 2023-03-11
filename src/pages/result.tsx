@@ -59,7 +59,7 @@ export default function Result() {
           <div className="h-52 w-full">
             {mbti && (
               <Model
-                uri={`./static/gltf/${mbti}.gltf`}
+                uri={`./static/gltf/${'ENTJ'}.gltf`}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
               />
