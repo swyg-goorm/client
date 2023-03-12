@@ -1,10 +1,9 @@
 import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
 import { useRouter } from 'next/router';
-
+import React, { useRef, useEffect, useState } from 'react';
 import { getUserCount } from '../api/getUserCount';
 import Image from 'next/image';
-import { useRef, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
 export default function Home() {
@@ -138,7 +137,8 @@ export default function Home() {
       >
         <p
           draggable
-          className="font-AppleEB mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
+          className="mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
+
         >
           슬라이더를 밀어 입장하기!
         </p>
@@ -178,7 +178,8 @@ export default function Home() {
 
         <button
           onClick={() => router.push('/browsing')}
-          className="font-AppleEB cursor-pointer text-[1.125rem] font-normal leading-[1.57rem]"
+          className="cursor-pointer text-[1.125rem] font-normal leading-[1.57rem]"
+
         >
           둘러보기
         </button>

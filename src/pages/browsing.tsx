@@ -17,7 +17,6 @@ export default function browsing() {
   const router = useRouter();
   const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  console.log(containerWidth);
 
   useEffect(() => {
     if (containerRef) {
@@ -33,7 +32,7 @@ export default function browsing() {
   return (
     <div ref={containerRef} className="relative h-[calc(100vh-84px)]">
       <TopBar />
-      <p className="mt-[1.5rem] mb-[6.375rem] text-center text-2xl font-semibold text-main-4">
+      <p className="mt-[1.5rem] mb-16 text-center text-2xl font-semibold text-main-4">
         TOP 20 홀랑 목록
       </p>
       <section className="flex h-[31.25rem] flex-col gap-4 overflow-scroll">
