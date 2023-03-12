@@ -51,8 +51,8 @@ export default function question() {
   };
 
   useEffect(() => {
-    scrollIntoViewTop();
     setLoading(true);
+    scrollIntoViewTop();
   }, [currentPage]);
 
   useEffect(() => {
