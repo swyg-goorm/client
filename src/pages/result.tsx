@@ -128,9 +128,9 @@ export default function Result() {
         <section className="mt-12 w-full">
           <p className="text-2xl  font-bold text-main-4">
             <span className="text-2xl text-main-3 ">
-              {recommendation?.user.name}님
+              {recommendation?.user.name}
             </span>
-            찰떡 홀랑 유형
+            님 찰떡 홀랑 유형
           </p>
           <p className="mt-5 text-[1.125rem] text-gray-5">
             물음표를 눌러 알아봐요!
