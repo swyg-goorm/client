@@ -49,7 +49,7 @@ export default function Begin() {
 
           <span
             className={`mt-2 ml-5 block text-[1rem] text-warning ${
-              reg.test(nickname) || (nickname.length === 0 && 'text-white')
+              (reg.test(nickname) || nickname.length === 0) && 'text-white'
             }`}
           >
             한글로 세글자 이내까지 입력가능해요
