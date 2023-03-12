@@ -45,11 +45,15 @@ export default function Begin() {
             placeholder="닉네임을 세글자 이내로 입력해주세요"
             setNickname={setNickname}
           />
-          {!reg.test(nickname) && nickname.length > 0 && (
-            <span className="mt-2 ml-5 block text-[1rem] text-warning">
+          {
+            <span
+              className={`mt-2 ml-5 block text-[1rem] text-warning ${
+                (reg.test(nickname) || nickname.length === 0) && 'text-white'
+              }`}
+            >
               한글로 세글자 이내까지 입력가능해요
             </span>
-          )}
+          }
         </div>
         <div className="w-[full] ">
           <Button type="submit">홀랑 테스트 하러 가기</Button>
