@@ -103,7 +103,13 @@ video {
   vertical-align: baseline;
   text-decoration: none;
   white-space: pre-line;
- 
+}
+
+@media only screen and (max-device-width: 736px) {
+  /* 아이폰에서 호버 효과를 제거합니다. */
+  :hover {
+    pointer-events: none;
+  }
 }
 
 /* HTML5 display-role reset for older browsers */
