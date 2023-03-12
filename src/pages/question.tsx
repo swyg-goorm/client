@@ -55,6 +55,7 @@ export default function question() {
 
   const handleClickQuestion = (event: any, clickedIndex: number) => {
     event.preventDefault();
+    event.stopPropagation();
     setIsButtonClicked(true);
     if (currentPage === MAX_PAGE) {
       const getData = async () => {
