@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="relative flex h-screen w-screen justify-center bg-sub-2">
+    <div className="relative flex h-screen w-screen justify-center bg-sub-2 ">
       <img
         className="fixed left-0 top-0 h-full"
         src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-left.png`}
