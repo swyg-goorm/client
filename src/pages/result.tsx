@@ -12,7 +12,7 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
@@ -37,6 +37,33 @@ export default function Result() {
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
+
+  const [applicationValue, setApplicationValue] = useState<
+    | {
+        innerWidth: number;
+        innerHeight: number;
+      }
+    | undefined
+  >();
+
+  useEffect(() => {
+    setApplicationValue({
+      innerHeight: window.screen.height,
+      innerWidth: window.screen.width,
+    });
+  }, []);
+
+  const getWidth = (
+    innerWidth: number | undefined,
+    innerHeight: number | undefined,
+  ): string => {
+    if (innerHeight !== undefined && innerWidth !== undefined) {
+      if (innerHeight / innerWidth >= 2) {
+        return `max-w-full`;
+      }
+    }
+    return 'max-w-[28.125rem]';
+  };
 
   return (
     <div className=" text-center">
@@ -74,7 +101,12 @@ export default function Result() {
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <div className="top-[37.5rem] mt-12 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2" />
+        <div
+          className={`top-[37.5rem] mt-12 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2 ${getWidth(
+            applicationValue?.innerWidth,
+            applicationValue?.innerHeight,
+          )}`}
+        />
         <section className="mt-12">
           <p className="text-2xl font-bold text-main-4">
             <span className="text-2xl text-main-3">
