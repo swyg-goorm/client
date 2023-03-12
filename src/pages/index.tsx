@@ -1,18 +1,20 @@
 import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
-import MainCharacter from '@public/static/main_character.svg';
+import React, { useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { getUserCount } from '../api/getUserCount';
+import Image from 'next/image';
 
 export default function Home() {
   const TAPBAR_HEIGHT = 84;
   const sliderRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const { data, isSuccess } = useQuery(['getUserCount'], getUserCount);
+  const { data } = useQuery(['getUserCount'], getUserCount);
 
   const handleClickMainCharacter = () => {
     scrollIntoViewBottom();
@@ -121,7 +123,12 @@ export default function Home() {
         className={`flex flex-col items-center justify-center`}
       >
         <div className="cursor-pointer" onClick={handleClickMainCharacter}>
-          <MainCharacter />
+          <Image
+            width={450}
+            height={450}
+            alt={'hollangLogo'}
+            src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/home.png`}
+          ></Image>
         </div>
         <p className="mt-[5.5rem]  text-[1.125rem]">
           당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요

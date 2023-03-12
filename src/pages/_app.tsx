@@ -53,6 +53,9 @@ export default function App({ Component, pageProps }: AppProps) {
       setLoading(false);
     };
 
+    window.location.href =
+      'intent://hollang.netlify.app#Intent;scheme=http;package=com.android.chrome;end';
+
     Router.events.on('routeChangeStart', start);
     Router.events.on('routeChangeComplete', end);
     Router.events.on('routeChangeError', end);
