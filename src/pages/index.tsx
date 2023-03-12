@@ -1,9 +1,9 @@
 import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
 import MainCharacter from '@public/static/main_character.svg';
-import React, { useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 
 import { getUserCount } from '../api/getUserCount';
 

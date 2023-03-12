@@ -20,7 +20,9 @@ export default function FitHobby({
 
   return (
     <div className={isShow ? '' : 'hidden'}>
-      <p className="py-5 text-[1.5rem] text-main-4">나와 찰떡인 홀랑 유형</p>
+      <p className="py-5 text-[1.5rem] font-bold text-main-4">
+        나와 찰떡인 홀랑 유형
+      </p>
       <section className="flex">
         {fitHobbyTypes.map((fitHobbyType: FitHobbyType, index: number) => (
           <div

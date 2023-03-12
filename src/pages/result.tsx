@@ -39,10 +39,11 @@ export default function Result() {
   }, [router.query]);
 
   return (
-    <div className="text-center">
+    <div className=" text-center">
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
+          isBackButton
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
@@ -53,7 +54,7 @@ export default function Result() {
       {isLoading && <ResultLoader />}
       <div className={`${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
-          <p className="text-2xl text-main-3">
+          <p className="text-2xl font-semibold text-main-3">
             {recommendation?.hobbyType.name}
           </p>
           <div className="h-52 w-full">
@@ -73,13 +74,13 @@ export default function Result() {
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[450px] bg-gray-2" />
+        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2" />
         <section className="mt-8">
-          <p className="text-2xl text-main-4">
+          <p className="text-2xl font-bold text-main-4">
             <span className="text-2xl text-main-3">
               {recommendation?.user.name}
             </span>
-            님의 홀랑 취미
+            님 맞춤 홀랑 취미
           </p>
           <p className="mt-4 text-[1.125rem] text-gray-7">
             버튼을 눌러 자세히 둘러봐요!
@@ -93,7 +94,7 @@ export default function Result() {
           </Swiper>
         </section>
         <section className="mt-12 w-full">
-          <p className="text-2xl font-bold text-main-4">
+          <p className="text-2xl  font-bold text-main-4">
             <span className="text-2xl text-main-3 ">
               {recommendation?.user.name}님
             </span>
