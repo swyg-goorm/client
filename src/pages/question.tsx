@@ -2,7 +2,7 @@ import Button from '@components/common/Button';
 import ProgressBar from '@components/common/ProgressBar';
 import TopBar from '@components/common/TopBar';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import {
@@ -25,6 +25,7 @@ export default function question() {
   const { data, isSuccess } = useQuery(['getUserQuestion'], getUserQuestion, {
     staleTime: Infinity,
   });
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [questionArray, setQuestionArray] = useState<
@@ -42,8 +43,15 @@ export default function question() {
   const setImageLoadingComplete = (e: any) => {
     setLoading(false);
   };
+  const scrollIntoViewTop = () => {
+    sliderRef.current?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
+    scrollIntoViewTop();
     setLoading(true);
   }, [currentPage]);
 
