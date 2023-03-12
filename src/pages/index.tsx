@@ -133,7 +133,7 @@ export default function Home() {
       >
         <p
           draggable
-          className="mb-[2rem] text-[1.125rem] font-[400] leading-[1.57rem]"
+          className="mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
         >
           슬라이더를 밀어 입장하기!
         </p>
