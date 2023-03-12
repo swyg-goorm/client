@@ -141,7 +141,7 @@ export default function question() {
                   <Button
                     disabled={isButtonClicked}
                     key={id}
-                    onClick={() => handleClickQuestion(index)}
+                    onTouchStart={() => handleClickQuestion(index)}
                     type="button"
                     property="question"
                   >
