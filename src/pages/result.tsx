@@ -59,7 +59,8 @@ export default function Result() {
   ): string => {
     if (innerHeight !== undefined && innerWidth !== undefined) {
       if (innerHeight / innerWidth >= 2) {
-        return `max-w-full`;
+        console.log(innerWidth);
+        return `max-w-${innerWidth}`;
       }
     }
     return 'max-w-[28.125rem]';
@@ -70,7 +71,9 @@ export default function Result() {
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
-          isBackButton={Object.keys(router.query).length > 1}
+          isBackButton={
+            Object.keys(router.query).length > 1 && !router.query?.isShared
+          }
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
@@ -194,6 +197,7 @@ export default function Result() {
           />
         </>
       )}
+      <div className="h-8" />
     </div>
   );
 }
