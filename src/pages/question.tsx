@@ -132,7 +132,7 @@ export default function question() {
               height={450}
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
             />
-            <p className="mb-8 text-center text-lg font-normal leading-7">
+            <p className="mb-8 text-center text-[1.25rem] font-normal leading-7">
               {questionData?.data.test.questions[
                 currentPage - 1
               ].content.replace('000', localStorage.getItem('nickname') || '')}

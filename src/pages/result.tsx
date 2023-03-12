@@ -44,7 +44,6 @@ export default function Result() {
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
           isBackButton={Object.keys(router.query).length > 1}
-
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });
             else router.push('/question');
@@ -71,12 +70,12 @@ export default function Result() {
           <IconTurn className="my-1" />
           <span className="text-[1rem] text-gray-5">회전하면 돌아가요!</span>
 
-          <p className="mt-8 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
+          <p className="mt-12 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <div className="top-[37.5rem] mt-8 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2" />
-        <section className="mt-8">
+        <div className="top-[37.5rem] mt-12 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2" />
+        <section className="mt-12">
           <p className="text-2xl font-bold text-main-4">
             <span className="text-2xl text-main-3">
               {recommendation?.user.name}
@@ -104,7 +103,7 @@ export default function Result() {
           <p className="mt-5 text-[1.125rem] text-gray-5">
             물음표를 눌러 알아봐요!
           </p>
-          <div className="mt-8 flex cursor-pointer justify-center">
+          <div className="mt-12 flex cursor-pointer justify-center">
             <Image
               alt="fit-hobby-type"
               src={FIT_HOBBY_IMAGE_SRC}
@@ -118,7 +117,7 @@ export default function Result() {
               }}
             />
           </div>
-          <div className="mt-6">
+          <div className="mt-16">
             <div>
               <Button
                 onClick={() => {
