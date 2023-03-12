@@ -3,7 +3,8 @@ import * as htmlToImage from 'html-to-image';
 import Image from 'next/image';
 import { useRef } from 'react';
 import { HobbyType } from 'types/result';
-
+import downloadjs from 'downloadjs';
+import html2canvas from 'html2canvas';
 interface ShareProps {
   hobbyType: HobbyType;
   userName: string;
@@ -21,13 +22,9 @@ export default function Share({
   const containerRef = useRef<any>(null);
 
   const handleDownload = async () => {
-    const dataUrl = await htmlToImage.toPng(containerRef.current);
-    const link = document.createElement('a');
-    link.download = 'hollang-hobby.png';
-    link.href = dataUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const canvas = await html2canvas(containerRef.current);
+    const dataURL = canvas.toDataURL('image/png');
+    downloadjs(dataURL, 'download.png', 'image/png');
   };
   return (
     <div
@@ -57,7 +54,7 @@ export default function Share({
           {hobbyType.description}
         </p>
         <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
-        <p className="mt-4 text-[1.125rem] text-main-4 font-bold">
+        <p className="mt-4 text-[1.125rem] font-bold text-main-4">
           <span className="text-[1.125rem] text-main-3">{userName}</span>님과 잘
           맞는 취미
         </p>
