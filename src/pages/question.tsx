@@ -53,7 +53,8 @@ export default function question() {
     }
   }, [data, isSuccess]);
 
-  const handleClickQuestion = (clickedIndex: number) => {
+  const handleClickQuestion = (event: any, clickedIndex: number) => {
+    event.preventDefault();
     setIsButtonClicked(true);
     if (currentPage === MAX_PAGE) {
       const getData = async () => {
