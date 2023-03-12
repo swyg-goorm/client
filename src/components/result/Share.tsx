@@ -41,13 +41,13 @@ export default function Share({
         !isShow && 'hidden'
       }`}
     >
-      <p className="my-[2.25rem] text-[1.5rem] font-bold text-main-4">
+      <p className="mt-6 mb-10 text-[1.5rem] font-bold text-main-4">
         나의<span className="text-[1.5rem] text-main-3"> 홀랑 </span>공유하기
       </p>
       <div
         id="containerRef"
         ref={containerRef}
-        className="flex h-[37.375rem] w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
+        className="flex w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
         <Image
           alt="hobby"
@@ -63,7 +63,7 @@ export default function Share({
           {hobbyType.description}
         </p>
         <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
-        <p className="mt-4 text-[1.125rem] text-main-4 font-bold">
+        <p className="mt-4 text-[1.125rem] font-bold text-main-4">
           <span className="text-[1.125rem] text-main-3">{userName}</span>님과 잘
           맞는 취미
         </p>

@@ -1,8 +1,6 @@
 import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
 
 import { getUserCount } from '../api/getUserCount';
 import Image from 'next/image';
@@ -128,7 +126,7 @@ export default function Home() {
             src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/home.png`}
           ></Image>
         </div>
-        <p className="mt-[5.5rem]  text-[1.125rem]">
+        <p className="mt-[5.625rem] text-[1.125rem] text-gray-5">
           당신은 {data?.data.data.testResponse.count}번째 홀랑과 함께해요
         </p>
       </div>
@@ -138,7 +136,7 @@ export default function Home() {
       >
         <p
           draggable
-          className="mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
+          className="mb-[2rem] font-AppleEB text-[1.125rem] font-normal leading-[1.57rem]"
         >
           슬라이더를 밀어 입장하기!
         </p>
@@ -178,7 +176,7 @@ export default function Home() {
 
         <button
           onClick={() => router.push('/browsing')}
-          className="cursor-pointer text-[1.125rem] font-normal leading-[1.57rem]"
+          className="cursor-pointer font-AppleEB text-[1.125rem] font-normal leading-[1.57rem]"
         >
           둘러보기
         </button>

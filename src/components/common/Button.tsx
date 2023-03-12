@@ -28,7 +28,7 @@ export default function Button({
       case 'secondary':
         return 'text-[1.375rem] hover:bg-gray-4 bg-gray-2';
       case 'question':
-        return 'bg-gray-0 hover:bg-main-4 border-2 border-main-4 text-[1.25rem]';
+        return 'bg-gray-0 hover:bg-main-4 border-2 border-main-4 text-[1.125rem]';
       case 'small':
         return 'bg-main-2 hover:bg-main-4 text-[1.125rem]';
       case 'detail':
