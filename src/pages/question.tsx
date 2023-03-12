@@ -117,7 +117,7 @@ export default function question() {
         </div>
         <section className="mb-[1.75rem] flex  flex-col items-center px-4">
           <ProgressBar order={currentPage} />
-          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  ${
+          <p className="mt-[2rem] text-[1.5rem]">{`Q.  ${
             currentPage < 10 ? '0' + currentPage : currentPage
           }`}</p>
         </section>
