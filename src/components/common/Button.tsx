@@ -42,7 +42,7 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`flex w-full cursor-pointer items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in disabled:cursor-not-allowed ${className}
+      className={`flex w-full cursor-pointer items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in focus:outline-none disabled:cursor-not-allowed ${className}
       ${setClassNameByProperty(property)}`}
       {...props}
     >
