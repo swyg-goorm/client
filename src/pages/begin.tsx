@@ -2,7 +2,7 @@ import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import Modal from '@components/common/Modal';
 import TopBar from '@components/common/TopBar';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const reg = /^[가-힣]{1,3}$/;
@@ -11,6 +11,7 @@ export default function Begin() {
   const router = useRouter();
   const [nickname, setNickname] = useState<string>('');
   const [modal, setModal] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!reg.test(nickname)) return;
@@ -20,6 +21,13 @@ export default function Begin() {
     localStorage.setItem('nickname', nickname);
     router.push('/question');
   };
+
+  useEffect(() => {
+    containerRef.current?.scrollIntoView({
+      behavior: 'auto',
+      block: 'start',
+    });
+  }, []);
 
   return (
     <div className="relative h-full">
