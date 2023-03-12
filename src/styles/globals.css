@@ -99,6 +99,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 84.4%;
+  -webkit-text-size-adjust: none;
   vertical-align: baseline;
   text-decoration: none;
   white-space: pre-line;

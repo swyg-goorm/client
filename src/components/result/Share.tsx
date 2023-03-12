@@ -1,6 +1,8 @@
+import Button from '@components/common/Button';
 import KakaoShare from '@components/result/KakaoShare';
 import * as htmlToImage from 'html-to-image';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { HobbyType } from 'types/result';
 import downloadjs from 'downloadjs';
@@ -10,6 +12,7 @@ interface ShareProps {
   userName: string;
   hobbies: HobbyType[];
   isShow: boolean;
+  isShared: boolean;
   [key: string]: any;
 }
 
@@ -17,9 +20,12 @@ export default function Share({
   hobbyType,
   userName,
   hobbies,
+  isShared,
   isShow = false,
 }: ShareProps) {
   const containerRef = useRef<any>(null);
+
+  const router = useRouter();
 
   const handleDownload = async () => {
     const canvas = await html2canvas(containerRef.current);
@@ -28,7 +34,7 @@ export default function Share({
   };
   return (
     <div
-      className={`flex flex-col items-center px-[0.9375rem] text-center ${
+      className={`flex flex-col items-center px-[0.9375rem] pb-[1.875rem] text-center ${
         !isShow && 'hidden'
       }`}
     >
@@ -70,21 +76,31 @@ export default function Share({
           ))}
         </article>
       </div>
-      <section className="mt-[1.3125rem] flex w-full text-gray-7">
-        <div
-          onClick={handleDownload}
-          className="mr-5 flex w-[3rem] cursor-pointer flex-col items-center"
+      {isShared ? (
+        <Button
+          className="mt-6"
+          onClick={() => router.push('/')}
+          property="primary"
         >
-          <Image
-            alt="download"
-            src="/static/download.svg"
-            width={30}
-            height={30}
-          />
-          <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
-        </div>
-        <KakaoShare />
-      </section>
+          나도 하러 가기
+        </Button>
+      ) : (
+        <section className="mt-[1.3125rem] flex w-full text-gray-7">
+          <div
+            onClick={handleDownload}
+            className="mr-5 flex w-[3rem] cursor-pointer flex-col items-center"
+          >
+            <Image
+              alt="download"
+              src="/static/download.svg"
+              width={30}
+              height={30}
+            />
+            <p className="mt-[0.25rem] text-[0.875rem] text-gray-7">저장</p>
+          </div>
+          <KakaoShare />
+        </section>
+      )}
     </div>
   );
 }
