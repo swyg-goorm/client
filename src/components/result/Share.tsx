@@ -41,7 +41,7 @@ export default function Share({
         !isShow && 'hidden'
       }`}
     >
-      <p className="my-[2.25rem] text-[1.5rem] text-main-4">
+      <p className="my-[2.25rem] text-[1.5rem] font-bold text-main-4">
         나의<span className="text-[1.5rem] text-main-3"> 홀랑 </span>공유하기
       </p>
       <div
@@ -56,13 +56,15 @@ export default function Share({
           height={150}
           className="py-4"
         />
-        <p className="mt-[1rem] text-[1.5rem] text-main-4">{hobbyType.name}</p>
-        <p className="my-[1rem] text-[1.125rem] leading-[1.875rem] text-gray-8">
+        <p className="mt-[1rem] text-[1.5rem] font-bold text-main-4">
+          {hobbyType.name}
+        </p>
+        <p className="my-[1rem] text-[1.125rem] leading-[1.875rem] text-gray-8 ">
           {hobbyType.description}
         </p>
         <div className="my-3 w-[20.25rem] border-[0.0313rem] border-gray-5" />
-        <p className="mt-4 text-[1.5rem] text-main-4">
-          <span className="text-[1.5rem] text-main-3">{userName}</span>님과 잘
+        <p className="mt-4 text-[1.125rem] text-main-4 font-bold">
+          <span className="text-[1.125rem] text-main-3">{userName}</span>님과 잘
           맞는 취미
         </p>
         <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
