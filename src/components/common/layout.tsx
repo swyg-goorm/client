@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
         return `max-w-full`;
       }
     }
-    return 'max-w-[450px]';
+    return 'max-w-[28.125rem]';
   };
 
   return (

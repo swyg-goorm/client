@@ -86,7 +86,7 @@ export default function Result() {
         <div className={`mt-12  h-[0.4375rem]  w-full bg-gray-2`} />
         <section className="mt-12">
           <p className="font-AppleEB text-2xl text-main-4">
-            <span className="text-2xl text-main-3">
+            <span className="font-AppleEB text-2xl text-main-3">
               {recommendation?.user.name}
             </span>
             님 맞춤 홀랑 취미
@@ -99,9 +99,9 @@ export default function Result() {
             ))}
           </Swiper>
         </section>
-        <section className="mt-12 w-full">
-          <p className="font-AppleEB text-2xl text-main-4">
-            <span className="text-2xl text-main-3 ">
+        <section className="mt-12 w-full font-AppleEB">
+          <p className="text-2xl text-main-4">
+            <span className="font-AppleEB text-2xl text-main-3 ">
               {recommendation?.user.name}
             </span>
             님 찰떡 홀랑 유형
