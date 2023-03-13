@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Gmarket: ['GmarketSans', 'sans-serif'],
+        AppleM: ['AppleSDGothicNeoM', 'sans-serif'],
+        AppleEB: ['AppleSDGothicNeoEB', 'sans-serif'],
+        AppleB: ['AppleSDGothicNeoB', 'sans-serif'],
       },
       fontSize: {},
       colors: {
