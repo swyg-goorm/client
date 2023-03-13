@@ -12,7 +12,7 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
@@ -22,6 +22,7 @@ const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/que
 export default function Result() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],
@@ -38,35 +39,13 @@ export default function Result() {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
 
-  const [applicationValue, setApplicationValue] = useState<
-    | {
-        innerWidth: number;
-        innerHeight: number;
-      }
-    | undefined
-  >();
-
-  useEffect(() => {
-    setApplicationValue({
-      innerHeight: window.screen.height,
-      innerWidth: window.screen.width,
-    });
-  }, []);
-
-  const getWidth = (
-    innerWidth: number | undefined,
-    innerHeight: number | undefined,
-  ): string => {
-    if (innerHeight !== undefined && innerWidth !== undefined) {
-      if (innerHeight / innerWidth >= 2) {
-        return `max-w-full`;
-      }
-    }
-    return 'max-w-[28.125rem]';
-  };
+  sliderRef.current?.scrollIntoView({
+    block: 'start',
+    behavior: 'smooth',
+  });
 
   return (
-    <div className=" text-center">
+    <div className="text-center" ref={sliderRef}>
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
@@ -82,7 +61,7 @@ export default function Result() {
       )}
 
       {isLoading && <ResultLoader />}
-      <div className={`${(isLoading || !!view) && 'hidden'}`}>
+      <div className={`overflow-hidden ${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="font-AppleB text-2xl text-main-3">
             {recommendation?.hobbyType.name}
@@ -104,12 +83,7 @@ export default function Result() {
             {recommendation?.hobbyType.description}
           </p>
         </section>
-        <div
-          className={`top-[37.5rem] mt-12 -ml-[1.25rem] h-[0.4375rem] w-[390px] bg-gray-2 ${getWidth(
-            applicationValue?.innerWidth,
-            applicationValue?.innerHeight,
-          )}`}
-        />
+        <div className={`mt-12  h-[0.4375rem]  w-full bg-gray-2`} />
         <section className="mt-12">
           <p className="font-AppleEB text-2xl text-main-4">
             <span className="text-2xl text-main-3">
@@ -128,9 +102,9 @@ export default function Result() {
         <section className="mt-12 w-full">
           <p className="font-AppleEB text-2xl text-main-4">
             <span className="text-2xl text-main-3 ">
-              {recommendation?.user.name}님
+              {recommendation?.user.name}
             </span>
-            찰떡 홀랑 유형
+            님 찰떡 홀랑 유형
           </p>
           <p className="mt-5 text-[1.125rem] text-gray-5">
             물음표를 눌러 알아봐요!
@@ -194,6 +168,7 @@ export default function Result() {
           />
         </>
       )}
+      <div className="h-8" />
     </div>
   );
 }
