@@ -12,7 +12,7 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
@@ -23,7 +23,6 @@ export default function Result() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const id = router?.query.id ?? 0;
   const { data } = useQuery(
     ['getRecommendation', id],

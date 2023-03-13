@@ -40,8 +40,10 @@ export default function Model({ uri, isLoading, setIsLoading }: ModalProps) {
     };
   }, [controlsRef, groupRef]);
 
+  const view = uri.includes('ISFP') || uri.includes('ESTJ') ? 4.5 : 4;
+
   return (
-    <Canvas camera={{ position: [0, 0, 4] }}>
+    <Canvas camera={{ position: [0, 0, view] }}>
       <Lights />
       <OrbitControls ref={controlsRef} />
       <directionalLight position={[-1, 0, 1]} intensity={0.5} />
