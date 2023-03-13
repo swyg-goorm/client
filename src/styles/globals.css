@@ -113,11 +113,20 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 1.777vh;
   -webkit-text-size-adjust: none;
   vertical-align: baseline;
   text-decoration: none;
   white-space: pre-line;
+}
+@media screen and (max-width: 450px) {
+  * {
+    font-size: 1.777vh;
+  }
+}
+@media screen and (min-width: 450px) {
+  * {
+    font-size: 16px;
+  }
 }
 
 /* HTML5 display-role reset for older browsers */
