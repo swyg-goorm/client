@@ -63,7 +63,7 @@ export default function Result() {
       {isLoading && <ResultLoader />}
       <div className={`overflow-hidden ${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
-          <p className="text-2xl font-semibold text-main-3">
+          <p className="font-AppleB text-2xl text-main-3">
             {recommendation?.hobbyType.name}
           </p>
           <div className="h-52 w-full">
@@ -85,14 +85,11 @@ export default function Result() {
         </section>
         <div className={`mt-12  h-[0.4375rem]  w-full bg-gray-2`} />
         <section className="mt-12">
-          <p className="text-2xl font-bold text-main-4">
+          <p className="font-AppleEB text-2xl text-main-4">
             <span className="text-2xl text-main-3">
               {recommendation?.user.name}
             </span>
             님 맞춤 홀랑 취미
-          </p>
-          <p className="mt-4 text-[1.125rem] text-gray-7">
-            버튼을 눌러 자세히 둘러봐요!
           </p>
           <Swiper className="mySwiper mt-6" slidesPerView={1.8}>
             {recommendation?.hobbies.map((hobby: HobbyType) => (
@@ -103,7 +100,7 @@ export default function Result() {
           </Swiper>
         </section>
         <section className="mt-12 w-full">
-          <p className="text-2xl  font-bold text-main-4">
+          <p className="font-AppleEB text-2xl text-main-4">
             <span className="text-2xl text-main-3 ">
               {recommendation?.user.name}
             </span>
