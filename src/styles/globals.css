@@ -1,14 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url(//db.onlinewebfonts.com/c/70710ba3196618b630b4a1e532809b1d?family=AppleSDGothicNeoB00);
+
+@font-face {
+  font-family: 'AppleSDGothicNeoM';
+  src: url('./fonts/AppleSDGothicNeoM.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoEB';
+  src: url('./fonts/AppleSDGothicNeoEB.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoB';
+  src: url('./fonts/AppleSDGothicNeoB.woff') format('woff');
+}
 
 * {
   box-sizing: border-box;
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
-  font-family: AppleSDGothicNeoB00;
+  font-family: AppleSDGothicNeoM !important;
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none;
@@ -98,12 +113,11 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 84.4%;
+  font-size: 1.777vh;
   -webkit-text-size-adjust: none;
   vertical-align: baseline;
   text-decoration: none;
   white-space: pre-line;
- 
 }
 
 /* HTML5 display-role reset for older browsers */
