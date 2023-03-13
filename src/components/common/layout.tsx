@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import leftImage from '@public/static/left_background.svg';
-import rightImage from '@public/static/right_background.svg';
-
-import TopBar from './TopBar';
-import Image from 'next/image';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -36,16 +31,21 @@ export default function Layout({ children }: LayoutProps) {
     }
     return 'max-w-[28.125rem]';
   };
+  console.log(applicationValue);
 
   return (
     <div className="relative flex h-screen w-screen justify-center bg-sub-2 ">
       <img
-        className="fixed left-0 top-0 h-full"
+        className={`fixed left-0 top-0 h-full ${
+          applicationValue && applicationValue.innerWidth > 450 ? '' : 'hidden'
+        } `}
         src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-left.png`}
         alt="background-leftImage"
       />
       <img
-        className="fixed right-0 top-0 h-full object-cover"
+        className={`fixed right-0 top-0 h-full object-cover ${
+          applicationValue && applicationValue.innerWidth > 450 ? '' : 'hidden'
+        } `}
         src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-right.png`}
         alt="background-rightImage"
       />
