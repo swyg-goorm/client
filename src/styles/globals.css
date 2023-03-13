@@ -21,7 +21,7 @@
   box-sizing: border-box;
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
-  font-family: AppleSDGothicNeoM !important;
+  font-family: AppleSDGothicNeoM;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

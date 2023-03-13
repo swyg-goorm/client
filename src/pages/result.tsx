@@ -51,7 +51,8 @@ export default function Result() {
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
           isBackButton={
-            Object.keys(router.query).length > 1 && !router.query?.isShared
+            Object.keys(router.query).length > 1 &&
+            router.query.isshared === undefined
           }
           onBackButton={() => {
             if (!!view) router.push({ pathname: 'result', query: { id: id } });

@@ -42,7 +42,7 @@ export default function Begin() {
         />
       )}
       <div className="mt-28">
-        <p className="text-3xl font-bold">홀랑에 빠질 준비 되셨나요?</p>
+        <p className="font-AppleB text-3xl">홀랑에 빠질 준비 되셨나요?</p>
         <p className="mt-3 text-lg text-gray-8">
           인공지능이 홀랑 빠질 취미로 안내할거에요
         </p>
