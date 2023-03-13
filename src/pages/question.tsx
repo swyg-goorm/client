@@ -115,9 +115,9 @@ export default function question() {
             isBackButton={currentPage > 1}
           />
         </div>
-        <section className="mb-[1.75rem] flex  flex-col items-center px-4">
+        <section className="mb-[1.75rem] flex flex-col items-center">
           <ProgressBar order={currentPage} />
-          <p className="mt-[0.5rem] text-[1.5rem]">{`Q.  ${
+          <p className="mt-[1rem] font-AppleB text-[1.5rem] leading-[1.875rem] text-gray-6">{`Q.  ${
             currentPage < 10 ? '0' + currentPage : currentPage
           }`}</p>
         </section>
@@ -130,7 +130,7 @@ export default function question() {
               height={450}
               src={questionData?.data.test.questions[currentPage - 1].imageUrl}
             />
-            <p className="mb-8 flex h-[5.75rem] items-center text-center text-[1.25rem] font-normal leading-7">
+            <p className="mb-8 flex h-[5.75rem] items-center text-center text-[1.25rem] leading-7">
               {questionData?.data.test.questions[
                 currentPage - 1
               ].content.replace('000', localStorage.getItem('nickname') || '')}

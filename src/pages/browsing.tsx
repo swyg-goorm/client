@@ -26,13 +26,10 @@ export default function browsing() {
     }
   }, []);
 
-  const getWidth = () => {
-    return `w-[${containerWidth}px]`;
-  };
   return (
     <div ref={containerRef} className="relative h-[calc(100vh-84px)]">
       <TopBar />
-      <p className="mt-[1.5rem] mb-16 text-center text-2xl font-semibold text-main-4">
+      <p className="mt-[1.5rem] mb-16 text-center font-AppleEB text-2xl text-main-4">
         TOP 20 홀랑 목록
       </p>
       <section className="flex h-[31.25rem] flex-col gap-4 overflow-scroll">
