@@ -31,7 +31,6 @@ export default function Layout({ children }: LayoutProps) {
     }
     return 'max-w-[28.125rem]';
   };
-  console.log(applicationValue);
 
   return (
     <div className="relative flex h-screen w-screen justify-center bg-sub-2 ">
