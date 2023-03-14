@@ -19,7 +19,7 @@ export default function Modal({ message, onCloseModal }: ModalProps) {
         <div className="mt-4 w-[14.5rem]">
           <button
             onClick={onCloseModal}
-            className="flex w-full cursor-pointer items-center justify-center rounded-[1rem] bg-sub-1 py-[1.25rem] text-lg font-normal text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed "
+            className="flex w-full cursor-pointer items-center justify-center rounded-[1.25rem] bg-main-2 py-[1.25rem] text-lg font-normal text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed"
           >
             확인
           </button>
