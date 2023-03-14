@@ -14,17 +14,12 @@ export default function ResultLoader() {
       <div className="absolute top-0">
         <TopBar />
       </div>
-      <div className="h-[16rem] w-[16rem] overflow-hidden rounded-full bg-main-4 ">
-        <div className="relative mt-[2.6rem] h-[10rem] w-[200rem] overflow-hidden">
-          <Image
-            alt="loading"
-            src={LOADING_IMAGE_SRC}
-            width={3200}
-            height={3000}
-            className="z-10 animate-pass-by-1 object-cover"
-          />
-        </div>
-      </div>
+      <video className="hello" autoPlay muted loop>
+        <source
+          src="https://dnynkguj26y10.cloudfront.net/images/etc/loading.mp4"
+          type="video/mp4"
+        />
+      </video>
 
       <p className="mt-[3.5rem] text-[1.375rem] leading-8 text-gray-6">
         인공지능이 {nickname}님을 위한
