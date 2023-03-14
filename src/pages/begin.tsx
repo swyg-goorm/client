@@ -2,10 +2,10 @@ import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import Modal from '@components/common/Modal';
 import TopBar from '@components/common/TopBar';
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const reg = /^[가-힣]{1,3}$/;
+const reg = /^[가-힣]{0,3}$/;
 
 export default function Begin() {
   const router = useRouter();
@@ -17,6 +17,7 @@ export default function Begin() {
     if (!reg.test(nickname)) return;
     if (nickname === '') {
       setModal(true);
+      return;
     }
     localStorage.setItem('nickname', nickname);
     router.push('/question');
@@ -64,7 +65,7 @@ export default function Begin() {
           </span>
         </div>
         <div className="w-[full] ">
-          <Button type="submit">홀랑 테스트 하러 가기</Button>
+          <Button type="submit">홀랑 테스트하러 가기</Button>
         </div>
       </form>
     </div>
